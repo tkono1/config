@@ -38,7 +38,7 @@ set statusline+=%r " Readonly flag.
 set statusline+=%h " Help buffer flag.
 set statusline+=%= " Separation point between left and right aligned items.
 set statusline+=[%l/%LL,%cC] " Line number and column number.
-set showcmd " Show command in the last line of the screen.
+set showcmd
 set showmode
 set nolist
 
