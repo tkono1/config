@@ -7,7 +7,7 @@ set encoding=utf-8
 set ambiwidth=double
 
 " Search settings
-set ignorecase
+set ignorecase " Ignore case of normal letters.
 set smartcase
 set hlsearch
 set incsearch
