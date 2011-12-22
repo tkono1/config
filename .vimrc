@@ -3,11 +3,13 @@ set backspace=start,eol,indent
 set whichwrap=b,s
 
 " Encoding settings
-set encoding=utf-8
+set enc=utf-8 " Set the character encoding used inside vim.
+set fenc=utf-8 " Set the character encoding for the file of this buffer.
+set fencs=iso-2022,euc-jp,cp932 " List of character encodings.
 set ambiwidth=double
 
 " Search settings
-set ignorecase " Ignore case of normal letters.
+set ignorecase
 set smartcase
 set hlsearch
 set incsearch
