@@ -17,6 +17,7 @@ export IGNOREEOF=10
 # Set default editor.
 export EDITOR=vim
 
+# Set login prompt.
 PS1="\[\033[0;34m\][\u@\h:\w]\[\033[0m\]$ "
 
 # Ignore Ctrl+S.
