@@ -2,7 +2,11 @@ if [ -z "$PS1" ]; then
    return
 fi
 
+# Command aliases.
 alias ll='ls -lAF'
+if [ 0 -eq `which vim > /dev/null 2>&1;echo $?` ]; then
+    alias vi=vim
+fi
 
 # Size of history.
 export HISTSIZE=10000
