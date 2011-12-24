@@ -3,9 +3,9 @@ startup_message off
 altscreen on
 autodetach on
 vbell off
-hardstatus alwayslastline "%w %= %H %Y/%m/%d %D %02c %A"
 defscrollback 100000
 termcapinfo xterm* ti@:te@
 defencoding utf-8
 encoding utf-8 utf-8
 shell $SHELL
+hardstatus alwayslastline "%w %= %H %Y/%m/%d %D %02c %A"
