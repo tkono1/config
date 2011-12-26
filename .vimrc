@@ -39,6 +39,14 @@ set ruler
 set title
 " Line longer than the width of the window will wrap.
 set wrap
+" Show command in the last line of screen.
+set showcmd
+" Show current mode.
+set showmode
+" Not show tabs as Ctrl-I.
+set nolist
+
+"" Statusline settings
 " Always shows status line.
 set laststatus=2
 " Where to truncate line if too long.
@@ -59,12 +67,6 @@ set statusline+=%h
 set statusline+=%=
 " Line number and column number.
 set statusline+=[%l/%LL,%cC]
-" Show command in the last line of screen.
-set showcmd
-" Show current mode.
-set showmode
-" Not show tabs as Ctrl-I.
-set nolist
 
 "" Syntax settings
 " Enable syntax highlighting.
