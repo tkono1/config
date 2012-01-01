@@ -5,7 +5,7 @@ fi
 # Command aliases.
 alias ll='ls -lAF'
 if [ 0 -eq `which vim > /dev/null 2>&1;echo $?` ]; then
-    alias vi=vim
+    alias vi=`which vim`
 fi
 
 # Size of history.
