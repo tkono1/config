@@ -2,7 +2,7 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-# Aliases.
+## Aliases.
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
     alias ls='ls -G'
 else
@@ -16,13 +16,18 @@ alias grep='grep --color=auto'
 alias egrep='grep --color=auto'
 alias fgrep='grep --color=auto'
 
+# Load .bash_aliases if exists.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
-if
+fi
 
+## History settings.
 # Size of history.
 HISTSIZE=10000
 HISTFILESIZE=10000
+
+# Don't overwrite history file.
+shopt -s histappend
 
 # Ignore both space and duplicates.
 HISTCONTROL=ignoreboth
@@ -41,6 +46,7 @@ else
     export EDITOR=vi
 fi
 
+## Login prompt settings.
 # Set login prompt.
 PS1="\[\033[0;34m\][\u@\h:\w]\[\033[0m\]$ "
 
@@ -50,3 +56,8 @@ shopt -s checkwinsize
 
 # Set umask
 umask 022
+
+# Load .bash_completion if exists.
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
