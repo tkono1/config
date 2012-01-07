@@ -3,10 +3,18 @@ if [ -z "$PS1" ]; then
 fi
 
 # Aliases.
+if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
 alias ll='ls -lAF'
 if type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
 fi
+alias grep='grep --color=auto'
+alias egrep='grep --color=auto'
+alias fgrep='grep --color=auto'
 
 # Size of history.
 HISTSIZE=10000
