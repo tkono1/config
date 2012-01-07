@@ -5,7 +5,7 @@ if ( -x `which vim` ) then
 endif
 
 # Set default permission.
-umask 22
+umask 022
 
 # Ignore EOF(Ctrl+D).
 set     ignoreeof
