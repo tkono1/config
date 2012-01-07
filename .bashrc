@@ -57,7 +57,9 @@ shopt -s checkwinsize
 # Set umask
 umask 022
 
-# Load .bash_completion if exists.
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
+## Load {/etc/,/usr/local/etc/}bash_completion if exists.
+for etc in /etc /usr/local/etc; do
+    if [ -f $etc/bash_completion ] && ! shopt -oq posix; then
+        . $etc/bash_completion
+    fi
+done
