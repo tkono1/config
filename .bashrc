@@ -16,6 +16,10 @@ alias grep='grep --color=auto'
 alias egrep='grep --color=auto'
 alias fgrep='grep --color=auto'
 
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+if
+
 # Size of history.
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -43,3 +47,6 @@ PS1="\[\033[0;34m\][\u@\h:\w]\[\033[0m\]$ "
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Set umask
+umask 022
