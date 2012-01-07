@@ -9,17 +9,21 @@ if type 'vim' > /dev/null 2>&1; then
 fi
 
 # Size of history.
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+HISTSIZE=10000
+HISTFILESIZE=10000
 
 # Ignore both space and duplicates.
-export HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth
 
 # Ingore EOF(Ctrl+D) till 10 times.
-export IGNOREEOF=10
+IGNOREEOF=10
 
 # Set default editor.
-export EDITOR=vim
+if type 'vim' > /dev/null 2>&1; then
+    export EDITOR=vim
+else
+    export EDITOR=vi
+fi
 
 # Set login prompt.
 PS1="\[\033[0;34m\][\u@\h:\w]\[\033[0m\]$ "
