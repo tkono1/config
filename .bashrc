@@ -18,6 +18,10 @@ HISTCONTROL=ignoreboth
 # Ingore EOF(Ctrl+D) till 10 times.
 IGNOREEOF=10
 
+# Ignore Ctrl+S.
+stty stop undef
+stty start undef
+
 # Set default editor.
 if type 'vim' > /dev/null 2>&1; then
     export EDITOR=vim
@@ -27,10 +31,6 @@ fi
 
 # Set login prompt.
 PS1="\[\033[0;34m\][\u@\h:\w]\[\033[0m\]$ "
-
-# Ignore Ctrl+S.
-stty stop undef
-stty start undef
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
