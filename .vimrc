@@ -73,3 +73,20 @@ set statusline+=[%l/%LL,%cC]
 syntax enable
 " Enable file type detection.
 filetype on
+
+"" MacVim settings
+if has('gui_macvim')
+
+" When to use a tab pages line.
+" 0: never. 1: only if there are at least two tab pages. 2: always.
+set showtabline=2
+" Hide toolbar.
+set guioptions-=T
+" Make all windows the same size when adding/removing windows.
+set equalalways
+" Disable IM.
+set imdisable
+" Set antialias.
+set antialias
+
+endif
