@@ -1,3 +1,4 @@
+## Auto completion settings.
 autoload -U compinit
 compinit
 
