@@ -1,9 +1,18 @@
 ## Auto completion settings.
 autoload -U compinit
 compinit
+# Show dense list. 
+setopt list_packed
+
+# Correct command.
+setopt correct
 
 ## Language setting.
 export LANG=en_US.UTF-8
+
+## Keybindings.
+# Set emacs-like keybinding.
+bindkey -e
 
 ## Prompt settings.
 case ${UID} in
@@ -25,7 +34,7 @@ HISTFILE=~/.zsh_history
 # Size of history file.
 HISTSIZE=10000
 SAVEHIST=10000
-# Ignore duplication command history list.
+# Ignore duplication from command history.
 setopt hist_ignore_dups
-# Share command history data.
+# Share command history.
 setopt share_history
