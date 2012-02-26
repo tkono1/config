@@ -4,6 +4,8 @@ autoload -U compinit
 compinit
 # Show dense list. 
 setopt list_packed
+# Disable beep when complete list displayed.
+setopt nolistbeep
 
 # Correct command.
 setopt correct
@@ -39,7 +41,3 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 # Share command history.
 setopt share_history
-
-## Various settings.
-# Disable beep.
-setopt nolistbeep
