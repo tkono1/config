@@ -1,4 +1,5 @@
 ## Auto completion settings.
+# Set auto completion.
 autoload -U compinit
 compinit
 # Show dense list. 
@@ -38,3 +39,7 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 # Share command history.
 setopt share_history
+
+## Various settings.
+# Disable beep.
+setopt nolistbeep
