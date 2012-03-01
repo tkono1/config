@@ -18,7 +18,7 @@ set smartcase
 set hlsearch
 set incsearch
 set wrapscan
-set wildmode=list:full
+set wildmenu wildmode=list:full
 
 "" Tab settings
 set tabstop=4
