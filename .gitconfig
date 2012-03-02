@@ -6,6 +6,7 @@
 [core]
 	excludesfile = /Users/tkono1/.gitignore
 	editor = vim
+    quotepath = false
 [alias]
 	co = checkout
 	ci = commit
