@@ -41,3 +41,17 @@ SAVEHIST=10000
 setopt hist_ignore_dups
 # Share command history.
 setopt share_history
+
+## Aliases.
+if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
+alias ll='ls -lAF'
+if type 'vim' > /dev/null 2>&1; then
+    alias vi='vim'
+fi
+if [ -d /Applications/MacVim.app ]; then
+    alias macvim='open -a /Applications/MacVim.app "$@"'
+fi
