@@ -51,7 +51,7 @@ fi
 
 ## Login prompt settings.
 # Set login prompt.
-PS1="\[\033[0;34m\][\u@\h:\w]\[\033[0m\]$ "
+PS1="\[\033[0;34m\][\u@\h:\w]$ \[\e[0m\]"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
