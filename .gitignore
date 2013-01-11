@@ -1,7 +1,18 @@
+# OS X
 .DS_Store
+.AppleDouble
 .CFUserTextEncoding
-.DocumentRevesions-V100
-.Spotlight-V100
-.fseventsd
 .Trash
+.AppleDouble
+.LSOverride
+.Trash
+.Spotlight-V100
+.Trashes
+._*
+Icon
+
+# Windows
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
