@@ -2,7 +2,7 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-## Aliases.
+## Aliases {{{
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
     alias ls='ls -G'
 else
@@ -23,8 +23,9 @@ alias fgrep='grep --color=auto'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+# }}}
 
-## History settings.
+## History settings {{{
 # Size of history.
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -48,10 +49,18 @@ if type 'vim' > /dev/null 2>&1; then
 else
     export EDITOR=vi
 fi
+# }}}
 
-## Login prompt settings.
+## Login prompt settings {{{
 # Set login prompt.
-PS1="\[\033[0;34m\][\u@\h:\w]$ \[\e[0m\]"
+case ${UID} in
+0)
+    PS1="\[\033[0;34m\][\u@\h:\w]# \[\e[0m\]"
+    ;;
+*)
+    PS1="\[\033[0;34m\][\u@\h:\w]$ \[\e[0m\]"
+    ;;
+esac
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -61,11 +70,13 @@ shopt -s checkwinsize
 umask 022
 
 ulimit -c 0
+# }}}
 
-## Load {/etc/,/usr/local/etc/}bash_completion if exists.
+## Load {/etc/,/usr/local/etc/}bash_completion if exists {{{
 for etc in /etc /usr/local/etc; do
     if [ -f $etc/bash_completion ] && ! shopt -oq posix; then
         . $etc/bash_completion
     fi
     unset etc
 done
+# }}}

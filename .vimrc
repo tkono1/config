@@ -1,8 +1,9 @@
 set nocompatible
 set backspace=start,eol,indent
 set whichwrap=b,s
+set mouse=
 
-"" Encoding settings
+"" Encoding settings {{{
 " Set the character encoding used inside vim.
 set enc=utf-8
 " Set the character encoding for the file of this buffer.
@@ -11,26 +12,31 @@ set fenc=utf-8
 set fencs=iso-2022,euc-jp,cp932
 "
 set ambiwidth=double
+" }}}
 
-"" Search settings
+"" Search settings {{{
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 set wrapscan
 set wildmenu wildmode=list:full
+" }}}
 
-"" Tab settings
-set tabstop=4
-set shiftwidth=4
+"" Tab settings {{{
+" Tab width of file
+setlocal tabstop=4
+setlocal softtabstop=4
+" Width of indent
+setlocal shiftwidth=4
+set shiftround
 " Insert spaces instead of tab
 set expandtab
-set softtabstop=4
 "set autoindent
 "set smartindent
-set shiftround
+" }}}
 
-"" Display settings
+"" Display settings {{{
 " Show line number.
 set number
 " Show the line and column number of the cursor psition.
@@ -45,8 +51,9 @@ set showcmd
 set showmode
 " Not show tabs as Ctrl-I.
 set nolist
+" }}}
 
-"" Statusline settings
+"" Statusline settings {{{
 " Always shows status line.
 set laststatus=2
 " Where to truncate line if too long.
@@ -67,14 +74,19 @@ set statusline+=%h
 set statusline+=%=
 " Line number and column number.
 set statusline+=[%l/%LL,%cC]
+" }}}
 
-"" Syntax settings
+"" Syntax settings {{{
 " Enable syntax highlighting.
 syntax enable
 " Enable file type detection.
 filetype on
+" Set coloring.
+"highlight ctermbg none ctermfg none
+"highlight MatchParen ctermfg=none ctermbg=none
+" }}}
 
-"" MacVim settings
+"" MacVim settings {{{
 if has('gui_macvim')
 
 " When to use a tab pages line.
@@ -90,3 +102,4 @@ set imdisable
 set antialias
 
 endif
+" }}}
