@@ -25,10 +25,10 @@ set wildmenu wildmode=list:full
 
 "" Tab settings {{{
 " Tab width of file
-setlocal tabstop=4
-setlocal softtabstop=4
+set tabstop=4
+set softtabstop=4
 " Width of indent
-setlocal shiftwidth=4
+set shiftwidth=4
 set shiftround
 " Insert spaces instead of tab
 set expandtab
@@ -49,8 +49,9 @@ set wrap
 set showcmd
 " Show current mode.
 set showmode
-" Not show tabs as Ctrl-I.
-set nolist
+" Show tabs as Ctrl-I.
+"set list
+"set listchars=tab:^\ ,trail:~
 " }}}
 
 "" Statusline settings {{{
@@ -88,18 +89,16 @@ filetype on
 
 "" MacVim settings {{{
 if has('gui_macvim')
-
-" When to use a tab pages line.
-" 0: never. 1: only if there are at least two tab pages. 2: always.
-set showtabline=2
-" Hide toolbar.
-set guioptions-=T
-" Make all windows the same size when adding/removing windows.
-set equalalways
-" Disable IM.
-set imdisable
-" Set antialias.
-set antialias
-
+    " When to use a tab pages line.
+    " 0: never. 1: only if there are at least two tab pages. 2: always.
+    set showtabline=2
+    " Hide toolbar.
+    set guioptions-=T
+    " Make all windows the same size when adding/removing windows.
+    set equalalways
+    " Disable IM.
+    set imdisable
+    " Set antialias.
+    set antialias
 endif
 " }}}
