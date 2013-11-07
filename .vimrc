@@ -3,15 +3,22 @@ set backspace=start,eol,indent
 set whichwrap=b,s
 set mouse=
 
+" Disable bells.
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
+
 "" Encoding settings {{{
 " Set the character encoding used inside vim.
 set enc=utf-8
 " Set the character encoding for the file of this buffer.
 set fenc=utf-8
 " List of character encodings.
-set fencs=iso-2022,euc-jp,cp932
+set fencs=iso-2022,utf-8,euc-jp,cp932
 "
 set ambiwidth=double
+" Set script encoding.
+scriptencoding utf-8
 " }}}
 
 "" Search settings {{{
@@ -86,6 +93,9 @@ filetype on
 "highlight ctermbg none ctermfg none
 "highlight MatchParen ctermfg=none ctermbg=none
 " }}}
+
+" Disable auto insert comment.
+autocmd FileType * set formatoptions-=ro
 
 "" MacVim settings {{{
 if has('gui_macvim')
