@@ -14,7 +14,7 @@ set enc=utf-8
 " Set the character encoding for the file of this buffer.
 set fenc=utf-8
 " List of character encodings.
-set fencs=iso-2022,utf-8,euc-jp,cp932
+set fencs=iso-2022,utf-8,euc-jp,cp932,latin
 "
 set ambiwidth=double
 " Set script encoding.
@@ -97,18 +97,19 @@ filetype on
 " Disable auto insert comment.
 autocmd FileType * set formatoptions-=ro
 
-"" MacVim settings {{{
-if has('gui_macvim')
-    " When to use a tab pages line.
-    " 0: never. 1: only if there are at least two tab pages. 2: always.
-    set showtabline=2
-    " Hide toolbar.
-    set guioptions-=T
-    " Make all windows the same size when adding/removing windows.
-    set equalalways
-    " Disable IM.
-    set imdisable
-    " Set antialias.
-    set antialias
+"" IM settings {{{
+" Disable IM.
+set imdisable
+" Disable IM after startup insert mode
+if has('multi_byte_ime') || has('xim')
+    set iminsert=0 imsearch=0
+    if has('xim') && has('GUI_GTK')
+        set imactivatekey=C-space
+    endif
+endif
+" IM color settings
+if has('multi_byte_ime')
+    highlight Cursor guifg=NONE guibg=Black
+    highlight CursorIM guifg=NONE guibg=Purple
 endif
 " }}}
