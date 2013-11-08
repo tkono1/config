@@ -1,39 +1,28 @@
-scriptencoding utf-8
-"language C
+if has('gui_running')
+    "" Window settings {{{
+    " Disable toolbar
+    set guioptions-=T
+    " Set window size
+    set lines=50
+    set columns=80
+    " Keep all windows are same size when add/remove
+    set equalalways
+    " When to use a tab pages line.
+    " 0: never. 1: only if there are at least two tab pages. 2: always.
+    set showtabline=2
+    " }}}
 
-" Disable toolbar
-set guioptions-=T
-
-"" Set notifications {{{
-set noerrorbells
-set novisualbell
-set visualbell t_vb=
-" }}}
-
-"" IM settings {{{
-" Disable IM after startup insert mode
-if has('multi_byte_ime') || has('xim')
-    set iminsert=0 imsearch=0
-    if has('xim') && has('GUI_GTK')
-        set imactivatekey=C-space
+    "" Font settings {{{
+    if has('win32') || has('win64')
+        set guifont=Consolas:h10,Lucida_Console:h10:w5
+        set guifontwide=MS_Gothic:h10
+    elseif has('gui_gtk2')
+        set guifont=Inconsolata\ Medium\ 12,Monospace\ Regular\ 10
+        "set guifontwide=
+    elseif has('gui_macvim')
+        set guifont=Menlo\ Regular:h12
+        set guifontwide=Osaka\ Regular-Mono:h12
+        set antialias
     endif
+    " }}}
 endif
-
-" IM color settings
-if has('multi_byte_ime')
-    highlight Cursor guifg=NONE guibg=Black
-    highlight CursorIM guifg=NONE guibg=Purple
-endif
-" }}}
-
-"" Set fonts {{{
-if has('win32') || has('win64')
-    set guifont=Consolas:h10,Lucida_Console:h10:w5
-    set guifontwide=MS_Gothic:h10
-endif
-" }}}
-
-"" Set window size {{{
-set lines=50
-set columns=80
-" }}}
