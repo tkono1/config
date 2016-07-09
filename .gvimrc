@@ -5,7 +5,7 @@ if has('gui_running')
 
     " Set window size
     set lines=50
-    set columns=80
+    set columns=90
 
     " When to use a tab pages line.
     " 0: never. 1: only if there are at least two tab pages. 2: always.
@@ -17,6 +17,12 @@ if has('gui_running')
     " i: insert mode.
     set guicursor=n-v-c:block-Cursor-blinkon0
     set guicursor+=i:ver25-Cursor-blinkwait175
+    " }}}
+
+    "" Clipboard settings {{{
+    if has('gui') || has('xterm_clipboard')
+        set clipboard=unnamed
+    endif
     " }}}
 
     "" IM settings {{{
@@ -34,7 +40,10 @@ if has('gui_running')
     if has('win32') || has('win64')
         set guifont=Consolas:h10,Lucida_Console:h10:w5
         set guifontwide=MS_Gothic:h9
-    elseif has('gui_gtk2')
+        if has('directx')
+            set renderoptions=directx:renmode:5
+        endif
+    elseif has('gui_gtk') || ('gui_gnome')
         set guifont=Inconsolata\ Medium\ 12,Monospace\ Regular\ 10
         set guifontwide=IPAGothic\ Regular\ 12
     elseif has('gui_macvim')
@@ -43,5 +52,9 @@ if has('gui_running')
         set guifontwide=Osaka-Mono:h12
         set antialias
     endif
+    " }}}
+
+    "" Color settings {{{
+    highlight LineNr guibg=#dcdcdc
     " }}}
 endif
