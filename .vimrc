@@ -17,14 +17,27 @@ set encoding=utf-8
 " Set the character encoding for the file of this buffer.
 set fileencoding=utf-8
 
-" List of character encodings.
-set fileencodings=iso-2022,utf-8,euc-jp,cp932,latin
+if has('unix')
+    set fileformat=unix
+    set fileformats=unix,dos,mac
+    set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp,latin
+elseif has('win32') || ('win64')
+    set fileformat=dos
+    set fileformats=dos,unix,mac
+    set fileencodings=iso-2022-jp,utf-8,euc-jp,cp932,latin
+endif
 
 " Treat East Asian Width class as ambiguous.
 set ambiwidth=double
 
 " Set script encoding.
 scriptencoding utf-8
+" }}}
+
+"" Language settings {{{
+if has('multi_lang')
+    language C
+endif
 " }}}
 
 "" Search settings {{{
@@ -116,6 +129,8 @@ set statusline+=[%l/%LL,%cC]
 "" Syntax settings {{{
 " Enable syntax highlighting.
 syntax enable
+" If you want to overrule your syntax, use below instead.
+"syntax on
 
 " Enable file type detection.
 filetype on
@@ -123,6 +138,12 @@ filetype on
 " Color settings.
 "highlight ctermbg none ctermfg none
 "highlight MatchParen ctermfg=none ctermbg=none
+" }}}
+
+"" Clipboard settings {{{
+if has('gui') || has('xterm_clipboard')
+    set clipboard=unnamed
+endif
 " }}}
 
 "" IM settings {{{
