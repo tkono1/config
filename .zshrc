@@ -18,16 +18,19 @@ export LANG=en_US.UTF-8
 bindkey -e
 
 ## Prompt settings.
+autoload -Uz colors
+colors
+
 case ${UID} in
 0)
-    PROMPT="%B%{ESC[34m%}[${USER}@${HOST%%.*}:%/]#%{ESCm%}%b "
-    PROMPT2="%B%{ESC[34m%}[%_]#%{ESCm%}%b "
-    SPROMPT="%B%{ESC[34m%}%r is correct? [n,y,a,e]:%{ESCm%}%b "
+    PROMPT="%{${fg[blue]}%}[%n@%m:%~]#%{${reset_color}%} "
+    PROMPT2="%{${fg[blue]}%}[%_]$%{${reset_color}%} "
+    SPROMPT="%{${fg[blue]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     ;;
 *)
-    PROMPT="%{ESC[34m%}[${USER}@${HOST%%.*}:%/]$%{ESCm%} "
-    PROMPT2="%{ESC[34m%}[%_]$%{ESCm%} "
-    SPROMPT="%{ESC[34m%}%r is correct? [n,y,a,e]:%{ESCm%} "
+    PROMPT="%{${fg[blue]}%}[%n@%m:%~]$%{${reset_color}%} "
+    PROMPT2="%{${fg[blue]}%}[%_]$%{${reset_color}%} "
+    SPROMPT="%{${fg[blue]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     ;;
 esac
 
