@@ -36,7 +36,7 @@ scriptencoding utf-8
 
 "" Language settings {{{
 if has('multi_lang')
-    language C
+    let $LANG="en"
 endif
 " }}}
 

@@ -62,8 +62,8 @@ case ${UID} in
     ;;
 esac
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# Check the window size after each command and
+# update the values of LINES and COLUMNS if necessary.
 shopt -s checkwinsize
 
 # Set umask
