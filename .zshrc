@@ -1,23 +1,33 @@
+## Language setting.
+export LANG=en_US.UTF-8
+
 ## Auto completion settings.
 # Set auto completion.
 autoload -Uz compinit
 compinit
 
-# Color settings.
+# Color setting.
 autoload -Uz colors
 colors
 
 # Show dense list. 
 setopt list_packed
 
+# Disable beep.
+setopt no_beep
+
 # Disable beep when complete list displayed.
 setopt nolistbeep
 
-# Correct command.
+## Input/Output
+# Try to correct the spelling of commands.
 setopt correct
 
-## Language setting.
-export LANG=en_US.UTF-8
+# Allow comments even in interactive shells
+setopt interactive_comments
+
+# Print eight bit characters literally in completion lists.
+setopt print_eight_bit
 
 ## Keybindings.
 # Set emacs-like keybinding.
@@ -37,7 +47,7 @@ case ${UID} in
     ;;
 esac
 
-## History settings.
+## History
 # Location of history file.
 HISTFILE=~/.zsh_history
 
@@ -45,11 +55,24 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-# Ignore duplication from command history.
-setopt hist_ignore_dups
-
 # Share command history.
 setopt share_history
+
+# Do not enter command lines into the history list
+# if they are duplicates of the previous event.
+setopt hist_ignore_dups
+
+# If a new command line being added to the history list
+# duplicates an older one, the older command is removed.
+setopt hist_ignore_all_dups
+
+# Remove command lines from the history list 
+# when the first charactoer on the line is a space.
+setopt hist_ignore_space
+
+# Remove superfluous blanks from each command line
+# being added to the history list.
+setopt hist_reduce_blanks
 
 ## Aliases.
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
