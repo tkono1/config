@@ -1,7 +1,7 @@
 ## Language setting.
 export LANG=en_US.UTF-8
 
-## Auto completion settings.
+## Completion
 # Set auto completion.
 autoload -Uz compinit
 compinit
@@ -10,8 +10,12 @@ compinit
 autoload -Uz colors
 colors
 
-# Show dense list. 
+# Try to make the completion list smaller.
 setopt list_packed
+
+# If a parameter is completed whose content is the name
+# of a directory, then add a trailing slash instead of a space.
+setopt auto_param_slash
 
 # Disable beep.
 setopt no_beep
@@ -22,6 +26,9 @@ setopt nolistbeep
 ## Input/Output
 # Try to correct the spelling of commands.
 setopt correct
+
+# Do not exit on end-of-file.
+setopt ignore_eof
 
 # Allow comments even in interactive shells
 setopt interactive_comments
