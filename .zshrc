@@ -1,6 +1,6 @@
 ## Auto completion settings.
 # Set auto completion.
-autoload -U compinit
+autoload -Uz compinit
 compinit
 # Show dense list. 
 setopt list_packed
