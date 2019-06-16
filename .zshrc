@@ -2,8 +2,14 @@
 # Set auto completion.
 autoload -Uz compinit
 compinit
+
+# Color settings.
+autoload -Uz colors
+colors
+
 # Show dense list. 
 setopt list_packed
+
 # Disable beep when complete list displayed.
 setopt nolistbeep
 
@@ -18,9 +24,6 @@ export LANG=en_US.UTF-8
 bindkey -e
 
 ## Prompt settings.
-autoload -Uz colors
-colors
-
 case ${UID} in
 0)
     PROMPT="%{${fg[blue]}%}[%n@%m:%~]#%{${reset_color}%} "
@@ -37,11 +40,14 @@ esac
 ## History settings.
 # Location of history file.
 HISTFILE=~/.zsh_history
+
 # Size of history file.
 HISTSIZE=10000
 SAVEHIST=10000
+
 # Ignore duplication from command history.
 setopt hist_ignore_dups
+
 # Share command history.
 setopt share_history
 
