@@ -94,3 +94,6 @@ fi
 if [ -d /Applications/MacVim.app ]; then
     alias macvim='open -a /Applications/MacVim.app "$@"'
 fi
+if type 'tmux' > /dev/null 2>&1; then
+    tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+fi
