@@ -137,14 +137,8 @@ syntax enable
 filetype on
 
 " Color settings.
-"highlight ctermbg none ctermfg none
-"highlight MatchParen ctermfg=none ctermbg=none
-" }}}
-
-"" Clipboard settings {{{
-if has('gui') || has('xterm_clipboard')
-    set clipboard=unnamed
-endif
+"colorscheme lost-shrine
+colorscheme eighties
 " }}}
 
 "" IM settings {{{
