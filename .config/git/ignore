@@ -1,13 +1,11 @@
-# macOS
+# OS X
 .DS_Store
 .AppleDouble
 .CFUserTextEncoding
 .Trash
-.AppleDouble
-.LSOverride
-.Trash
-.Spotlight-V100
 .Trashes
+.LSOverride
+.Spotlight-V100
 ._*
 Icon
 
