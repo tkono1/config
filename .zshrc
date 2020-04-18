@@ -94,6 +94,6 @@ elif type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
 fi
 if type 'tmux' > /dev/null 2>&1; then
-    tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+    alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
     export TMUX_TMPDIR="$XDR_RUNTIME_DIR"
 fi
