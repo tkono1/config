@@ -8,4 +8,4 @@ termcapinfo xterm* ti@:te@
 defencoding utf-8
 encoding utf-8 utf-8
 shell $SHELL
-hardstatus alwayslastline "%w %= %H %Y/%m/%d %D %02c %A"
+hardstatus alwayslastline "%w %= %H [%Y/%m/%d(%D) %02c]"
