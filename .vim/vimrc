@@ -9,14 +9,14 @@ set viminfo+=n$HOME/.vim/viminfo
 set noerrorbells
 set novisualbell
 set visualbell t_vb=
-" }}}
+"" }}}
 
 "" Language settings {{{
 if has('multi_lang')
     set langmenu=en_US.UTF-8
     let $LANG="en"
 endif
-" }}}
+"" }}}
 
 "" Encoding settings {{{
 " Set the character encoding used inside vim.
@@ -40,7 +40,7 @@ set ambiwidth=double
 
 " Set script encoding.
 scriptencoding utf-8
-" }}}
+"" }}}
 
 "" Search settings {{{
 set ignorecase
@@ -49,7 +49,7 @@ set hlsearch
 set incsearch
 set wrapscan
 set wildmenu wildmode=list:full
-" }}}
+"" }}}
 
 "" Tab settings {{{
 " Tab width of file
@@ -70,7 +70,7 @@ set expandtab
 
 " Disable insert comment automatically.
 autocmd FileType * set formatoptions-=ro
-" }}}
+"" }}}
 
 "" Display settings {{{
 " Show line number.
@@ -94,7 +94,7 @@ set showmode
 " Show tabs as Ctrl-I.
 "set list
 "set listchars=tab:^\ ,trail:~
-" }}}
+"" }}}
 
 "" Statusline settings {{{
 " Always shows status line.
@@ -126,7 +126,7 @@ set statusline+=%=
 
 " Line number and column number.
 set statusline+=[%l/%LL,%cC]
-" }}}
+"" }}}
 
 "" Syntax settings {{{
 " Enable syntax highlighting.
@@ -140,7 +140,7 @@ filetype on
 " Color settings.
 "colorscheme lost-shrine
 colorscheme eighties
-" }}}
+"" }}}
 
 "" IM settings {{{
 " Disable IM.
@@ -149,4 +149,4 @@ colorscheme eighties
 "" Split window {{{
 " Keep all windows size as same when add/remove.
 set equalalways
-" }}}
+"" }}}
