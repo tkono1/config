@@ -145,6 +145,7 @@ colorscheme eighties
 "" IM settings {{{
 " Disable IM.
 "set imdisable
+"" }}}
 
 "" Split window {{{
 " Keep all windows size as same when add/remove.
