@@ -11,6 +11,13 @@ set novisualbell
 set visualbell t_vb=
 " }}}
 
+"" Language settings {{{
+if has('multi_lang')
+    set langmenu=en_US.UTF-8
+    let $LANG="en"
+endif
+" }}}
+
 "" Encoding settings {{{
 " Set the character encoding used inside vim.
 set encoding=utf-8
@@ -33,12 +40,6 @@ set ambiwidth=double
 
 " Set script encoding.
 scriptencoding utf-8
-" }}}
-
-"" Language settings {{{
-if has('multi_lang')
-    let $LANG="en"
-endif
 " }}}
 
 "" Search settings {{{
