@@ -56,7 +56,7 @@ esac
 
 ## History
 # Location of history file.
-HISTFILE=~/.zsh_history
+HISTFILE=${ZDOTDIR}/.zsh_history
 
 # Size of history file.
 HISTSIZE=10000
