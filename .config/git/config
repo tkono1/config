@@ -1,6 +1,6 @@
 [user]
-    name = tkono1
-    email = tkono1@gmail.com
+	name = tkono1
+	email = tkono1@gmail.com
 [color]
     ui = auto
 [core]
@@ -14,3 +14,5 @@
     st = status
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[gpg]
+	program = gpg
