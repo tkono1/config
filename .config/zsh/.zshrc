@@ -95,7 +95,7 @@ elif type 'vim' > /dev/null 2>&1; then
 fi
 if type 'tmux' > /dev/null 2>&1; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
-    export TMUX_TMPDIR="${XDG_RUNTIME_DIR}"
+    export TMUX_TMPDIR=/tmp
 fi
 
 ## GPG signature for GitHub.
