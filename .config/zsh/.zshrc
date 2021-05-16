@@ -93,6 +93,9 @@ if type 'nvim' > /dev/null 2>&1; then
 elif type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
 fi
+if type 'screen' > /dev/null 2>&1; then
+    export SCREENRC=${XDG_CONFIG_HOME}/screen/screenrc
+fi
 if type 'tmux' > /dev/null 2>&1; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
