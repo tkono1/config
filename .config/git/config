@@ -9,11 +9,8 @@
 	excludesfile = /Users/tkono1/.config/git/ignore
 	autocrlf = input
 	quotepath = false
+	ignorecase = false
 [alias]
-    co = checkout
-    ci = commit
-    st = status
-    br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [gpg]
 	program = gpg
