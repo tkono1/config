@@ -1,4 +1,4 @@
-escape ^z^z
+#escape ^z^z
 
 defutf8 on
 defencoding utf8
