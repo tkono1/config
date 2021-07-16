@@ -1,11 +1,15 @@
 escape ^z^z
+
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+
 startup_message off
+vbell off
+
 altscreen on
 autodetach on
-vbell off
 defscrollback 100000
 termcapinfo xterm* ti@:te@
-defencoding utf-8
-encoding utf-8 utf-8
 shell $SHELL
 hardstatus alwayslastline "%w %= %H [%Y/%m/%d(%D) %02c]"
