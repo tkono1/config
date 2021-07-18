@@ -139,7 +139,9 @@ filetype on
 
 " Color settings.
 "colorscheme lost-shrine
-colorscheme eighties
+"colorscheme eighties
+set background=dark
+colorscheme solarized
 "" }}}
 
 "" IM settings {{{
