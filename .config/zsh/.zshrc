@@ -43,12 +43,14 @@ bindkey -e
 ## Prompt settings.
 case ${UID} in
 0)
-    PROMPT="%{${fg[blue]}%}[%n@%m:%~]#%{${reset_color}%} "
+    PROMPT="%{${fg[blue]}%}[%n@%m%{${fg[cyan]}%}:%~%{${fg[blue]}%}]#%{${reset_color}%} "
+    #PROMPT="%{${fg[blue]}%}[%n@%m:%~]#%{${reset_color}%} "
     PROMPT2="%{${fg[blue]}%}[%_]$%{${reset_color}%} "
     SPROMPT="%{${fg[blue]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     ;;
 *)
-    PROMPT="%{${fg[blue]}%}[%n@%m:%~]$%{${reset_color}%} "
+    PROMPT="%{${fg[blue]}%}[%n@%m%{${fg[cyan]}%}:%~%{${fg[blue]}%}]$%{${reset_color}%} "
+    #PROMPT="%{${fg[blue]}%}[%n@%m:%~]$%{${reset_color}%} "
     PROMPT2="%{${fg[blue]}%}[%_]$%{${reset_color}%} "
     SPROMPT="%{${fg[blue]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     ;;
