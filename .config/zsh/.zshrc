@@ -42,7 +42,7 @@ bindkey -e
 
 ## Prompt settings.
 #PROMPT="%{${fg[blue]}%}[%n@%m%{${fg[cyan]}%}:%~%{${fg[blue]}%}]\$%{${reset_color}%} "
-PROMPT="%F{027}[%n@%m%F{237}:%~%F{027}]\$%k%f "
+PROMPT="%F{027}[%n@%m%F{096}:%~%F{027}]\$%k%f "
 PROMPT2="%F{025}[%_]\$%k%f "
 SPROMPT="%F{025}%r is correct? [n,y,a,e]:%k%f "
 
