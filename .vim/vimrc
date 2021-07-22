@@ -145,9 +145,10 @@ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
 "" Color scheme settings {{{
 "colorscheme eighties
+colorscheme monokai
 "set background=dark
 "colorscheme solarized
-colorscheme solarized8_high
+"colorscheme solarized8_high
 "" }}}
 
 "" IM settings {{{
