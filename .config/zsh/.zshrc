@@ -42,9 +42,10 @@ bindkey -e
 
 ## Prompt settings.
 #PROMPT="%F{024}[%n@%m%F{096}:%~%F{024}]\$%k%f "
-PROMPT="%F{012}[%n@%m%F{024}:%~%F{012}]\$%k%f "
-PROMPT2="%F{012}[%_]\$%k%f "
-SPROMPT="%F{012}%r is correct? [n,y,a,e]:%k%f "
+#PROMPT="%F{012}[%n@%m%F{024}:%~%F{012}]\$%k%f "
+PROMPT="%F{034}[%n@%m%F{024}:%~%F{034}]\$%k%f "
+PROMPT2="%F{034}[%_]\$%k%f "
+SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
 ## History
 # Location of history file.
