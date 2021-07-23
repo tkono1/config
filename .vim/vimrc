@@ -80,7 +80,7 @@ set number
 set ruler
 
 " Set title of the window to the value of titlestring.
-set title
+set notitle
 
 " Line longer than the width of the window will wrap.
 set wrap
@@ -147,7 +147,6 @@ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 "colorscheme eighties
 colorscheme monokai
 "set background=dark
-"colorscheme solarized
 "colorscheme solarized8_high
 "" }}}
 
