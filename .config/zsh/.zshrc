@@ -6,10 +6,6 @@ export LANG=en_US.UTF-8
 autoload -Uz compinit
 compinit
 
-# Color setting.
-autoload -Uz colors
-colors
-
 # Try to make the completion list smaller.
 setopt list_packed
 
@@ -95,4 +91,6 @@ if type 'tmux' > /dev/null 2>&1; then
 fi
 
 ## GPG signature for GitHub.
-export GPG_TTY=$(tty)
+if type 'gpg' > /dev/null 2>&1; then
+    export GPG_TTY=$(tty)
+fi
