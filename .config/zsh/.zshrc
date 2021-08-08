@@ -6,10 +6,6 @@ export LANG=en_US.UTF-8
 autoload -Uz compinit
 compinit
 
-# Color setting.
-autoload -Uz colors
-colors
-
 # Try to make the completion list smaller.
 setopt list_packed
 
