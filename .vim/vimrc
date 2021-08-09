@@ -124,8 +124,11 @@ set statusline+=%h
 " Separation point between left and right aligned items.
 set statusline+=%=
 
+" Filetype in buffer.
+set statusline+=%y
+
 " Line number and column number.
-set statusline+=[%l/%LL,%cC]
+set statusline+=[%l/%LL]
 "" }}}
 
 "" Syntax settings {{{
