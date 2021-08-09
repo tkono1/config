@@ -74,6 +74,17 @@ setopt hist_ignore_space
 # being added to the history list.
 setopt hist_reduce_blanks
 
+## Prompt for Git repository.
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{003}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{196}+"
+zstyle ':vcs_info:*' formats "%F{034}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+
 ## Aliases.
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
     alias ls='ls -G'
