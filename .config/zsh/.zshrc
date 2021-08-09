@@ -40,13 +40,6 @@ setopt print_eight_bit
 # Set emacs-like keybinding.
 bindkey -e
 
-## Prompt settings.
-#PROMPT="%F{024}[%n@%m%F{012}:%~%F{024}]\$%k%f "
-#PROMPT="%F{012}[%n@%m%F{024}:%~%F{012}]\$%k%f "
-PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]\$%k%f "
-PROMPT2="%F{034}[%_]\$%k%f "
-SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
-
 ## History
 # Location of history file.
 HISTFILE=${ZDOTDIR}/.zsh_history
@@ -73,6 +66,11 @@ setopt hist_ignore_space
 # Remove superfluous blanks from each command line
 # being added to the history list.
 setopt hist_reduce_blanks
+
+## Prompt settings.
+PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]\$%k%f "
+PROMPT2="%F{034}[%_]\$%k%f "
+SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
 ## Prompt for Git repository.
 autoload -Uz vcs_info
