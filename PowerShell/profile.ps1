@@ -19,7 +19,6 @@ if ($host.Name -eq 'ConsoleHost') {
 ## Defining functions ##
 
 function prompt () {
-        [string]$isAdmin = '>'
         [string]$PromptColor1 = 'DarkGreen'
         [string]$PromptColor2 = 'DarkCyan'
 
@@ -33,8 +32,6 @@ function prompt () {
         & $GitPromptScriptBlock
     } else {
         [string]$isAdmin = '>'
-        [string]$PromptColor1 = 'DarkGreen'
-        [string]$PromptColor2 = 'DarkCyan'
 
         Write-Host ("[$(($env:USERNAME).ToLower())@$(($env:COMPUTERNAME).ToLower()):") -ForegroundColor $PromptColor1 -NoNewline
         Write-Host ((Get-Location).Path).Replace($HOME, '~') -ForegroundColor $PromptColor2 -NoNewline
