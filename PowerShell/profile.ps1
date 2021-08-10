@@ -1,16 +1,16 @@
 ## Each hosts settings ##
 
 if ($host.Name -eq 'ConsoleHost') {
-    if (Get-Module -ListAvailable -Name "PSReadline") {
+    if (Get-Module -ListAvailable -Name 'PSReadLine') {
         Import-Module PSReadLine
         Set-PSReadlineOption -EditMode Emacs
         Set-PSReadLineOption -PredictionSource History
     }
-    if (get-Module -ListAvailable -Name "posh-git") {
+    if (get-Module -ListAvailable -Name 'posh-git') {
         Import-Module posh-git
     }
 } elseif ($host.Name -eq 'Vusual Studio Code Host') {
-    if (Get-Module -ListAvailable -Name "PSReadline") {
+    if (Get-Module -ListAvailable -Name 'PSReadLine') {
         Import-Module PSReadline
         #Set-PSReadlineOption -EditMode Emacs
     }
@@ -20,11 +20,12 @@ if ($host.Name -eq 'ConsoleHost') {
 
 function prompt () {
     [string]$isAdmin = '>'
-    [string]$PromptColor1 = "DarkGreen"
-    [string]$PromptColor2 = "DarkCyan"
+    [string]$PromptColor1 = 'DarkGreen'
+    [string]$PromptColor2 = 'DarkCyan'
 
     Write-Host ("[$(($env:USERNAME).ToLower())@$(($env:COMPUTERNAME).ToLower()):") -ForegroundColor $PromptColor1 -NoNewline
-    Write-Host ((Get-Location)) -ForegroundColor $PromptColor2 -NoNewline
+    Write-Host ((Get-Location).Path).Replace($HOME, '~') -ForegroundColor $PromptColor2 -NoNewline
+    #Write-Host ((Get-Location)) -ForegroundColor $PromptColor2 -NoNewline
     & Write-VcsStatus
     Write-Host ("]" + $isAdmin) -ForegroundColor $PromptColor1 -NoNewline
     Return " "
