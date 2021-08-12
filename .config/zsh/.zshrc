@@ -76,7 +76,6 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 setopt prompt_subst
-
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
 zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
