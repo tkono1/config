@@ -74,12 +74,23 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
 ## Prompt for Git repository.
 autoload -Uz vcs_info
+autoload -Uz add-zsh-hook
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
 zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
 zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a%m]'
+zstyle ':vcs_info:*' actionformats '[%b|%a] %m'
+
+zstyle ':vcs_info:git+set-message:*' hooks git-push-status
+
+function +vi-git-push-status() {
+    local ahead
+    ahead=$(command git rev-list origin/master..master 2>/dev/null | wc -l | tr -d ' ')
+    if [[ "$ahead" -gt 0 ]]; then
+        hook_com[misc]="(p${ahead})"
+    fi
+}
 
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
