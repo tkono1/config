@@ -77,9 +77,42 @@ autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
-zstyle ':vcs_info:git:*' stagedstr "%F{190}~"
-zstyle ':vcs_info:*' formats "%F{034}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
+#zstyle ':vcs_info:*' formats "%F{034}%c%u[%b]%f"
+zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
+#zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' actionformats '[%b|%a%m]'
+
+zstyle ':vcs_info:git+set-message:*' hooks \
+    git-hook-begin \
+    git-push-status
+
+function +vi-git-hook-begin() {
+    if [[ $(command git rev-parse --is-inside-work-tree @> /dev/null) != 'true' ]]; then
+        return 1
+    fi
+    return 0
+}
+
+function +vi-git-push-status() {
+    if [[ "$1" != "1" ]]; then
+        return 0
+    fi
+
+    if [[ "${hook_com[branch]}" != "master" ]]; then
+        return 0
+    fi
+
+    local ahead
+    ahead=$(command git rev-list origin/master..master 2>/dev/null \
+        | wc -l \
+        | tr -d ' ')
+
+    if [[ "$ahead" -gt 0 ]]; then
+        hook_com[misc]+="(p${ahead})"
+    fi
+}
+
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
