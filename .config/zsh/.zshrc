@@ -86,10 +86,6 @@ zstyle ':vcs_info:*' actionformats '[%b|%a] %m'
 zstyle ':vcs_info:git+set-message:*' hooks git-push-status
 
 function +vi-git-push-status() {
-    if [[ "$1" != "1" ]]; then
-        return 0
-    fi
-
     local ahead
     ahead=$(command git rev-list origin/master..master 2>/dev/null | wc -l | tr -d ' ')
     if [[ "$ahead" -gt 0 ]]; then
