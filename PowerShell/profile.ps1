@@ -22,13 +22,13 @@ if ($host.Name -eq 'ConsoleHost') {
 ## Defining functions ##
 
 function prompt () {
-        [string]$PromptColor1 = 'DarkGreen'
+        [string]$PromptColor1 = '0x13A10E'
         [string]$PromptColor2 = 'DarkCyan'
 
     if (Get-Module -Name 'posh-git') {
         $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
         $GitPromptSettings.DefaultPromptPrefix.Text = "[$(($env:USERNAME).ToLower())@$(($env:COMPUTERNAME).ToLower())]"
-        $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = [ConsoleColor]::${PromptColor1}
+        $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = ${PromptColor1}
         $GitPromptSettings.DefaultPromptPath.ForegroundColor = [ConsoleColor]::${PromptColor2}
         $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = [ConsoleColor]::${PromptColor1}
 
