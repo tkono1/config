@@ -76,8 +76,8 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr "%F{190}!"
-zstyle ':vcs_info:git:*' stagedstr "%F{088}+"
+zstyle ':vcs_info:git:*' unstagedstr "%F{088}+"
+zstyle ':vcs_info:git:*' stagedstr "%F{190}!"
 zstyle ':vcs_info:*' formats "%F{034}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
