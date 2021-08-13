@@ -132,8 +132,9 @@ set statusline+=[%l/%LL]
 "" Syntax settings {{{
 " Enable syntax highlighting.
 syntax enable
+
 " If you want to overrule your syntax, use below instead.
-"syntax on
+syntax on
 
 " Enable file type detection.
 filetype on
