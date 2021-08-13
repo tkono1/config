@@ -103,6 +103,11 @@ function +vi-git-push-status() {
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
+## GPG signature for GitHub.
+if type 'gpg' > /dev/null 2>&1; then
+    export GPG_TTY=$(tty)
+fi
+
 ## Aliases.
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
     alias ls='ls -G'
@@ -121,9 +126,4 @@ fi
 if type 'tmux' > /dev/null 2>&1; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
-fi
-
-## GPG signature for GitHub.
-if type 'gpg' > /dev/null 2>&1; then
-    export GPG_TTY=$(tty)
 fi
