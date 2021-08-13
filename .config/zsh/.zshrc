@@ -84,7 +84,13 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]%u%c%m'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
 zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
-zstyle ':vcs_info:git+set-message:*' hooks git-push-status
+zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
+
+function +vi-git-untracked() {
+    if command git status --porcelain 2> /dev/null | awk '{print $1}' | command grep -F '??' > /dev/null 2>&1; then
+        hook_com[unstaged]+='?'
+    fi
+}
 
 function +vi-git-push-status() {
     local ahead
