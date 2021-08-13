@@ -130,6 +130,9 @@ set statusline+=[%l/%LL]
 "" }}}
 
 "" Syntax settings {{{
+" Set background scheme. Set this option before syntax highlighting.
+set background=dark
+
 " Enable syntax highlighting.
 syntax enable
 
@@ -150,7 +153,6 @@ endif
 "" Color scheme settings {{{
 "colorscheme eighties
 colorscheme monokai
-"set background=dark
 "colorscheme solarized8_high
 "" }}}
 
