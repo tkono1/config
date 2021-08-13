@@ -115,10 +115,10 @@ else
     alias ls='ls --color=auto'
 fi
 alias ll='ls -lAF'
-if type 'nvim' > /dev/null 2>&1; then
-    alias vi='nvim'
-elif type 'vim' > /dev/null 2>&1; then
+if type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
+elif type 'nvim' > /dev/null 2>&1; then
+    alias vi='nvim'
 fi
 if type 'screen' > /dev/null 2>&1; then
     export SCREENRC=${XDG_CONFIG_HOME}/screen/screenrc
