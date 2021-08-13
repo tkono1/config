@@ -65,11 +65,9 @@ set expandtab
 "set autoindent
 "set smartindent
 
-" Indent for C.
-"set cindent
-
 " Disable insert comment automatically.
-autocmd FileType * set formatoptions-=ro
+autocmd FileType * set formatoptions-=r
+autocmd FileType * set formatoptions-=o
 "" }}}
 
 "" Display settings {{{
