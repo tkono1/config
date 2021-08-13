@@ -76,12 +76,14 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 setopt prompt_subst
+
+zstyle ':vcs_info:*' disable bzr cdv cvs darcs fossil mtn p4 svk svn tla
+zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a] %m'
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
 zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
-zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a] %m'
-
 zstyle ':vcs_info:git+set-message:*' hooks git-push-status
 
 function +vi-git-push-status() {
