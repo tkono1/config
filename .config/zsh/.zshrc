@@ -2,6 +2,11 @@
 export LANG=en_US.UTF-8
 ## }}
 
+## Load initial modules {{
+# Load is-at-least.
+autoload -Uz is-at-least
+## }}
+
 ## Completion {{
 # Set auto completion.
 autoload -Uz compinit && compinit
@@ -78,40 +83,41 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
 ## Prompt for Git repository {{
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-setopt prompt_subst
+if is-at-least 4.3.10; then
+    autoload -Uz vcs_info
+    autoload -Uz add-zsh-hook
+    setopt prompt_subst
 
-zstyle ':vcs_info:*' disable bzr cdv cvs darcs fossil mtn p4 svk svn tla
-zstyle ':vcs_info:*' enable git hg
-zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]%u%c%m'
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
-zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
-zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
+    zstyle ':vcs_info:*' enable git hg
+    zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
+    zstyle ':vcs_info:*' actionformats '[%b|%a]%u%c%m'
+    zstyle ':vcs_info:git:*' check-for-changes true
+    zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
+    zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
+    zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
 
-function +vi-git-untracked() {
-    if command git status --porcelain 2> /dev/null | awk '{print $1}' | command grep -F '??' > /dev/null 2>&1; then
+    function +vi-git-untracked() {
+        if command git status --porcelain 2> /dev/null | awk '{print $1}' | command grep -F '??' > /dev/null 2>&1; then
         hook_com[unstaged]+='?'
-    fi
+        fi
 }
 
-function +vi-git-push-status() {
-    local master
-    master="master"
-    if [[ "${hook_com[branch]}" != "${master}" ]]; then
-        return 0
-    fi
-    local ahead
-    ahead=$(command git rev-list origin/${master}..${master} 2>/dev/null | wc -l | tr -d ' ')
-    if [[ "$ahead" -gt 0 ]]; then
-        hook_com[misc]="(p${ahead})"
-    fi
+    function +vi-git-push-status() {
+        local master
+        master="master"
+        if [[ "${hook_com[branch]}" != "${master}" ]]; then
+            return 0
+        fi
+        local ahead
+        ahead=$(command git rev-list origin/${master}..${master} 2>/dev/null | wc -l | tr -d ' ')
+        if [[ "$ahead" -gt 0 ]]; then
+            hook_com[misc]="(p${ahead})"
+        fi
 }
 
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+    precmd () { vcs_info }
+    RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+fi
 ## }}
 
 ## GPG {{
