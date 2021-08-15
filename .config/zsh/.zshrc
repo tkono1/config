@@ -1,7 +1,8 @@
-## Language setting.
+## Language settings {{
 export LANG=en_US.UTF-8
+## }}
 
-## Completion
+## Completion {{
 # Set auto completion.
 autoload -Uz compinit
 compinit
@@ -22,8 +23,9 @@ setopt no_beep
 
 # Disable beep when complete list displayed.
 setopt nolistbeep
+## }}
 
-## Input/Output
+## Input/Output {{
 # Try to correct the spelling of commands.
 setopt correct
 
@@ -35,12 +37,14 @@ setopt interactive_comments
 
 # Print eight bit characters literally in completion lists.
 setopt print_eight_bit
+## }}
 
-## Keybindings.
+## Keybindings {{
 # Set emacs-like keybinding.
 bindkey -e
+## }}
 
-## History
+## History {{
 # Location of history file.
 HISTFILE=${ZDOTDIR}/.zsh_history
 
@@ -66,13 +70,15 @@ setopt hist_ignore_space
 # Remove superfluous blanks from each command line
 # being added to the history list.
 setopt hist_reduce_blanks
+## }}
 
-## Prompt settings.
+## Prompt settings {{
 PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]\$%k%f "
 PROMPT2="%F{034}[%_]\$%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
+## }}
 
-## Prompt for Git repository.
+## Prompt for Git repository {{
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 setopt prompt_subst
@@ -107,13 +113,16 @@ function +vi-git-push-status() {
 
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+## }}
 
-## GPG signature for GitHub.
+## GPG {{
+# Use pinentry TTY. 
 if type 'gpg' > /dev/null 2>&1; then
     export GPG_TTY=$(tty)
 fi
+##}}
 
-## Aliases.
+## Aliases {{
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
     alias ls='ls -G'
 else
@@ -132,3 +141,4 @@ if type 'tmux' > /dev/null 2>&1; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
 fi
+## }}
