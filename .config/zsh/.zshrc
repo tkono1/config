@@ -111,14 +111,12 @@ if is-at-least 4.3.10; then
     }
 
     function +vi-git-push-status() {
-        local master
-        master=$(command git branch --contains=HEAD 2> /dev/null \
+        local master=$(command git branch --contains=HEAD 2> /dev/null \
             | awk '{print $2}')
         if [[ "${hook_com[branch]}" != "${master}" ]]; then
             return 0
         fi
-        local ahead
-        ahead=$(command git rev-list origin/${master}..${master} \
+        local ahead=$(command git rev-list origin/${master}..${master} \
             2>/dev/null | wc -l | tr -d ' ')
         if [[ "${ahead}" -gt 0 ]]; then
             hook_com[misc]="(p${ahead})"
