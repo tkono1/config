@@ -5,7 +5,7 @@
 export LANG=en_US.UTF-8
 ## }}
 
-## Load initial modules {{
+## Load fundamental modules {{
 # Load is-at-least.
 autoload -Uz is-at-least
 ## }}
