@@ -17,6 +17,12 @@ setopt list_packed
 # of a directory, then add a trailing slash instead of a space.
 setopt auto_param_slash
 
+# Print eight bit characters literally in completion lists.
+setopt print_eight_bit
+
+# Allow comments even in interactive shells
+setopt interactive_comments
+
 # Disable beep.
 setopt no_beep
 
@@ -30,12 +36,6 @@ setopt correct
 
 # Do not exit on end-of-file.
 setopt ignore_eof
-
-# Allow comments even in interactive shells
-setopt interactive_comments
-
-# Print eight bit characters literally in completion lists.
-setopt print_eight_bit
 ## }}
 
 ## Keybindings {{
