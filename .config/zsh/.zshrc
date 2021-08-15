@@ -1,3 +1,6 @@
+## ZSH configurations.
+## You can check zsh options using "set -o" command.
+
 ## Language settings {{
 export LANG=en_US.UTF-8
 ## }}
@@ -21,6 +24,9 @@ setopt list_packed
 # If a parameter is completed whose content is the name
 # of a directory, then add a trailing slash instead of a space.
 setopt auto_param_slash
+
+# Files beginning with a . be matched without explicitly specifying the dot.
+setopt globdots
 
 # Print eight bit characters literally in completion lists.
 setopt print_eight_bit
