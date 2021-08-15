@@ -4,8 +4,7 @@ export LANG=en_US.UTF-8
 
 ## Completion {{
 # Set auto completion.
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 # Highlight completion items.
 zstyle ':completion:*:default' menu select=2
