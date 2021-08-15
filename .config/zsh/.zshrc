@@ -112,7 +112,8 @@ if is-at-least 4.3.10; then
 
     function +vi-git-push-status() {
         local master
-        master="master"
+        master=$(command git branch --contains=HEAD 2> /dev/null \
+            | awk '{print $2}')
         if [[ "${hook_com[branch]}" != "${master}" ]]; then
             return 0
         fi
