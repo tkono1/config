@@ -92,7 +92,6 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 if is-at-least 4.3.10; then
     autoload -Uz vcs_info
     autoload -Uz add-zsh-hook
-    setopt prompt_subst
 
     zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
@@ -102,6 +101,7 @@ if is-at-least 4.3.10; then
     zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
     zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
 
+# Functions for vcs_info with "+vi-" for hiding them from normal use.
     function +vi-git-untracked() {
         if command git status --porcelain 2> /dev/null \
             | awk '{print $1}' \
@@ -124,6 +124,7 @@ if is-at-least 4.3.10; then
     }
 
     precmd () { vcs_info }
+    setopt prompt_subst
     RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 fi
 ## }}
