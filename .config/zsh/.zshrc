@@ -93,11 +93,13 @@ function +vi-git-untracked() {
 }
 
 function +vi-git-push-status() {
-    if [[ "${hook_com[branch]}" != "master" ]]; then
+    local master
+    master="master"
+    if [[ "${hook_com[branch]}" != "${master}" ]]; then
         return 0
     fi
     local ahead
-    ahead=$(command git rev-list origin/master..master 2>/dev/null | wc -l | tr -d ' ')
+    ahead=$(command git rev-list origin/${master}..${master} 2>/dev/null | wc -l | tr -d ' ')
     if [[ "$ahead" -gt 0 ]]; then
         hook_com[misc]="(p${ahead})"
     fi
