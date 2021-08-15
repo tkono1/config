@@ -137,11 +137,14 @@ fi
 ##}}
 
 ## Aliases {{
-if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
-    alias ls='ls -G'
-else
-    alias ls='ls --color=auto'
-fi
+case ${OSTYPE} in
+    darwin*)
+        alias ls='ls -G'
+        ;;
+    linux*)
+        alias ls='ls --color=auto'
+        ;;
+esac
 alias ll='ls -lAF'
 if type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
