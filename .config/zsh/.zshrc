@@ -97,10 +97,12 @@ if is-at-least 4.3.10; then
     zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
 
     function +vi-git-untracked() {
-        if command git status --porcelain 2> /dev/null | awk '{print $1}' | command grep -F '??' > /dev/null 2>&1; then
+        if command git status --porcelain 2> /dev/null \
+            | awk '{print $1}' \
+            | command grep -F '??' > /dev/null 2>&1; then
         hook_com[unstaged]+='?'
         fi
-}
+    }
 
     function +vi-git-push-status() {
         local master
@@ -109,11 +111,12 @@ if is-at-least 4.3.10; then
             return 0
         fi
         local ahead
-        ahead=$(command git rev-list origin/${master}..${master} 2>/dev/null | wc -l | tr -d ' ')
-        if [[ "$ahead" -gt 0 ]]; then
+        ahead=$(command git rev-list origin/${master}..${master} 2>/dev/null \
+             | wc -l | tr -d ' ')
+        if [[ "${ahead}" -gt 0 ]]; then
             hook_com[misc]="(p${ahead})"
         fi
-}
+    }
 
     precmd () { vcs_info }
     RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
