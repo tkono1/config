@@ -94,7 +94,7 @@ if is-at-least 4.3.10; then
     autoload -Uz add-zsh-hook
     setopt prompt_subst
 
-    zstyle ':vcs_info:*' enable git hg
+    zstyle ':vcs_info:*' enable git
     zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
     zstyle ':vcs_info:*' actionformats '[%b|%a]%u%c%m'
     zstyle ':vcs_info:git:*' check-for-changes true
