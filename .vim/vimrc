@@ -5,12 +5,6 @@ set whichwrap=b,s
 set mouse=
 set viminfo+=n$HOME/.vim/viminfo
 
-" Disable visual bells.
-set noerrorbells
-set novisualbell
-set visualbell t_vb=
-"" }}}
-
 "" Language settings {{{
 if has('multi_lang')
     set langmenu=en_US.UTF-8
@@ -21,6 +15,9 @@ endif
 "" Encoding settings {{{
 " Set the character encoding used inside vim.
 set encoding=utf-8
+
+" Set script encoding.
+scriptencoding utf-8
 
 " Set the character encoding for the file of this buffer.
 set fileencoding=utf-8
@@ -37,9 +34,20 @@ endif
 
 " Treat East Asian Width class as ambiguous.
 set ambiwidth=double
+"" }}}
 
-" Set script encoding.
-scriptencoding utf-8
+"" Terminal color settings {{{
+if has('termguicolors') && $COLORTERM == 'truecolor'
+    set termguicolors
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+endif
+"" }}}
+
+" Disable visual bells.
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
 "" }}}
 
 "" Search settings {{{
@@ -141,14 +149,6 @@ syntax on
 
 " Enable file type detection.
 filetype on
-
-"" Terminal color settings {{{
-if has('termguicolors')
-    set termguicolors
-    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-endif
-"" }}}
 
 "" Color scheme settings {{{
 "colorscheme eighties
