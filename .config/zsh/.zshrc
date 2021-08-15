@@ -118,7 +118,7 @@ if is-at-least 4.3.10; then
         fi
         local ahead
         ahead=$(command git rev-list origin/${master}..${master} \
-            2>/dev/null  wc -l | tr -d ' ')
+            2>/dev/null | wc -l | tr -d ' ')
         if [[ "${ahead}" -gt 0 ]]; then
             hook_com[misc]="(p${ahead})"
         fi
