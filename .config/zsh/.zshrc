@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 ## }}
 
 ## Load fundamental modules {{
-# Load is-at-least.
+# zsh version check.
 autoload -Uz is-at-least
 ## }}
 
