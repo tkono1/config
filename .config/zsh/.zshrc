@@ -131,7 +131,7 @@ fi
 
 ## GPG {{
 # Use pinentry TTY. 
-if type 'gpg' > /dev/null 2>&1; then
+if (( $+commands[gpg] )); then
     export GPG_TTY=$(tty)
 fi
 ##}}
@@ -146,15 +146,15 @@ case ${OSTYPE} in
         ;;
 esac
 alias ll='ls -lAF'
-if type 'vim' > /dev/null 2>&1; then
-    alias vi='vim'
-elif type 'nvim' > /dev/null 2>&1; then
+if (( $+commands[nvim] )); then
     alias vi='nvim'
+elif (( $+commands[vim] )); then
+    alias vi='vim'
 fi
-if type 'screen' > /dev/null 2>&1; then
+if (( $+commands[screen] )); then
     export SCREENRC=${XDG_CONFIG_HOME}/screen/screenrc
 fi
-if type 'tmux' > /dev/null 2>&1; then
+if (( $+commands[tmux] )); then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
 fi
