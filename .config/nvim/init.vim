@@ -4,14 +4,9 @@ set backspace=start,eol,indent
 set whichwrap=b,s
 set mouse=
 
-" Disable visual bells.
-set noerrorbells
-set novisualbell
-set visualbell t_vb=
-"" }}}
-
 "" Language settings {{{
 if has('multi_lang')
+    set langmenu=en_US.UTF-8
     let $LANG="en"
 endif
 "" }}}
@@ -19,6 +14,9 @@ endif
 "" Encoding settings {{{
 " Set the character encoding used inside vim.
 set encoding=utf-8
+
+" Set script encoding.
+scriptencoding utf-8
 
 " Set the character encoding for the file of this buffer.
 set fileencoding=utf-8
@@ -35,9 +33,18 @@ endif
 
 " Treat East Asian Width class as ambiguous.
 set ambiwidth=double
+"" }}}
 
-" Set script encoding.
-scriptencoding utf-8
+"" Terminal color settings {{{
+if has('termguicolors') && $COLORTERM == 'truecolor'
+    set termguicolors
+endif
+"" }}}
+
+" Disable visual bells.
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
 "" }}}
 
 "" Search settings {{{
@@ -63,12 +70,10 @@ set expandtab
 "set autoindent
 "set smartindent
 
-" Indent for C.
-"set cindent
-
 " Disable insert comment automatically.
-autocmd FileType * set formatoptions-=ro
-" }}}
+autocmd FileType * set formatoptions-=r
+autocmd FileType * set formatoptions-=o
+"" }}}
 
 "" Display settings {{{
 " Show line number.
@@ -78,7 +83,7 @@ set number
 set ruler
 
 " Set title of the window to the value of titlestring.
-set title
+set notitle
 
 " Line longer than the width of the window will wrap.
 set wrap
@@ -122,22 +127,30 @@ set statusline+=%h
 " Separation point between left and right aligned items.
 set statusline+=%=
 
+" Filetype in buffer.
+set statusline+=%y
+
 " Line number and column number.
-set statusline+=[%l/%LL,%cC]
+set statusline+=[%l/%LL]
 "" }}}
 
 "" Syntax settings {{{
+" Set background scheme. Set this option before syntax highlighting.
+set background=dark
+
 " Enable syntax highlighting.
 syntax enable
+
 " If you want to overrule your syntax, use below instead.
-"syntax on
+syntax on
 
 " Enable file type detection.
 filetype on
 
 " Color settings.
-"colorscheme lost-shrine
 "colorscheme eighties
+"colorscheme monokai
+"colorscheme solarized8_high
 "" }}}
 
 "" IM settings {{{
