@@ -26,7 +26,7 @@ function prompt () {
     [string]$RgbPromptColor1 = '0x5FAFFF' # 75, SteelBlue1
     #[string]$RgbPromptColor2 = '0x5FAFFF' # 75, SteelBlue1
     [string]$RgbPromptColor2 = '0x00D7AF' # 43, Cyan3
-    [string]$PromptColor1 = 'DarkGreen'
+    [string]$PromptColor1 = 'Blue'
     [string]$PromptColor2 = 'DarkCyan'
 
     [string]$PromptUsername = ($env:USERNAME).ToLower()
