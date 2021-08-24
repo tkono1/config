@@ -16,7 +16,7 @@ autoload -Uz compinit && compinit
 
 # Highlight completion items.
 zstyle ':completion:*:default' menu select=2
-setopt menu_complete
+#setopt menu_complete
 
 # Try to make the completion list smaller.
 setopt list_packed
