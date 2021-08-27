@@ -1,4 +1,6 @@
 ## Prompt for Git repository {{
+autoload -Uz is-at-least && is-at-least
+
 if is-at-least 4.3.10; then
     autoload -Uz vcs_info
     autoload -Uz add-zsh-hook
