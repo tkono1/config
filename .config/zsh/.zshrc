@@ -97,8 +97,8 @@ if is-at-least 4.3.10; then
     zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
     zstyle ':vcs_info:*' actionformats '[%b|%a]%u%c%m'
     zstyle ':vcs_info:git:*' check-for-changes true
-    zstyle ':vcs_info:git:*' unstagedstr "%F{088}!"
-    zstyle ':vcs_info:git:*' stagedstr "%F{190}+"
+    zstyle ':vcs_info:git:*' unstagedstr "%F{088}+"
+    zstyle ':vcs_info:git:*' stagedstr "%F{190}~"
     zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
 
 # Functions for vcs_info with "+vi-" for hiding them from normal use.
@@ -119,7 +119,7 @@ if is-at-least 4.3.10; then
         local ahead=$(command git rev-list origin/${master}..${master} \
             2>/dev/null | wc -l | tr -d ' ')
         if [[ "${ahead}" -gt 0 ]]; then
-            hook_com[misc]="(p${ahead})"
+            hook_com[misc]="(↑${ahead})"
         fi
     }
 
