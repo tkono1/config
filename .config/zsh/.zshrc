@@ -89,7 +89,7 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
 ## git prompt settings {{
-source ${XDG_CONFIG_HOME}/zsh/functions/git-prompt.zsh
+autoload -Uz git-prompt.zsh && git-prompt.zsh
 
 ZSH_GIT_PROMPT_FORCE_BLANK=1
 ZSH_GIT_PROMPT_SHOW_UPSTREAM="symbol"

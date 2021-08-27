@@ -1,5 +1,6 @@
 ## Set ZDOTDIR
 export ZDOTDIR=${HOME}/.config/zsh
+export FPATH="$HOME/.config/zsh/functions:$FPATH"
 
 ## Set XDG dirs
 export XDG_CONFIG_HOME=${HOME}/.config
