@@ -5,11 +5,6 @@
 export LANG=en_US.UTF-8
 ## }}
 
-## Load fundamental modules {{
-# zsh version check.
-autoload -Uz is-at-least
-## }}
-
 ## Completion {{
 # Set auto completion.
 autoload -Uz compinit && compinit
@@ -96,7 +91,7 @@ ZSH_GIT_PROMPT_SHOW_UPSTREAM="symbol"
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_DETACHED="%B%F{cyan%}:%f%b"
+ZSH_THEME_GIT_PROMPT_DETACHED="%B%F{cyan}:%f%b"
 ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%B%F{yellow}⟳ %f%b"
 ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%{$fg[red]%}(%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%F{red})%f"
