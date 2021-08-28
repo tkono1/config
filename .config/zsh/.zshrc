@@ -84,7 +84,7 @@ PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
-## git prompt settings {{
+## Git prompt settings {{
 autoload -Uz git-prompt.zsh && git-prompt.zsh
 
 ZSH_GIT_PROMPT_FORCE_BLANK=1
