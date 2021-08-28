@@ -78,7 +78,8 @@ setopt hist_reduce_blanks
 ## }}
 
 ## Prompt settings {{
-PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]%#%k%f "
+#PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]%#%k%f "
+PROMPT="%F{034}[%n@%m%F{blue}:%~%F{034}]%#%k%f "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
@@ -92,7 +93,8 @@ ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
 ZSH_THEME_GIT_PROMPT_DETACHED="%B%F{cyan}:%f%b"
-ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
+#ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg_bold[magenta]%}"
+ZSH_THEME_GIT_PROMPT_BRANCH="%B%F{magenta}"
 ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%B%F{yellow}⟳ %f%b"
 ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%{$fg[red]%}(%{$fg[yellow]%}"
 ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%F{red})%f"
