@@ -77,18 +77,12 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 ## }}
 
-## Prompt settings {{
-#PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]%#%k%f "
-PROMPT="%F{034}[%n@%m%F{blue}:%~%F{034}]%#%k%f "
-PROMPT2="%F{034}[%_]%#%k%f "
-SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
-## }}
-
 ## Git prompt settings {{
 autoload -Uz git-prompt.zsh && git-prompt.zsh
 
 ZSH_GIT_PROMPT_FORCE_BLANK=1
 ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
+
 ZSH_THEME_GIT_PROMPT_PREFIX="["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]"
 ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
@@ -107,6 +101,13 @@ ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
 ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
 
 RPROMPT='$(gitprompt)'
+## }}
+
+## Prompt settings {{
+#PROMPT="%F{034}[%n@%m%F{012}:%~%F{034}]%#%k%f "
+PROMPT="%F{034}[%n@%m%F{blue}:%~%F{034}]%#%k%f "
+PROMPT2="%F{034}[%_]%#%k%f "
+SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
 ## GPG {{
