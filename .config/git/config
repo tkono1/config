@@ -1,12 +1,12 @@
 [user]
-	name = tkono1
-	email = tkono1@gmail.com
-	signingkey = 009DF696083B1856
+	name = ${USER}
+	email = <email>
+	signingkey = <GPG key ID>
 [color]
 	ui = auto
 [core]
 	editor = vim
-	excludesfile = /Users/tkono1/.config/git/ignore
+	excludesfile = ${HOME}/.config/git/ignore
 	autocrlf = input
 	quotepath = false
 	ignorecase = false
