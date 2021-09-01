@@ -22,10 +22,8 @@ if ($host.Name -eq 'ConsoleHost') {
 ## Defining functions ##
 
 function prompt () {
-    [string]$RgbPromptColor1 = '0x5FAFFF' # 75, SteelBlue1
-    [string]$RgbPromptColor2 = '0x00D7AF' # 43, Cyan3
-    [string]$PromptColor1 = 'Blue'
-    [string]$PromptColor2 = 'DarkCyan'
+    [string]$RgbPromptColor1 = '0x00BFFF' # DeepSkyBlue
+    [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
 
     [string]$PromptUsername = ($env:USERNAME).ToLower()
     [string]$PromptComputername = ($env:COMPUTERNAME).ToLower()
@@ -39,6 +37,8 @@ function prompt () {
 
         & $GitPromptScriptBlock
     } else {
+        [string]$PromptColor1 = 'Blue'
+        [string]$PromptColor2 = 'DarkCyan'
         [string]$isAdmin = '>'
 
         Write-Host ("[$($PromptUsername)@$($PromptComputername)):") -ForegroundColor $PromptColor1 -NoNewline
