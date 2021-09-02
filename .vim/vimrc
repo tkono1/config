@@ -137,10 +137,17 @@ set statusline+=%y
 set statusline+=[%l/%LL]
 "" }}}
 
-"" Syntax settings {{{
+"" Color scheme settings {{{
 " Set background scheme. Set this option before syntax highlighting.
 set background=dark
 
+" Set color scheme.
+"colorscheme eighties
+colorscheme monokai
+"colorscheme solarized8_high
+"" }}}
+
+"" Syntax settings {{{
 " Enable syntax highlighting.
 syntax enable
 
@@ -149,11 +156,6 @@ syntax on
 
 " Enable file type detection.
 filetype on
-
-"" Color scheme settings {{{
-"colorscheme eighties
-colorscheme monokai
-"colorscheme solarized8_high
 "" }}}
 
 "" Split window {{{
