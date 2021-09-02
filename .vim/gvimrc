@@ -30,6 +30,7 @@ if has('gui_running')
     if has('multi_byte_ime') || has('xim') || has('gui_macvim')
         set iminsert=0
         set imsearch=0
+        set imdisable=0
         " IM color settings.
         highlight Cursor guifg=NONE guibg=Black
         highlight CursorIM guifg=NONE guibg=Purple
