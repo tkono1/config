@@ -110,6 +110,11 @@ PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
+## less {{
+# Disable less history
+export LESSHISTFILE=-
+## }}
+
 ## GPG {{
 # Use pinentry TTY. 
 if (( $+commands[gpg] )); then
