@@ -149,13 +149,12 @@ filetype on
 
 " Color settings.
 "colorscheme eighties
-"colorscheme monokai
+colorscheme monokai
+"colorscheme gruvbox
 "colorscheme solarized8_high
 "" }}}
 
-"" IM settings {{{
-" Disable IM.
-"set imdisable
+set clipboard+=unnamedplus
 
 "" Split window {{{
 " Keep all windows size as same when add/remove.
