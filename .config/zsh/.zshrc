@@ -78,29 +78,31 @@ setopt hist_reduce_blanks
 ## }}
 
 ## Git prompt settings {{
-autoload -Uz git-prompt.zsh && git-prompt.zsh
+if [ -f ${ZDOTDIR}/functions/git-prompt.zsh ]; then
+    autoload -Uz git-prompt.zsh && git-prompt.zsh
 
-ZSH_GIT_PROMPT_FORCE_BLANK=1
-ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
+    ZSH_GIT_PROMPT_FORCE_BLANK=1
+    ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="["
-ZSH_THEME_GIT_PROMPT_SUFFIX="]"
-ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
-ZSH_THEME_GIT_PROMPT_DETACHED="%B%F{cyan}:%f%b"
-ZSH_THEME_GIT_PROMPT_BRANCH="%B%F{blue}"
-ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%B%F{yellow}⟳ %f%b"
-ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%F{red}(%f%F{yellow}"
-ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%F{red})%f"
-ZSH_THEME_GIT_PROMPT_BEHIND="%F{yellow}↓%f"
-ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%F{red}✖%f"
-ZSH_THEME_GIT_PROMPT_STAGED="%F{green}●%f"
-ZSH_THEME_GIT_PROMPT_UNSTAGED="%F{red}✚%f"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
-ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
-ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
+    ZSH_THEME_GIT_PROMPT_PREFIX="["
+    ZSH_THEME_GIT_PROMPT_SUFFIX="]"
+    ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
+    ZSH_THEME_GIT_PROMPT_DETACHED="%B%F{cyan}:%f%b"
+    ZSH_THEME_GIT_PROMPT_BRANCH="%B%F{blue}"
+    ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%B%F{yellow}⟳ %f%b"
+    ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%F{red}(%f%F{yellow}"
+    ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%F{red})%f"
+    ZSH_THEME_GIT_PROMPT_BEHIND="%F{yellow}↓%f"
+    ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
+    ZSH_THEME_GIT_PROMPT_UNMERGED="%F{red}✖%f"
+    ZSH_THEME_GIT_PROMPT_STAGED="%F{green}●%f"
+    ZSH_THEME_GIT_PROMPT_UNSTAGED="%F{red}✚%f"
+    ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
+    ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
+    ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
 
-RPROMPT='$(gitprompt)'
+    RPROMPT='$(gitprompt)'
+fi
 ## }}
 
 ## Prompt settings {{
