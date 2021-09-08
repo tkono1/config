@@ -102,6 +102,39 @@ set showmode
 "set listchars=tab:^\ ,trail:~
 "" }}}
 
+"" Color scheme settings {{{
+" Set background scheme. Set this option before syntax highlighting.
+set background=dark
+
+" Set color scheme.
+"colorscheme eighties
+colorscheme monokai
+"colorscheme solarized8_high
+"" }}}
+
+"" Syntax settings {{{
+" Enable syntax highlighting.
+syntax enable
+
+" If you want to overrule your syntax, use below instead.
+syntax on
+
+" Enable file type detection.
+filetype on
+"" }}}
+
+"" Clipboard settings {{{
+" Share clipboard with OS.
+if has('clipboard')
+    set clipboard=unnamed
+endif
+"" }}}
+
+"" Split window {{{
+" Keep all windows size as same when add/remove.
+set equalalways
+"" }}}
+
 "" Statusline settings {{{
 " Always shows status line.
 set laststatus=2
@@ -135,30 +168,4 @@ set statusline+=%y
 
 " Line number and column number.
 set statusline+=[%l/%LL]
-"" }}}
-
-"" Color scheme settings {{{
-" Set background scheme. Set this option before syntax highlighting.
-set background=dark
-
-" Set color scheme.
-"colorscheme eighties
-colorscheme monokai
-"colorscheme solarized8_high
-"" }}}
-
-"" Syntax settings {{{
-" Enable syntax highlighting.
-syntax enable
-
-" If you want to overrule your syntax, use below instead.
-syntax on
-
-" Enable file type detection.
-filetype on
-"" }}}
-
-"" Split window {{{
-" Keep all windows size as same when add/remove.
-set equalalways
 "" }}}
