@@ -53,14 +53,7 @@ fi
 
 ## Login prompt settings {{{
 # Set login prompt.
-case ${UID} in
-0)
-    PS1="\[\033[0;34m\][\u@\h:\w]# \[\e[0m\]"
-    ;;
-*)
-    PS1="\[\033[0;34m\][\u@\h:\w]$ \[\e[0m\]"
-    ;;
-esac
+PS1="\[\e[0;32m\][\u@\h\[\e[0;36m\]:\w\[\e[0;32m\]]\$ \[\e[0m\]"
 
 # Check the window size after each command and
 # update the values of LINES and COLUMNS if necessary.
