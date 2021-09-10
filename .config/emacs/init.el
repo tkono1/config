@@ -8,14 +8,13 @@
 
 ;; Emacs version detection.
 (defun x->bool (elt) (not (not elt)))
-(setq emacs22-p (string-match "^22" emacs-version)
-  emacs23-p (string-match "^23" emacs-version)
-  emacs24-p (string-match "^24" emacs-version))
+(setq emacs25-p (string-match "^25" emacs-version)
+  emacs26-p (string-match "^26" emacs-version)
+  emacs27-p (string-match "^27" emacs-version))
 
 ;; System type detection.
 (setq darwin-p (eq system-type 'darwin)
   ns-p (eq window-system 'ns)
-  carbon-p (eq window-system 'mac)
   linux-p (eq system-type 'gnu/linux)
   nt-p (eq system-type 'windows-nt))
 
@@ -42,10 +41,10 @@
   (tool-bar-mode -1))
 
 ;; Show line number.
-(when emacs23-p
+(when emacs26-p
   (global-linum-mode t))
 
-(when linux-p
 ;; Share clipboard with X.
+(when linux-p
   (when window-system
     (setq x-select-enable-clipboard t)))
