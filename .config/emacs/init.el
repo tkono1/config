@@ -48,8 +48,8 @@
 ;; Tab settings.
 (setq-default tab-width 4)
 (setq default-tab-width 4)
-(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64
-                    68 72 76 80 84 88 92 96 100 104 108 112 116 120))
+
+;; Disable tab-indent mode.
 (setq-default indent-tabs-mode nil)
 
 ;; Replace "yes or no" to "y or n".
@@ -81,10 +81,43 @@
 ;; Show line number.
 (require 'linum)
 (global-linum-mode 1)
-(setq linum-format "%4d")
+(setq linum-format "%3d")
 (set-face-attribute 'linum nil
     :foreground "#a9a9a9"
     :background "#404040")
+;;
+;; }}
+;;
+
+;;
+;; Sound {{
+;;
+;; Disable error bell.
+(setq ring-bell-function 'ignore)
+;;
+;; }}
+;;
+
+;;
+;; Mode line {{
+;;
+    
+;; Show line number.
+(line-number-mode t)
+
+;; Show line feed code.
+(setq eol-mnemonic-dos "(CRLF)")
+(setq eol-mnemonic-mac "(CR)")
+(setq eol-mnemonic-unix "(LF)")
+(setq eol-mnemonic-undecided "(?)")
+
+;; Show filesize.
+(size-indication-mode t)
+
+;; Set colors.
+(set-face-attribute 'mode-line nil
+    :foreground "LightGray"
+    :background "DarkGreen")
 ;;
 ;; }}
 ;;
