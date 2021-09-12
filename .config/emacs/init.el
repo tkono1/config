@@ -1,15 +1,15 @@
 ;;
-;; Language and coding system.
+;; Language and coding system {{
 ;;
 ;; Set character code.
 ;(set-language-environment 'Japanese)
 (set-locale-environment "en_US.UTF-8")
-(prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 ;;
 ;; }}
 ;;
@@ -32,18 +32,46 @@
 ;;
 
 ;;
+;; Competion {{
+;;
+;; Ignore Upper-lower case when completion.
+(setq completion-ignore-case t)
+
+;;
+;; }}
+;;
+
+;; Keep location when saved.
+(require 'saveplace)
+(setq-default save-place t)
+
+;;
 ;; Key binding {{
 ;;
+;;
+;; Modify Meta-key.
+(when (eq system-type 'darwin)
+    (setq mac-option-modifier 'meta)
+)
+
+(when (eq system-type 'gnu/linux)
+    (setq mac-option-modifier 'meta)
+)
+
+(when (eq system-type 'windows-nt)
+    (setq mac-option-modifier 'meta)
+)
+
 ;; Enable C-h deletes one character.
-(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key (kbd "C-h") 'delete-backward-char)
 (keyboard-translate ?\C-h ?\C-?)
-(global-set-key "\C-h" nil)
+(global-set-key (kbd "C-h") nil)
 
 ;; C-k deletes whole line.
 (setq kill-hole-line t)
 
 ;; Set undo.
-(global-set-key "\C-z" 'undo)
+(global-set-key (kbd "C-z") 'undo)
 
 ;; Tab settings.
 (setq-default tab-width 4)
@@ -68,15 +96,28 @@
 (setq initial-scratch-message "")
 (setq initial-scratch-message nil)
 
-;; Disable error beep.
+;; Disable startup message.
 (setq inhibit-startup-message t)
 
-;; Disable toolbar in Window mode.
-(if window-system
-    (tool-bar-mode -1))
+;; Disable toolbar.
+(if (not window-system) (progn
+    (menu-bar-mode -1)
+))
 
-;; Disable menubar.
-(menu-bar-mode -1)
+(if window-system (progn
+    (tool-bar-mode -1)
+    (menu-bar-mode 1)
+    (set-scroll-bar-mode 'right)
+))
+
+;; Show matched brackets.
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(setq show-paren-style 'parenthesis)
+(set-face-attribute 'show-paren-match nil
+    :background 'unspecified
+    :foreground 'unspecified
+    :underline "#ffff00")
 
 ;; Show line number.
 (require 'linum)
@@ -116,8 +157,18 @@
 
 ;; Set colors.
 (set-face-attribute 'mode-line nil
-    :foreground "LightGray"
+    :foreground "Gray"
     :background "DarkGreen")
+;;
+;; }}
+;;
+
+;;
+;; Package system {{
+;;
+(require 'package)
+(package-initialize)
+
 ;;
 ;; }}
 ;;
