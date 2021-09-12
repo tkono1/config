@@ -58,7 +58,7 @@
 )
 
 (when (eq system-type 'gnu/linux)
-    ;(setq mac-command-modifier 'meta)
+    ;(setq mac-option-modifier 'meta)
 )
 
 (when (eq system-type 'windows-nt)
@@ -71,7 +71,7 @@
 (global-set-key (kbd "C-h") nil)
 
 ;; C-k deletes whole line.
-(setq kill-hole-line t)
+(setq kill-whole-line t)
 
 ;; Set go to line.
 (global-set-key (kbd "M-g") 'goto-line)
@@ -128,10 +128,10 @@
 ;; Show line number.
 (require 'linum)
 (global-linum-mode 1)
-(setq linum-format "%3d")
+(setq linum-format "%4d ")
 (set-face-attribute 'linum nil
-    :foreground "#a9a9a9"
-    :background "#404040")
+  :foreground "#a9a9a9"
+  :background "#404040")
 ;;
 ;; }}
 ;;
@@ -173,8 +173,26 @@
 ;; Package system {{
 ;;
 (require 'package)
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;;
 ;; }}
 ;;
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (monokai-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; Load theme.
+(load-theme 'monokai t)
