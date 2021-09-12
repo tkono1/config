@@ -3,7 +3,7 @@
 ;;
 ;; Set character code.
 ;(set-language-environment 'Japanese)
-(set-locale-environment "en_US.UTF-8")
+(set-locale-environment nil)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
@@ -51,15 +51,18 @@
 ;;
 ;; Modify Meta-key.
 (when (eq system-type 'darwin)
-    (setq mac-option-modifier 'meta)
+    ;; Left Command key.
+    (setq mac-command-modifier 'meta)
+    ;; Left Option key.
+    (setq mac-option-modifier 'alt)
 )
 
 (when (eq system-type 'gnu/linux)
-    (setq mac-option-modifier 'meta)
+    ;(setq mac-command-modifier 'meta)
 )
 
 (when (eq system-type 'windows-nt)
-    (setq mac-option-modifier 'meta)
+    (setq w32-alt-is-meta t)
 )
 
 ;; Enable C-h deletes one character.
@@ -69,6 +72,9 @@
 
 ;; C-k deletes whole line.
 (setq kill-hole-line t)
+
+;; Set go to line.
+(global-set-key (kbd "M-g") 'goto-line)
 
 ;; Set undo.
 (global-set-key (kbd "C-z") 'undo)
@@ -105,8 +111,8 @@
 ))
 
 (if window-system (progn
-    (tool-bar-mode -1)
-    (menu-bar-mode 1)
+    (tool-bar-mode 0)
+    (menu-bar-mode -1)
     (set-scroll-bar-mode 'right)
 ))
 
