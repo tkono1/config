@@ -1,4 +1,4 @@
-case ${OSTYPE} in
+ecase ${OSTYPE} in
     darwin*)
     ## Import SSH keys from Keychain.
         if (( $+commands[/usr/bin/ssh-add] )); then
@@ -8,7 +8,7 @@ case ${OSTYPE} in
     linux*)
     ## Start ssh-agent.
         if (( $+commands[ssh-agent] )) && [ -z ${SSH_AGENT_PID} ]; then
-            eval `ssh-agent` > /dev/null 2>&1
+            exec ssh-agent zsh
         fi
         ;;
 esac
