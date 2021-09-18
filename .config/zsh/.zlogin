@@ -7,7 +7,7 @@ case ${OSTYPE} in
         ;;
     linux*)
     ## Start ssh-agent.
-        if type 'ssh-agent' > /dev/null 2>&1; then
+        if type 'ssh-agent' > /dev/null 2>&1 || [ ! $SSH_AGENT_PID ]; then
             eval `ssh-agent` > /dev/null 2>&1
         fi
         ;;
