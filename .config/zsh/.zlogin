@@ -1,4 +1,4 @@
-ecase ${OSTYPE} in
+case ${OSTYPE} in
     darwin*)
     ## Import SSH keys from Keychain.
         if (( $+commands[/usr/bin/ssh-add] )); then
