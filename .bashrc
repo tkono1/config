@@ -2,28 +2,8 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-## Aliases {{{
-if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
-    alias ls='ls -G'
-else
-    alias ls='ls --color=auto'
-fi
-alias ll='ls -lAF'
-if type 'vim' > /dev/null 2>&1; then
-    alias vi='vim'
-fi
-if [ -d /Applications/MacVim.app ]; then
-    alias macvim='open -a /Applications/MacVim.app "$@"'
-fi
-alias grep='grep --color=auto'
-alias egrep='grep --color=auto'
-alias fgrep='grep --color=auto'
-
-# Load .bash_aliases if exists.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-# }}}
+# Set GPG to use TTY.
+export GPG_TTY=$(tty)
 
 ## History settings {{{
 # Size of history.
@@ -72,4 +52,27 @@ for etc in /etc /usr/local/etc; do
     fi
     unset etc
 done
+# }}}
+
+## Aliases {{{
+if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
+alias ll='ls -lAF'
+if type 'vim' > /dev/null 2>&1; then
+    alias vi='vim'
+fi
+if [ -d /Applications/MacVim.app ]; then
+    alias macvim='open -a /Applications/MacVim.app "$@"'
+fi
+alias grep='grep --color=auto'
+alias egrep='grep --color=auto'
+alias fgrep='grep --color=auto'
+
+# Load .bash_aliases if exists.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 # }}}
