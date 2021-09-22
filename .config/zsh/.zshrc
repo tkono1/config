@@ -117,7 +117,7 @@ export LESSHISTFILE=-
 
 # Let GPG to use pinentry TTY. 
 if (( $+commands[gpg] )); then
-    export GPG_TTY=$(tty)
+    export GPG_TTY=${TTY}
 fi
 ##}}
 
