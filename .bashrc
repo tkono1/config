@@ -2,9 +2,6 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-# Set GPG to use TTY.
-export GPG_TTY=$(tty)
-
 ## History settings {{{
 # Size of history.
 HISTSIZE=10000
@@ -22,6 +19,7 @@ IGNOREEOF=10
 # Ignore Ctrl+S.
 stty stop undef
 stty start undef
+# }}}
 
 # Set default editor.
 if type 'vim' > /dev/null 2>&1; then
@@ -30,6 +28,9 @@ else
     export EDITOR=vi
 fi
 # }}}
+
+# Set GPG to use TTY.
+export GPG_TTY=$(tty)
 
 ## Login prompt settings {{{
 # Set login prompt.
