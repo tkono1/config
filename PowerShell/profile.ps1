@@ -27,6 +27,7 @@ function prompt () {
 
     [string]$PromptUsername = ($env:USERNAME).ToLower()
     [string]$PromptComputername = ($env:COMPUTERNAME).ToLower()
+    [string]$isAdmin = '>'
 
     if (Get-Module -Name 'posh-git') {
         $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
@@ -34,12 +35,12 @@ function prompt () {
         $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = ${RgbPromptColor1}
         $GitPromptSettings.DefaultPromptPath.ForegroundColor = ${RgbPromptColor2}
         $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = ${RgbPromptColor1}
+        $GitPromptSettings.DefaultPromptSuffix.Text = "$($isAdmin * ($nestedPromptLevel + 1)) "
 
         & $GitPromptScriptBlock
     } else {
         [string]$PromptColor1 = 'Blue'
         [string]$PromptColor2 = 'DarkCyan'
-        [string]$isAdmin = '>'
 
         Write-Host ("[$($PromptUsername)@$($PromptComputername)):") -ForegroundColor $PromptColor1 -NoNewline
         Write-Host ((Get-Location).Path).Replace($HOME, '~') -ForegroundColor $PromptColor2 -NoNewline
