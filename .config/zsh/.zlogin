@@ -7,8 +7,11 @@ case ${OSTYPE} in
         ;;
     linux*)
     ## Start ssh-agent.
-        if (( $+commands[ssh-agent] )) && [ -z ${SSH_AGENT_PID} ] && egrep -q '\s*ForwardAgent\s+yes$' ${HOME}/.ssh/config; then
-            exec ssh-agent zsh
+        #if (( $+commands[ssh-agent] )) && [ -z ${SSH_AGENT_PID} ] && ls ${HOME}/.ssh | grep -q 'id_'; then
+        if (( $+commands[ssh-agent] )) && [ -z ${SSH_AGENT_PID} ]; then
+            if ls ${HOME}/.ssh | grep -q 'id_'; then
+                exec ssh-agent zsh
+            fi
         fi
         ;;
 esac
