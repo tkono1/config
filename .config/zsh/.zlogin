@@ -2,7 +2,9 @@ case ${OSTYPE} in
     darwin*)
     ## Import SSH keys from Keychain.
         if (( $+commands[/usr/bin/ssh-add] )); then
-            /usr/bin/ssh-add -A > /dev/null
+            if ls ${HOME}/.ssh | grep -q 'id_*'; then
+                /usr/bin/ssh-add -A > /dev/null
+            fi
         fi
         ;;
     linux*)
