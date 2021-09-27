@@ -1,7 +1,7 @@
 [user]
 	name = ${USER}
 	email = <email>
-	signingkey = <GPG key ID, gpg --list-secret-keys --keyid-format LONG>
+	signingkey = <signing key ID, gpg --list-secret-keys --keyid-format LONG>
 [color]
 	ui = auto
 [core]
