@@ -6,9 +6,9 @@ if is-at-least 4.3.10; then
     autoload -Uz add-zsh-hook
 
     zstyle ':vcs_info:*' enable git
-    zstyle ':vcs_info:*' formats "%F{034}%c%u%m[%b]%f"
-    zstyle ':vcs_info:*' actionformats '[%b|%a]%u%c%m'
     zstyle ':vcs_info:git:*' check-for-changes true
+    zstyle ':vcs_info:git:*' formats "%F{034}%u%c%m[%b]%f"
+    zstyle ':vcs_info:git:*' actionformats '[%b|%a]%u%c%m'
     zstyle ':vcs_info:git:*' unstagedstr "%F{088}+"
     zstyle ':vcs_info:git:*' stagedstr "%F{190}~"
     zstyle ':vcs_info:git+set-message:*' hooks git-untracked git-push-status
