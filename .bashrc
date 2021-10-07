@@ -32,6 +32,9 @@ fi
 # Set GPG to use TTY.
 export GPG_TTY=$(tty)
 
+# Disable .lesshst.
+export LESSHISTFILE=-
+
 ## Login prompt settings {{{
 # Set login prompt.
 PS1="\[\e[0;32m\][\u@\h\[\e[0;36m\]:\w\[\e[0;32m\]]\$ \[\e[0m\]"
