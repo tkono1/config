@@ -9,6 +9,9 @@ export LANG=en_US.UTF-8
 # Set auto completion.
 autoload -Uz compinit && compinit
 
+# Colorize completion items.
+zstyle ':completion:*' list-colors di=34 ln=35 ex=31
+
 # Highlight completion items.
 zstyle ':completion:*:default' menu select=2
 #setopt menu_complete
