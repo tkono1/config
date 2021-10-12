@@ -127,6 +127,7 @@ case ${OSTYPE} in
         alias ls='ls -G'
         ;;
     linux*)
+        LS_COLORS='di=01;94'
         alias ls='ls --color=auto'
         ;;
 esac
