@@ -1,11 +1,17 @@
-## ZSH configurations.
+#
+## Zsh configurations.
 ## You can check zsh options using "set -o" command.
+#
 
+#
 ## Language settings {{
+#
 export LANG=en_US.UTF-8
 ## }}
 
+#
 ## Completion {{
+#
 # Set auto completion.
 autoload -Uz compinit && compinit
 
@@ -39,7 +45,9 @@ setopt no_beep
 setopt nolistbeep
 ## }}
 
+#
 ## Input/Output {{
+#
 # Try to correct the spelling of commands.
 setopt correct
 
@@ -47,12 +55,16 @@ setopt correct
 setopt ignore_eof
 ## }}
 
+#
 ## Keybindings {{
+#
 # Set emacs-like keybinding.
 bindkey -e
 ## }}
 
+#
 ## History {{
+#
 # Location of history file.
 HISTFILE=${ZDOTDIR}/.zsh_history
 
@@ -80,7 +92,9 @@ setopt hist_ignore_space
 setopt hist_reduce_blanks
 ## }}
 
+#
 ## Git prompt settings {{
+#
 if (( $+commands[git] )) && [ ! -z ${^fpath}/git-prompt.zsh(N) ]; then
     autoload -Uz git-prompt.zsh && git-prompt.zsh
 
@@ -108,13 +122,17 @@ if (( $+commands[git] )) && [ ! -z ${^fpath}/git-prompt.zsh(N) ]; then
 fi
 ## }}
 
+#
 ## Prompt settings {{
+#
 PROMPT="%F{034}[%n@%m%F{blue}:%~%F{034}]%#%k%f "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
+#
 ## Comand specific settings {{
+#
 # Disable less history
 export LESSHISTFILE=-
 
@@ -124,7 +142,9 @@ if (( $+commands[gpg] )); then
 fi
 ##}}
 
+#
 ## Aliases {{
+#
 case ${OSTYPE} in
     darwin*)
         alias ls='ls -G'

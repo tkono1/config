@@ -1,4 +1,6 @@
-## Set XDG dirs {{
+#
+## Set XDG base directories {{
+#
 if [ ! -d ${HOME}/.config ]; then
     mkdir ${HOME}/.config
 fi
@@ -11,7 +13,9 @@ if [ -d ${HOME}/.config ]; then
 fi
 ## }}
 
+#
 ## Zsh settings. {{
+#
 if [ ! -d ${XDG_CONFIG_HOME}/zsh ]; then
     mkdir ${XDG_CONFIG_HOME}/zsh
 fi
