@@ -131,7 +131,7 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
 #
-## Comand specific settings {{
+## Command specific settings {{
 #
 # Disable less history
 export LESSHISTFILE=-
