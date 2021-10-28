@@ -1,9 +1,9 @@
 case ${OSTYPE} in
     darwin*)
-    ## Import SSH keys from Keychain.
+    ## Load SSH keys from Keychain.
         if (( $+commands[/usr/bin/ssh-add] )); then
             if ls ${HOME}/.ssh | grep -q 'id_*'; then
-                /usr/bin/ssh-add --apple-load-keychain > /dev/null
+                /usr/bin/ssh-add --apple-load-keychain
             fi
         fi
         ;;
