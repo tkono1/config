@@ -1,7 +1,9 @@
-## Each hosts settings ##
+#
+## PowerShell settings ##
+#
 # How to install "posh-git" #
-#Install-Module -Name posh-git -Scope CurrentUser -Force
-<#https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt#>
+# Install-Module -Name posh-git -Scope CurrentUser -Force
+# https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 
 if ($host.Name -eq 'ConsoleHost') {
     if (Get-Module -ListAvailable -Name 'PSReadLine') {
@@ -19,7 +21,9 @@ if ($host.Name -eq 'ConsoleHost') {
     }
 }
 
+#
 ## Defining functions ##
+#
 
 function prompt () {
     [string]$RgbPromptColor1 = '0x00BFFF' # DeepSkyBlue
@@ -58,7 +62,7 @@ function which {
     )
     begin {}
     Process {
-        (Get-Command -ErrorAction SilentlyContinue -Name $CommandName).Definition
+        (Get-Command -ErrorAction SilentlyContinue -Name ${CommandName}).Definition
     }
     end {}
 }
