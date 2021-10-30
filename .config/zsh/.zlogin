@@ -1,6 +1,6 @@
 case ${OSTYPE} in
     darwin*)
-    ## Load SSH keys from Keychain.
+        ## Load SSH keys from Keychain.
         if (( $+commands[/usr/bin/ssh-add] )); then
             if ls ${HOME}/.ssh | grep -q 'id_*'; then
                 /usr/bin/ssh-add --apple-load-keychain
@@ -8,7 +8,7 @@ case ${OSTYPE} in
         fi
         ;;
     linux*)
-    ## Start ssh-agent.
+        ## Start ssh-agent.
         if (( $+commands[ssh-agent] )) && [ -z ${SSH_AUTH_SOCK} ]; then
             if ls ${HOME}/.ssh | grep -q 'id_*'; then
                 exec ssh-agent zsh
