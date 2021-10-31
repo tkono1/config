@@ -163,7 +163,7 @@ fi
 if (( $+commands[screen] )) && [ -d ${XDG_CONFIG_HOME}/screen ]; then
     export SCREENRC=${XDG_CONFIG_HOME}/screen/screenrc
 fi
-if (( $+commands[tmux] )) && [ -d ${XDG_CONFIG_HOME}/tmux]; then
+if (( $+commands[tmux] )) && [ -d ${XDG_CONFIG_HOME}/tmux ]; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
 fi
