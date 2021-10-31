@@ -160,10 +160,10 @@ if (( $+commands[nvim] )); then
 elif (( $+commands[vim] )); then
     alias vi='vim'
 fi
-if (( $+commands[screen] )); then
+if (( $+commands[screen] )) && [ -d ${XDG_CONFIG_HOME}/screen ]; then
     export SCREENRC=${XDG_CONFIG_HOME}/screen/screenrc
 fi
-if (( $+commands[tmux] )); then
+if (( $+commands[tmux] )) && [ -d ${XDG_CONFIG_HOME}/tmux]; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
 fi
