@@ -95,7 +95,7 @@ setopt hist_reduce_blanks
 #
 ## Git prompt settings {{
 #
-if (( $+commands[git] )) && [ ! -z ${^fpath}/git-prompt.zsh(N) ]; then
+if (( $+commands[git] )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     autoload -Uz git-prompt.zsh && git-prompt.zsh
 
     ZSH_GIT_PROMPT_FORCE_BLANK=1
