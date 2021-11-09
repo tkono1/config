@@ -25,8 +25,10 @@ if ($host.Name -eq 'ConsoleHost') {
 ## Formatting ##
 #
 
-$PSStyle.Formatting.TableHeader = $PSStyle.Bold + $PSStyle.Italic + "`e[32;1m"
-$PSStyle.Formatting.FormatAccent = $PSStyle.Bold + $PSStyle.Italic + "`e[32;1m"
+if ($PSVersionTable.PSVersion.Major -ge 7 -and $PSVersionTable.PSVersion.Minor -ge 2) {
+    $PSStyle.Formatting.TableHeader = $PSStyle.Bold + $PSStyle.Italic + "`e[32;1m"
+    $PSStyle.Formatting.FormatAccent = $PSStyle.Bold + $PSStyle.Italic + "`e[32;1m"
+}
 
 #
 ## Defining functions ##
