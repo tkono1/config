@@ -133,7 +133,7 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 #
 ## Command specific settings {{
 #
-# Disable less history
+# Disable less history.
 export LESSHISTFILE=-
 
 # Let GPG to use pinentry TTY. 
