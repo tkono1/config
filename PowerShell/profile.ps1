@@ -55,7 +55,7 @@ function prompt () {
         [string]$PromptColor1 = 'Blue'
         [string]$PromptColor2 = 'DarkCyan'
 
-        Write-Host ("[$($PromptUsername)@$($PromptComputername)):") -ForegroundColor $PromptColor1 -NoNewline
+        Write-Host ("[$($PromptUsername)@$($PromptComputername):") -ForegroundColor $PromptColor1 -NoNewline
         Write-Host ((Get-Location).Path).Replace($HOME, '~') -ForegroundColor $PromptColor2 -NoNewline
         Write-Host ("]" + $isAdmin) -ForegroundColor $PromptColor1 -NoNewline
         Return " "
