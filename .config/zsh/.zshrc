@@ -136,6 +136,9 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 # Disable less history.
 export LESSHISTFILE=-
 
+# Set 24-bit color.
+export COLORTERM='truecolor'
+
 # Let GPG to use pinentry TTY. 
 if (( $+commands[gpg] )); then
     export GPG_TTY=${TTY}
