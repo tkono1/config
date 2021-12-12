@@ -137,7 +137,9 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 export LESSHISTFILE=-
 
 # Set 24-bit color.
-export COLORTERM='truecolor'
+if [ ${TERM_PROGRAM} != "Apple_Terminal" ]; then
+    export COLORTERM='truecolor'
+fi
 
 # Let GPG to use pinentry TTY. 
 if (( $+commands[gpg] )); then
