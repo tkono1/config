@@ -95,7 +95,7 @@ setopt hist_reduce_blanks
 #
 ## Git prompt settings {{
 #
-if (( $+commands[git] )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
+if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     autoload -Uz git-prompt.zsh && git-prompt.zsh
 
     ZSH_GIT_PROMPT_FORCE_BLANK=1
@@ -142,7 +142,7 @@ if [ -z ${TERM_PROGRAM} ] || [ ${TERM_PROGRAM} != "Apple_Terminal" ]; then
 fi
 
 # Let GPG to use pinentry TTY. 
-if (( $+commands[gpg] )); then
+if (( ${+commands[gpg]} )); then
     export GPG_TTY=${TTY}
 fi
 ##}}
@@ -160,15 +160,15 @@ case ${OSTYPE} in
         ;;
 esac
 alias ll='ls -lAF'
-if (( $+commands[nvim] )); then
+if (( ${+commands[nvim]} )); then
     alias vi='nvim'
-elif (( $+commands[vim] )); then
+elif (( ${+commands[vim]} )); then
     alias vi='vim'
 fi
-if (( $+commands[screen] )) && [ -d ${XDG_CONFIG_HOME}/screen ]; then
+if (( ${+commands[screen]} )) && [ -d ${XDG_CONFIG_HOME}/screen ]; then
     export SCREENRC=${XDG_CONFIG_HOME}/screen/screenrc
 fi
-if (( $+commands[tmux] )) && [ -d ${XDG_CONFIG_HOME}/tmux ]; then
+if (( ${+commands[tmux]} )) && [ -d ${XDG_CONFIG_HOME}/tmux ]; then
     alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     export TMUX_TMPDIR=/tmp
 fi
