@@ -84,6 +84,9 @@ autocmd FileType * set formatoptions-=o
 " Show line number.
 set number
 
+" Highlight cursor line.
+set cursorline
+
 " Show the line and column number of the cursor psition.
 set ruler
 
@@ -108,9 +111,15 @@ set showmode
 " Set background scheme. Set this option before syntax highlighting.
 set background=dark
 
+" Nord scheme options.
+if has('win32') || has('win64') || has('linux')
+    let g:nord_italic = 1
+    let g:nord_italic_comments =1
+endif
+
 " Set color scheme.
-"colorscheme eighties
-colorscheme monokai
+"colorscheme monokai
+colorscheme nord
 "colorscheme solarized8_high
 "" }}}
 
