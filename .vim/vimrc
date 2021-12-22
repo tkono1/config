@@ -46,7 +46,7 @@ if has('termguicolors') && $COLORTERM == 'truecolor'
 endif
 "" }}}
 
-"" Workaround to enable italic support since terminfo doesn't define the sitm capability {{{
+"" Enable italic support since terminfo doesn't define the sitm {{{
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 "" }}}
@@ -90,7 +90,7 @@ autocmd FileType * set formatoptions-=o
 set number
 
 " Highlight cursor line.
-set cursorline
+"set cursorline
 
 " Show the line and column number of the cursor psition.
 set ruler
@@ -123,7 +123,6 @@ let g:nord_italic_comments =1
 " Set color scheme.
 "colorscheme monokai
 colorscheme nord
-"colorscheme solarized8_high
 "" }}}
 
 "" Syntax settings {{{
