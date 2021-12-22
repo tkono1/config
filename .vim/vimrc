@@ -46,6 +46,11 @@ if has('termguicolors') && $COLORTERM == 'truecolor'
 endif
 "" }}}
 
+"" Workaround to enable italic support since terminfo doesn't define the sitm capability {{{
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+"" }}}
+
 " Disable visual bells.
 set noerrorbells
 set novisualbell
@@ -112,10 +117,8 @@ set showmode
 set background=dark
 
 " Nord scheme options.
-if has('win32') || has('win64') || has('linux')
-    let g:nord_italic = 1
-    let g:nord_italic_comments =1
-endif
+let g:nord_italic = 1
+let g:nord_italic_comments =1
 
 " Set color scheme.
 "colorscheme monokai
