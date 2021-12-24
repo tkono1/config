@@ -38,7 +38,16 @@ set ambiwidth=double
 "" Terminal color settings {{{
 if has('termguicolors') && $COLORTERM == 'truecolor'
     set termguicolors
+    if &term =~# '^screen'
+        let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+        let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    endif
 endif
+"" }}}
+
+"" Enable italic support since terminfo doesn't define the sitm {{{
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 "" }}}
 
 " Disable visual bells.
@@ -79,6 +88,9 @@ autocmd FileType * set formatoptions-=o
 " Show line number.
 set number
 
+" Highlight cursor line.
+"set cursorline
+
 " Show the line and column number of the cursor psition.
 set ruler
 
@@ -97,6 +109,42 @@ set showmode
 " Show tabs as Ctrl-I.
 "set list
 "set listchars=tab:^\ ,trail:~
+"" }}}
+
+"" Color scheme settings {{{
+" Set background scheme. Set this option before syntax highlighting.
+set background=dark
+
+" Nord scheme options.
+let g:nord_italic = 1 
+let g:nord_italic_comments =1
+
+" Set color scheme.
+"colorscheme monokai
+colorscheme nord
+"" }}}
+
+"" Syntax settings {{{
+" Enable syntax highlighting.
+syntax enable
+
+" If you want to overrule your syntax, use below instead.
+syntax on
+
+" Enable file type detection.
+filetype on
+"" }}}
+
+"" Clipboard settings {{{
+" Share clipboard with OS.
+if has('clipboard')
+    set clipboard=unnamed
+endif
+"" }}}
+
+"" Split window {{{
+" Keep all windows size as same when add/remove.
+set equalalways
 "" }}}
 
 "" Statusline settings {{{
@@ -132,31 +180,4 @@ set statusline+=%y
 
 " Line number and column number.
 set statusline+=[%l/%LL]
-"" }}}
-
-"" Syntax settings {{{
-" Set background scheme. Set this option before syntax highlighting.
-set background=dark
-
-" Enable syntax highlighting.
-syntax enable
-
-" If you want to overrule your syntax, use below instead.
-syntax on
-
-" Enable file type detection.
-filetype on
-
-" Color settings.
-"colorscheme eighties
-colorscheme monokai
-"colorscheme gruvbox
-"colorscheme solarized8_high
-"" }}}
-
-set clipboard+=unnamedplus
-
-"" Split window {{{
-" Keep all windows size as same when add/remove.
-set equalalways
 "" }}}
