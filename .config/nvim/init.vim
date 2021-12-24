@@ -50,6 +50,11 @@ let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 "" }}}
 
+"" Set python location {{{
+let g:python_host_prog=system('echo -n $(which python)')
+let g:python3_host_prog=system('echo -n $(which python3)')
+"" }}}
+
 " Disable visual bells.
 set noerrorbells
 set novisualbell
@@ -116,8 +121,8 @@ set showmode
 set background=dark
 
 " Nord scheme options.
-let g:nord_italic = 1 
-let g:nord_italic_comments =1
+let g:nord_italic=1 
+let g:nord_italic_comments=1
 
 " Set color scheme.
 "colorscheme monokai
