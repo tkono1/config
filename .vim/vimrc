@@ -117,8 +117,8 @@ set showmode
 set background=dark
 
 " Nord scheme options.
-let g:nord_italic = 1
-let g:nord_italic_comments =1
+let g:nord_italic=1
+let g:nord_italic_comments=1
 
 " Set color scheme.
 "colorscheme monokai
