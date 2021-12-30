@@ -139,7 +139,7 @@ filetype on
 "" Clipboard settings {{{
 " Share clipboard with OS.
 if has('clipboard')
-    set clipboard=unnamed
+    set clipboard+=unnamed
 endif
 "" }}}
 
