@@ -142,9 +142,7 @@ filetype on
 
 "" Clipboard settings {{{
 " Share clipboard with OS.
-if has('clipboard')
-    set clipboard=unnamed
-endif
+    set clipboard+=unnamedplus
 "" }}}
 
 "" Split window {{{
