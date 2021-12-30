@@ -36,7 +36,7 @@ endif
 set ambiwidth=double
 "" }}}
 
-"" Terminal color settings {{{
+"" 24-bit color settings {{{
 if has('termguicolors') && $COLORTERM == 'truecolor'
     set termguicolors
     if &term =~# '^screen' || &term =~# '^tmux'
