@@ -137,7 +137,7 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 export LESSHISTFILE=-
 
 # Set 24-bit color.
-if [ -z ${TERM_PROGRAM} ] || [ ${TERM_PROGRAM} != "Apple_Terminal" ]; then
+if [[ ${TERM_PROGRAM} != "Apple_Terminal" ]]; then
     export COLORTERM='truecolor'
 fi
 
