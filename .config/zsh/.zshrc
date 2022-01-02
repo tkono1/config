@@ -125,7 +125,7 @@ fi
 #
 ## Prompt settings {{
 #
-PROMPT="%F{034}[%n@%m%F{blue}:%~%F{034}]%#%k%f "
+PROMPT="%F{034}[%n@%m%F{004}:%~%F{034}]%#%k%f "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
