@@ -125,9 +125,9 @@ fi
 #
 ## Prompt settings {{
 #
-PROMPT="%F{034}[%n@%m%F{004}:%~%F{034}]%#%k%f "
-PROMPT2="%F{034}[%_]%#%k%f "
-SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
+PROMPT="%F{028}[%n@%m%F{004}:%~%F{028}]%#%k%f "
+PROMPT2="%F{028}[%_]%#%k%f "
+SPROMPT="%F{028}%r is correct? [n,y,a,e]:%k%f "
 ## }}
 
 #
