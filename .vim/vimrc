@@ -1,4 +1,4 @@
-"" General settings {{
+" General settings {{
 set nocompatible
 set backspace=start,eol,indent
 set whichwrap=b,s
@@ -117,9 +117,10 @@ set showmode
 set background=dark
 
 " Nord scheme options.
+let g:nord_cursor_line_number_background=1
 let g:nord_italic=1
 let g:nord_italic_comments=1
-let g:nord_cursor_line_number_background=1
+let g:nord_underline=1
 
 " Set color scheme.
 "colorscheme monokai
