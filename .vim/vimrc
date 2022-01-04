@@ -39,6 +39,7 @@ set ambiwidth=double
 "" 24-bit color settings {{
 if has('termguicolors') && $COLORTERM == 'truecolor'
     set termguicolors
+    set cursorline
     if &term =~# '^screen' || &term =~# '^tmux'
         let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -88,9 +89,6 @@ autocmd FileType * set formatoptions-=o
 "" Display settings {{
 " Show line number.
 set number
-
-" Highlight cursor line.
-"set cursorline
 
 " Show the line and column number of the cursor psition.
 set ruler
