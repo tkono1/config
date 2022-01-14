@@ -1,3 +1,3 @@
 # config
 
-These are dot files for vim, bash and screen.
+These are dot files like vim, zsh and tmux.
