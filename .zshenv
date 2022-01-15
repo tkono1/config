@@ -21,7 +21,6 @@ fi
 if [[ -d ${HOME}/.local/share ]]; then
     export XDG_DATA_HOME=${HOME}/.local/share
 fi
-#export XDG_RUNTIME_DIR=
 ## }}
 
 #
