@@ -163,8 +163,10 @@ if (( ${+commands[nvim]} )); then
 elif (( ${+commands[vim]} )); then
     alias vi='vim'
 fi
-if (( ${+commands[tmux]} )) && [[ -d ${XDG_CONFIG_HOME}/tmux ]]; then
-    alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+if (( ${+commands[tmux]} )); then
+    if [[ -d ${XDG_CONFIG_HOME}/tmux ]]; then
+        alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+    fi
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
