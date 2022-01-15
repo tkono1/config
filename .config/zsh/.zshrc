@@ -142,9 +142,7 @@ if [[ ${TERM_PROGRAM} != "Apple_Terminal" ]]; then
 fi
 
 # Let GPG to use pinentry TTY. 
-if (( ${+commands[gpg]} )); then
-    export GPG_TTY=${TTY}
-fi
+(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
 ##}}
 
 #
