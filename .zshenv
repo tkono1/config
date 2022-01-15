@@ -2,7 +2,7 @@
 ## XDG base directories {{
 #
 # Prepare XDG base directories.
-[[ ! -d ${HOME}/.config ]]&& mkdir ${HOME}/.config
+[[ ! -d ${HOME}/.config ]] && mkdir ${HOME}/.config
 [[ ! -d ${HOME}/.local/share ]] && mkdir -p ${HOME}/.local/share
 
 # export XDG base directories.
