@@ -1,17 +1,15 @@
 #
-## Create XDG base directories {{
+## XDG base directories {{
 #
+# Prepare XDG base directories.
 if [[ ! -d ${HOME}/.config ]]; then
     mkdir ${HOME}/.config
 fi
 if [[ ! -d ${HOME}/.local/share ]]; then
     mkdir -p ${HOME}/.local/share
 fi
-## }}
 
-#
-## Set XDG base directories {{
-#
+# export XDG base directories.
 if [[ -d ${HOME}/.config ]]; then
     export XDG_CONFIG_HOME=${HOME}/.config
 fi
@@ -26,16 +24,23 @@ fi
 #
 ## Zsh settings {{
 #
+# Prepare and export ZDOTDIR.
 if [[ ! -d ${XDG_CONFIG_HOME}/zsh ]]; then
     mkdir ${XDG_CONFIG_HOME}/zsh
 fi
+if [[ -d ${XDG_CONFIG_HOME}/zsh ]]; then
+    export ZDOTDIR=${XDG_CONFIG_HOME}/zsh
+fi
 
-export ZDOTDIR=${XDG_CONFIG_HOME}/zsh
-
+# Prepare and ddd user's FPATH.
+if [[ ! -d ${ZDOTDIR}/functions ]]; then
+    mkdir ${ZDOTDIR}/functions
+fi
 if [[ -d ${ZDOTDIR}/functions ]]; then
     export FPATH="${ZDOTDIR}/functions:$FPATH"
 fi
 
+# Set core dump size to 0.
 limit coredumpsize 0
 ## }}
 
