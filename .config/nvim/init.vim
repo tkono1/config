@@ -72,15 +72,15 @@ set wildmenu wildmode=list:full
 "" }}
 
 "" Tab settings {{
-" Tab width of file
+" Tab width of file.
 set tabstop=4
 set softtabstop=4
 
-" Width of indent
+" Width of indent.
 set shiftwidth=4
 set shiftround
 
-" Insert spaces instead of tab
+" Insert spaces instead of tab.
 set expandtab
 "set autoindent
 "set smartindent
