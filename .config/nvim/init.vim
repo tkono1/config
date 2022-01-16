@@ -4,14 +4,18 @@ set backspace=start,eol,indent
 set whichwrap=b,s
 set mouse=
 
-"" Language settings {{
+" Set python location.
+let g:python_host_prog=system('echo -n $(which python)')
+let g:python3_host_prog=system('echo -n $(which python3)')
+"" }}
+
+"" Language and encoding settings {{
+" Set language to UTF-8.
 if has('multi_lang')
     set langmenu=en_US.UTF-8
     let $LANG="en"
 endif
-"" }}
 
-"" Encoding settings {{
 " Set the character encoding used inside vim.
 set encoding=utf-8
 
@@ -35,7 +39,8 @@ endif
 set ambiwidth=double
 "" }}
 
-"" 24-bit color settings {{
+"" Color scheme settings {{
+" 24-bit color settings.
 if has('termguicolors') && $COLORTERM == 'truecolor'
     set termguicolors
     set cursorline
@@ -46,20 +51,18 @@ if has('termguicolors') && $COLORTERM == 'truecolor'
 endif
 "" }}
 
-"" Enable italic support since terminfo doesn't define the sitm {{
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
-"" }}
+" Set background scheme. Set this option before syntax highlighting.
+set background=dark
 
-"" Set python location {{
-let g:python_host_prog=system('echo -n $(which python)')
-let g:python3_host_prog=system('echo -n $(which python3)')
-"" }}
+" Nord scheme options.
+let g:nord_cursor_line_number_background=1
+let g:nord_italic=1 
+let g:nord_italic_comments=1
+let g:nord_underline=1
 
-" Disable visual bells.
-set noerrorbells
-set novisualbell
-set visualbell t_vb=
+" Set color scheme.
+"colorscheme monokai
+colorscheme nord
 "" }}
 
 "" Search settings {{
@@ -84,13 +87,25 @@ set shiftround
 set expandtab
 "set autoindent
 "set smartindent
+"" }}
 
+"" Edit settings {{
 " Disable insert comment automatically.
 autocmd FileType * set formatoptions-=r
 autocmd FileType * set formatoptions-=o
+
+" Share clipboard with OS.
+set clipboard+=unnamedplus
+
+" Keep all windows size as same when add/remove.
+set equalalways
 "" }}
 
 "" Display settings {{
+" Enable italic support since terminfo doesn't define the sitm.
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 " Show line number.
 set number
 
@@ -112,21 +127,11 @@ set showmode
 " Show tabs as Ctrl-I.
 "set list
 "set listchars=tab:^\ ,trail:~
-"" }}
 
-"" Color scheme settings {{
-" Set background scheme. Set this option before syntax highlighting.
-set background=dark
-
-" Nord scheme options.
-let g:nord_cursor_line_number_background=1
-let g:nord_italic=1 
-let g:nord_italic_comments=1
-let g:nord_underline=1
-
-" Set color scheme.
-"colorscheme monokai
-colorscheme nord
+" Disable visual bells.
+set noerrorbells
+set novisualbell
+set visualbell t_vb=
 "" }}
 
 "" Syntax settings {{
@@ -138,16 +143,6 @@ syntax on
 
 " Enable file type detection.
 filetype on
-"" }}
-
-"" Clipboard settings {{
-" Share clipboard with OS.
-    set clipboard+=unnamedplus
-"" }}
-
-"" Split window {{
-" Keep all windows size as same when add/remove.
-set equalalways
 "" }}
 
 "" Statusline settings {{
