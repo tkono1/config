@@ -1,14 +1,14 @@
 #
 ## XDG base directories {{
 #
-# Prepare XDG base directories.
+# Prepare and export XDG base directories.
 [[ ! -d ${HOME}/.config ]] && mkdir ${HOME}/.config
-[[ ! -d ${HOME}/.local/share ]] && mkdir -p ${HOME}/.local/share
-[[ ! -d ${HOME}/.cache/ ]] && mkdir ${HOME}/.cache
-
-# export XDG base directories.
 [[ -d ${HOME}/.config ]] && export XDG_CONFIG_HOME=${HOME}/.config
+
+[[ ! -d ${HOME}/.local/share ]] && mkdir -p ${HOME}/.local/share
 [[ -d ${HOME}/.local/share ]] && export XDG_DATA_HOME=${HOME}/.local/share
+
+[[ ! -d ${HOME}/.cache/ ]] && mkdir ${HOME}/.cache
 [[ -d ${HOME}/.cache/ ]] && export XDG_CACHE_HOME=${HOME}/.cache
 ## }}
 
