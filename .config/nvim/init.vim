@@ -38,6 +38,7 @@ set ambiwidth=double
 "" Terminal color settings {{{
 if has('termguicolors') && $COLORTERM == 'truecolor'
     set termguicolors
+    set cursorline
     if &term =~# '^screen'
         let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -93,9 +94,6 @@ autocmd FileType * set formatoptions-=o
 " Show line number.
 set number
 
-" Highlight cursor line.
-"set cursorline
-
 " Show the line and column number of the cursor psition.
 set ruler
 
@@ -121,8 +119,10 @@ set showmode
 set background=dark
 
 " Nord scheme options.
+let g:nord_cursor_line_number_background=1
 let g:nord_italic=1 
 let g:nord_italic_comments=1
+let g:nord_underline=1
 
 " Set color scheme.
 "colorscheme monokai
