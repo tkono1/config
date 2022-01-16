@@ -1,17 +1,17 @@
-"" General settings {{{
+"" General settings {{
 set nocompatible
 set backspace=start,eol,indent
 set whichwrap=b,s
 set mouse=
 
-"" Language settings {{{
+"" Language settings {{
 if has('multi_lang')
     set langmenu=en_US.UTF-8
     let $LANG="en"
 endif
-"" }}}
+"" }}
 
-"" Encoding settings {{{
+"" Encoding settings {{
 " Set the character encoding used inside vim.
 set encoding=utf-8
 
@@ -33,45 +33,45 @@ endif
 
 " Treat East Asian Width class as ambiguous.
 set ambiwidth=double
-"" }}}
+"" }}
 
-"" Terminal color settings {{{
+"" 24-bit color settings {{
 if has('termguicolors') && $COLORTERM == 'truecolor'
     set termguicolors
     set cursorline
-    if &term =~# '^screen'
+    if &term =~# '^screen' || &term =~# '^tmux'
         let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
         let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
     endif
 endif
-"" }}}
+"" }}
 
-"" Enable italic support since terminfo doesn't define the sitm {{{
+"" Enable italic support since terminfo doesn't define the sitm {{
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
-"" }}}
+"" }}
 
-"" Set python location {{{
+"" Set python location {{
 let g:python_host_prog=system('echo -n $(which python)')
 let g:python3_host_prog=system('echo -n $(which python3)')
-"" }}}
+"" }}
 
 " Disable visual bells.
 set noerrorbells
 set novisualbell
 set visualbell t_vb=
-"" }}}
+"" }}
 
-"" Search settings {{{
+"" Search settings {{
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 set wrapscan
 set wildmenu wildmode=list:full
-"" }}}
+"" }}
 
-"" Tab settings {{{
+"" Tab settings {{
 " Tab width of file
 set tabstop=4
 set softtabstop=4
@@ -88,9 +88,9 @@ set expandtab
 " Disable insert comment automatically.
 autocmd FileType * set formatoptions-=r
 autocmd FileType * set formatoptions-=o
-"" }}}
+"" }}
 
-"" Display settings {{{
+"" Display settings {{
 " Show line number.
 set number
 
@@ -112,9 +112,9 @@ set showmode
 " Show tabs as Ctrl-I.
 "set list
 "set listchars=tab:^\ ,trail:~
-"" }}}
+"" }}
 
-"" Color scheme settings {{{
+"" Color scheme settings {{
 " Set background scheme. Set this option before syntax highlighting.
 set background=dark
 
@@ -127,9 +127,9 @@ let g:nord_underline=1
 " Set color scheme.
 "colorscheme monokai
 colorscheme nord
-"" }}}
+"" }}
 
-"" Syntax settings {{{
+"" Syntax settings {{
 " Enable syntax highlighting.
 syntax enable
 
@@ -138,19 +138,19 @@ syntax on
 
 " Enable file type detection.
 filetype on
-"" }}}
+"" }}
 
-"" Clipboard settings {{{
+"" Clipboard settings {{
 " Share clipboard with OS.
     set clipboard+=unnamedplus
-"" }}}
+"" }}
 
-"" Split window {{{
+"" Split window {{
 " Keep all windows size as same when add/remove.
 set equalalways
-"" }}}
+"" }}
 
-"" Statusline settings {{{
+"" Statusline settings {{
 " Always shows status line.
 set laststatus=2
 
@@ -183,4 +183,4 @@ set statusline+=%y
 
 " Line number and column number.
 set statusline+=[%l/%LL]
-"" }}}
+"" }}
