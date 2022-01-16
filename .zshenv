@@ -8,6 +8,7 @@
 [[ ! -d ${HOME}/.local/share ]] && mkdir -p ${HOME}/.local/share
 [[ -d ${HOME}/.local/share ]] && export XDG_DATA_HOME=${HOME}/.local/share
 
+[[ ! -d ${HOME}/.local/state ]] && mkdir -p ${HOME}/.local/state
 [[ -d ${HOME}/.local/state ]] && export XDG_STATE_HOME=${HOME}/.local/state
 
 [[ ! -d ${HOME}/.cache/ ]] && mkdir ${HOME}/.cache
