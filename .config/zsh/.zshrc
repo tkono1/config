@@ -167,6 +167,7 @@ if (( ${+commands[tmux]} )); then
     if [[ -d ${XDG_CONFIG_HOME}/tmux ]]; then
         alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     fi
+    [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
