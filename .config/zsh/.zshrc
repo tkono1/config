@@ -10,6 +10,15 @@ export LANG=en_US.UTF-8
 ## }}
 
 #
+## Color settings {{
+#
+# Set 24-bit color.
+if [[ ${TERM_PROGRAM} != "Apple_Terminal" ]]; then
+    export COLORTERM='truecolor'
+fi
+## }}
+
+#
 ## Completion {{
 #
 # Set auto completion.
@@ -52,11 +61,7 @@ setopt correct
 
 # Do not exit on end-of-file.
 setopt ignore_eof
-## }}
 
-#
-## Keybindings {{
-#
 # Set emacs-like keybinding.
 bindkey -e
 ## }}
@@ -134,11 +139,6 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 #
 # Disable less history.
 export LESSHISTFILE=-
-
-# Set 24-bit color.
-if [[ ${TERM_PROGRAM} != "Apple_Terminal" ]]; then
-    export COLORTERM='truecolor'
-fi
 
 # Let GPG to use pinentry TTY. 
 (( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
