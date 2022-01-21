@@ -86,9 +86,7 @@ set expandtab
 
 "" Edit settings {{
 " Disable insert comment automatically.
-autocmd FileType * set formatoptions-=c
-autocmd FileType * set formatoptions-=r
-autocmd FileType * set formatoptions-=o
+autocmd FileType * set formatoptions-=cro
 
 " Share clipboard with OS.
 if has('clipboard')
