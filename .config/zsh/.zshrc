@@ -13,7 +13,7 @@ export LANG=en_US.UTF-8
 ## Color settings {{
 #
 # Set 24-bit color.
-if [[ ${TERM_PROGRAM} != "Apple_Terminal" ]]; then
+if [[ -z ${WSLENV} ]]; then
     export COLORTERM='truecolor'
 fi
 ## }}
@@ -159,6 +159,7 @@ esac
 alias ll='ls -lAF'
 if (( ${+commands[nvim]} )); then
     alias vi='nvim'
+    alias vim='nvim'
 elif (( ${+commands[vim]} )); then
     alias vi='vim'
 fi
