@@ -89,7 +89,7 @@ set expandtab
 
 "" Edit settings {{
 " Disable insert comment automatically.
-"set paste
+autocmd FileType * set formatoptions-=cro
 
 " Share clipboard with OS.
 set clipboard+=unnamedplus
