@@ -13,7 +13,7 @@ export LANG=en_US.UTF-8
 ## Color settings {{
 #
 # Set 24-bit color.
-if [[ -n ${WSLENV} ]]; then
+if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
     export COLORTERM='truecolor'
 fi
 ## }}
