@@ -85,14 +85,11 @@ set shiftround
 
 " Insert spaces instead of tab.
 set expandtab
-"set autoindent
-"set smartindent
 "" }}
 
 "" Edit settings {{
 " Disable insert comment automatically.
-autocmd FileType * set formatoptions-=r
-autocmd FileType * set formatoptions-=o
+set paste
 
 " Share clipboard with OS.
 set clipboard+=unnamedplus
