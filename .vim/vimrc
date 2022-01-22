@@ -3,6 +3,7 @@ set nocompatible
 set backspace=start,eol,indent
 set whichwrap=b,s
 set mouse=
+set noswapfile
 set viminfo+=n$HOME/.vim/viminfo
 "" }}
 
@@ -72,16 +73,20 @@ set wildmenu wildmode=list:full
 "" }}
 
 "" Tab settings {{
-" Tab width of file.
-set tabstop=4
-set softtabstop=4
-
-" Width of indent.
-set shiftwidth=4
-set shiftround
-
 " Insert spaces instead of tab.
 set expandtab
+
+" Tab width.
+set tabstop=4
+
+" Set how many spaces are entered when press tab key.
+set softtabstop=4
+
+" Width of indent when insert mode.
+set shiftwidth=4
+
+" Round indent to multiple of shiftwidth.
+set shiftround
 
 " Disable auto indent.
 set noautoindent
