@@ -128,10 +128,6 @@ set showcmd
 " Show current mode.
 set showmode
 
-" Show tabs as Ctrl-I.
-"set list
-"set listchars=tab:^\ ,trail:~
-
 " Disable visual bells.
 set noerrorbells
 set novisualbell
