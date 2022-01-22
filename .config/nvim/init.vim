@@ -85,6 +85,9 @@ set shiftround
 
 " Insert spaces instead of tab.
 set expandtab
+
+" Disable auto indent.
+set noautoindent
 "" }}
 
 "" Edit settings {{
