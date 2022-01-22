@@ -90,6 +90,7 @@ set shiftround
 
 " Disable auto indent.
 set noautoindent
+set nosmartindent
 "" }}
 
 "" Edit settings {{
