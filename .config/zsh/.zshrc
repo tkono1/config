@@ -33,12 +33,23 @@ zstyle ':completion:*:default' menu select=2
 # Try to make the completion list smaller.
 setopt list_packed
 
-# If a parameter is completed whose content is the name
-# of a directory, then add a trailing slash instead of a space.
+# Add a trailing slash to name of a directory instead of a space.
 setopt auto_param_slash
+
+# Remove trailing spaces after completion if needed.
+setopt auto_param_keys
+
+# Show the type of each file with a trailing identifying mark.
+setopt list_types
+
+# Automatically use menu completion after the cecond consecutive rquest.
+setopt auto_menu
 
 # Files beginning with a . be matched without explicitly specifying the dot.
 setopt globdots
+
+# The cursor stays there and completion is done from both ends.
+setopt complete_in_word
 
 # Print eight bit characters literally in completion lists.
 setopt print_eight_bit
