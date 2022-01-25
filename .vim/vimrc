@@ -1,4 +1,4 @@
-" General settings {{
+"" General settings {{
 set nocompatible
 set backspace=start,eol,indent
 set whichwrap=b,s
