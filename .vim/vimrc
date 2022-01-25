@@ -13,7 +13,8 @@ set viminfo+=n$HOME/.vim/viminfo
 " PlugInstall [name ...] : Install plugins.
 " PlugUpdate [name ...] : Install or update plugins.
 " PlugUpgrade : Update vim-plug itself.
-call plug#begin('~/.vim/plugged')
+" PlugClean : Remove unlisted plugins.
+call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
 "" }}
