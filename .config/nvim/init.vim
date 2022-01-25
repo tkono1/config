@@ -147,9 +147,6 @@ set wrap
 " Show command in the last line of screen.
 set showcmd
 
-" Show current mode.
-set showmode
-
 " Disable visual bells.
 set noerrorbells
 set novisualbell
