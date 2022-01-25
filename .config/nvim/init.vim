@@ -115,6 +115,10 @@ set equalalways
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
+" Enable undercurl support.
+let &t_Cs="\e[4:3m"
+let &t_Ce="\e[4:0m"
+
 " Show line number.
 set number
 
@@ -155,32 +159,32 @@ filetype on
 set laststatus=2
 
 " Where to truncate line if too long.
-set statusline=%<
+set statusline=%<                                    
 
 " Modified flag.
-set statusline+=%m
+set statusline+=%m                 
 
 " Full path to the file in the buffer.
-set statusline+=%F
+set statusline+=%F                       
+
+" Readonly flag.
+set statusline+=%r    
 
 " Preview window flag.
 set statusline+=%w
 
-" Encoding.
-set statusline+=\ [%{strlen(&fenc)?&fenc:&enc}:%{&ff}]
-
-" Readonly flag.
-set statusline+=%r
-
-" Help buffer flag.
+" Help buffer flag.       
 set statusline+=%h
 
 " Separation point between left and right aligned items.
-set statusline+=%=
+set statusline+=%=                     
+
+" Encoding and newline.
+set statusline+=%{strlen(&fenc)?&fenc:&enc}\ \|\ %{&ff}
 
 " Filetype in buffer.
-set statusline+=%y
+set statusline+=\ \|\ %Y                        
 
 " Line number and column number.
-set statusline+=[%l/%LL]
-"" }}
+set statusline+=\ \|\ %l/%LL\
+"" }}        
