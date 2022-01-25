@@ -7,6 +7,17 @@ set noswapfile
 set viminfo+=n$HOME/.vim/viminfo
 "" }}
 
+"" vim-plug {{
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" PlugInstall [name ...] : Install plugins.
+" PlugUpdate [name ...] : Install or update plugins.
+" PlugUpgrade : Update vim-plug itself.
+call plug#begin('~/.vim/plugged')
+Plug 'arcticicestudio/nord-vim'
+call plug#end()
+"" }}
+
 "" Language and encoding settings {{
 " Set language to UTF-8.
 if has('multi_lang')
