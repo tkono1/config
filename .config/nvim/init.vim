@@ -16,6 +16,7 @@ let g:python3_host_prog=system('echo -n $(which python3)')
 " PlugInstall [name ...] : Install plugins.
 " PlugUpdate [name ...] : Install or update plugins.
 " PlugUpgrade : Update vim-plug itself.
+" PlugClean : Remove unlisted plugins.
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 call plug#end()
