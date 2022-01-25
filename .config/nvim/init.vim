@@ -10,6 +10,17 @@ let g:python_host_prog=system('echo -n $(which python)')
 let g:python3_host_prog=system('echo -n $(which python3)')
 "" }}
 
+"" vim-plug {{
+" curl -fLo ${XDG_DATA_HOME}/nvim/site/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" PlugInstall [name ...] : Install plugins.
+" PlugUpdate [name ...] : Install or update plugins.
+" PlugUpgrade : Update vim-plug itself.
+call plug#begin()
+Plug 'arcticicestudio/nord-vim'
+call plug#end()
+"" }}
+
 "" Language and encoding settings {{
 " Set language to UTF-8.
 if has('multi_lang')
