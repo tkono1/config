@@ -81,8 +81,8 @@ if [ -d /Applications/MacVim.app ]; then
     alias macvim='open -a /Applications/MacVim.app "$@"'
 fi
 alias grep='grep --color=auto'
-alias egrep='grep --color=auto'
-alias fgrep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # Load .bash_aliases if exists.
 if [ -f ~/.bash_aliases ]; then
