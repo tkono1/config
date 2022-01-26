@@ -169,6 +169,7 @@ filetype on
 " Always shows status line.
 set laststatus=2
 
+" Load lightline components.
 let g:lightline = {'colorscheme': 'nord'}
 let g:lightline.active = {
  \  'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
