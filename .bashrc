@@ -22,17 +22,21 @@ stty start undef
 ## }}
 
 # Set default editor.
-if type 'vim' > /dev/null 2>&1; then
+if type 'nvim' > /dev/null 2>&1; then
+    export EDITOR=nvim
+elif type 'vim' > /dev/null 2>&1; then
     export EDITOR=vim
 else
     export EDITOR=vi
 fi
-## }}
 
-# Set 24-bit color.
+#
+## Set 24-bit color {{
+#
 if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
     export COLORTERM='truecolor'
 fi
+## }}
 
 # Set GPG to use TTY.
 export GPG_TTY=$(tty)
