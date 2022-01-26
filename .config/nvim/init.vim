@@ -63,7 +63,6 @@ if has('termguicolors') && $COLORTERM == 'truecolor'
         let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
     endif
 endif
-"" }}
 
 " Set background scheme. Set this option before syntax highlighting.
 set background=dark
@@ -76,7 +75,6 @@ let g:nord_underline=1
 let g:nord_uniform_diff_background=1
 
 " Set color scheme.
-"colorscheme monokai
 colorscheme nord
 "" }}
 
