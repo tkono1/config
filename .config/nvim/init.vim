@@ -183,4 +183,4 @@ let g:lightline.component = {
 if exists("g:lightline")
     set noshowmode
 endif
-"" }}        
+"" }}
