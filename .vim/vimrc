@@ -142,6 +142,9 @@ set notitle
 " Line longer than the width of the window will wrap.
 set wrap
 
+" Every wrapped line will continue visually indented.
+set breakindent
+
 " Show command in the last line of screen.
 set showcmd
 
