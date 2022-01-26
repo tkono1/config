@@ -19,6 +19,7 @@ let g:python3_host_prog=system('echo -n $(which python3)')
 " PlugClean : Remove unlisted plugins.
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
 call plug#end()
 "" }}
 
@@ -168,33 +169,14 @@ filetype on
 " Always shows status line.
 set laststatus=2
 
-" Where to truncate line if too long.
-set statusline=%<                                    
+let g:lightline = {'colorscheme': 'nord'}
+let g:lightline.active = {
+ \  'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+ \  'right': [['percent'], [], ['fileformat', 'fileencoding', 'filetype']]
+ \ }
 
-" Modified flag.
-set statusline+=%m                 
-
-" Full path to the file in the buffer.
-set statusline+=%F                       
-
-" Readonly flag.
-set statusline+=%r    
-
-" Preview window flag.
-set statusline+=%w
-
-" Help buffer flag.       
-set statusline+=%h
-
-" Separation point between left and right aligned items.
-set statusline+=%=                     
-
-" Encoding and newline.
-set statusline+=%{strlen(&fenc)?&fenc:&enc}\ \|\ %{&ff}
-
-" Filetype in buffer.
-set statusline+=\ \|\ %Y                        
-
-" Line number and column number.
-set statusline+=\ \|\ %l/%LL\
+" Hide current mode if lightline.vim is set.
+if exists("g:lightline")
+    set noshowmode
+endif
 "" }}        
