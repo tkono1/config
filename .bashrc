@@ -19,7 +19,7 @@ IGNOREEOF=10
 # Ignore Ctrl+S.
 stty stop undef
 stty start undef
-# }}
+## }}
 
 # Set default editor.
 if type 'vim' > /dev/null 2>&1; then
@@ -27,10 +27,10 @@ if type 'vim' > /dev/null 2>&1; then
 else
     export EDITOR=vi
 fi
-# }}
+## }}
 
 # Set 24-bit color.
-if [[ ${TERM_PROGRAM} != "Apple_Terminal" ]]; then
+if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
     export COLORTERM='truecolor'
 fi
 
@@ -52,7 +52,7 @@ shopt -s checkwinsize
 umask 022
 
 ulimit -c 0
-# }}
+## }}
 
 ## Load {/etc/,/usr/local/etc/}bash_completion if exists {{
 for etc in /etc /usr/local/etc; do
@@ -61,7 +61,7 @@ for etc in /etc /usr/local/etc; do
     fi
     unset etc
 done
-# }}
+## }}
 
 ## Aliases {{
 if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
@@ -84,4 +84,4 @@ alias fgrep='grep --color=auto'
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-# }}
+## }}
