@@ -172,12 +172,12 @@ filetype on
 set laststatus=2
 
 " Load lightline components.
-let g:lightline = {'colorscheme': 'nord'}
-let g:lightline.active = {
+let g:lightline={'colorscheme': 'nord'}
+let g:lightline.active={
  \  'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
  \  'right': [['line'], [], ['fileformat', 'fileencoding', 'filetype']]
  \ }
-let g:lightline.component = {
+let g:lightline.component={
  \  'line': '%l/%LL'
  \ }
 
