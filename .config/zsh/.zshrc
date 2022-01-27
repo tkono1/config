@@ -151,6 +151,21 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 # Disable less history.
 export LESSHISTFILE=-
 
+# ls color.
+case ${OSTYPE} in
+    darwin*)
+        alias ls='ls -G'
+        ;;
+    linux*)
+        alias ls='ls --color=auto'
+        if [[ -f ${HOME}/.dircolors ]]; then
+            eval $(cat ${HOME}/.dircolors)
+        else
+            export LS_COLORS='di=01;94'
+        fi
+        ;;
+esac
+    
 # Let GPG to use pinentry TTY. 
 (( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
 ##}}
@@ -158,15 +173,6 @@ export LESSHISTFILE=-
 #
 ## Aliases {{
 #
-case ${OSTYPE} in
-    darwin*)
-        alias ls='ls -G'
-        ;;
-    linux*)
-        export LS_COLORS='di=01;94'
-        alias ls='ls --color=auto'
-        ;;
-esac
 alias ll='ls -lAF'
 if (( ${+commands[nvim]} )); then
     alias vi='nvim'
