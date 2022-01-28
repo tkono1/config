@@ -140,7 +140,7 @@ set ruler
 
 " Show invisible characters
 if exists('+termguicolors')
-    set nolist
+    set list
 endif
 set listchars=tab:<->,space:.,eol:↲
 
