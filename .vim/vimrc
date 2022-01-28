@@ -137,6 +137,10 @@ set number
 " Show the line and column number of the cursor psition.
 set ruler
 
+" Show invisible characters
+set nolist
+set listchars=tab:<->,space:▯,eol:↲
+
 " Set title of the window to the value of titlestring.
 set notitle
 
