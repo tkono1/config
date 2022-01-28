@@ -140,7 +140,7 @@ set ruler
 
 " Show invisible characters
 set nolist
-set listchars=tab:<->,space:▯,eol:↲
+set listchars=tab:<->,space:.,eol:↲
 
 " Set title of the window to the value of titlestring.
 set notitle
