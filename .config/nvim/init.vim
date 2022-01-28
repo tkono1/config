@@ -139,7 +139,9 @@ set number
 set ruler
 
 " Show invisible characters
-set nolist
+if exists('+termguicolors')
+    set nolist
+endif
 set listchars=tab:<->,space:.,eol:↲
 
 " Set title of the window to the value of titlestring.
