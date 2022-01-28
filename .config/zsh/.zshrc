@@ -166,7 +166,7 @@ case ${OSTYPE} in
         ;;
 esac
     
-# Let GPG to use pinentry TTY. 
+# Let GPG to use pinentry TTY.
 (( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
 ##}}
 
