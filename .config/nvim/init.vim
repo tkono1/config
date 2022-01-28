@@ -88,29 +88,29 @@ set wrapscan
 set wildmenu wildmode=list:full
 "" }}
 
-"" Tab settings {{              
-" Insert spaces instead of tab.                      
-set expandtab                                                
+"" Tab settings {{
+" Insert spaces instead of tab.
+set expandtab
 
-" Tab width.                                 
-set tabstop=4                                  
+" Tab width.
+set tabstop=4
 
-" Set how many spaces are entered when press tab key.            
-set softtabstop=4                        
+" Set how many spaces are entered when press tab key.
+set softtabstop=4
 
-" Width of indent when insert mode.             
-set shiftwidth=4                                
+" Width of indent when insert mode.
+set shiftwidth=4
 
-" Round indent to multiple of shiftwidth.       
-set shiftround                                                 
+" Round indent to multiple of shiftwidth.
+set shiftround
 
-" Disable auto indent.                                         
-set noautoindent                                               
+" Disable auto indent.
+set noautoindent
 set nosmartindent
 set nocindent
 set indentexpr=
 filetype plugin indent off
-"" }}  
+"" }}
 
 "" Edit settings {{
 " Disable insert comment automatically.
