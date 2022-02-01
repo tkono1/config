@@ -77,9 +77,6 @@ alias ll='ls -lAF'
 if type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
 fi
-if [ -d /Applications/MacVim.app ]; then
-    alias macvim='open -a /Applications/MacVim.app "$@"'
-fi
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
