@@ -38,16 +38,6 @@ if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
 fi
 ## }}
 
-# Set GPG to use TTY.
-export GPG_TTY=$(tty)
-
-# Disable .lesshst.
-export LESSHISTFILE=-
-
-## Login prompt settings {{
-# Set login prompt.
-PS1="\[\e[0;32m\][\u@\h\[\e[0;36m\]:\w\[\e[0;32m\]]\$ \[\e[0m\]"
-
 # Check the window size after each command and
 # update the values of LINES and COLUMNS if necessary.
 shopt -s checkwinsize
@@ -56,23 +46,47 @@ shopt -s checkwinsize
 umask 022
 
 ulimit -c 0
-## }}
 
-## Load {/etc/,/usr/local/etc/}bash_completion if exists {{
+# Load {/etc/,/usr/local/etc/}bash_completion if exists.
 for etc in /etc /usr/local/etc; do
     if [ -f $etc/bash_completion ] && ! shopt -oq posix; then
         . $etc/bash_completion
     fi
     unset etc
 done
+
+#
+## Prompt settings {{
+#
+PS1="\[\e[0;32m\][\u@\h\[\e[0;36m\]:\w\[\e[0;32m\]]\$ \[\e[0m\]"
 ## }}
 
+#
+## Command specific settings {{
+#
+# Disable less history.
+export LESSHISTFILE=-
+
+# ls color.
+case ${OSTYPE} in
+    darwin*)
+        alias ls='ls -G'
+        ;;
+    linux*)
+        alias ls='ls --color=auto'
+        if [[ -f ${HOME}/.dircolors ]]; then
+            eval $(cat ${HOME}/.dircolors)
+        else
+            export LS_COLORS='di=01;94'
+        fi
+        ;;
+esac
+    
+# Let GPG to use pinentry TTY.
+#(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
+##}}
+
 ## Aliases {{
-if [ `uname` = "Darwin" -o `uname` = "FreeBSD" ]; then
-    alias ls='ls -G'
-else
-    alias ls='ls --color=auto'
-fi
 alias ll='ls -lAF'
 if type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
