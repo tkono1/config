@@ -2,7 +2,54 @@ if [ -z "$PS1" ]; then
    return
 fi
 
+#
+## General options {{
+#
+# Ingore EOF(Ctrl+D) till 10 times.
+IGNOREEOF=10
+
+# Ignore Ctrl+S.
+stty stop undef
+stty start undef
+
+# Check the window size after each command and
+# update the values of LINES and COLUMNS if necessary.
+shopt -s checkwinsize
+
+# Set umask.
+umask 022
+
+# Set coredump file size to 0.
+ulimit -c 0
+## }}
+
+#
+## Language settings {{                     
+#                
+export LANG=en_US.UTF-8
+## }}
+
+## Set 24-bit color {{
+#
+if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
+    export COLORTERM='truecolor'
+fi
+## }}
+
+#
+## Completion {{
+# Load {/etc/,/usr/local/etc/}bash_completion if exists.
+for etc in /etc /usr/local/etc; do
+    if [ -f $etc/bash_completion ] && ! shopt -oq posix; then
+        . $etc/bash_completion
+    fi
+    unset etc
+done
+## }}
+
+#
 ## History settings {{
+#
 # Size of history.
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -12,48 +59,7 @@ shopt -s histappend
 
 # Ignore both space and duplicates.
 HISTCONTROL=ignoreboth
-
-# Ingore EOF(Ctrl+D) till 10 times.
-IGNOREEOF=10
-
-# Ignore Ctrl+S.
-stty stop undef
-stty start undef
 ## }}
-
-# Set default editor.
-if type 'nvim' > /dev/null 2>&1; then
-    export EDITOR=nvim
-elif type 'vim' > /dev/null 2>&1; then
-    export EDITOR=vim
-else
-    export EDITOR=vi
-fi
-
-#
-## Set 24-bit color {{
-#
-if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
-    export COLORTERM='truecolor'
-fi
-## }}
-
-# Check the window size after each command and
-# update the values of LINES and COLUMNS if necessary.
-shopt -s checkwinsize
-
-# Set umask
-umask 022
-
-ulimit -c 0
-
-# Load {/etc/,/usr/local/etc/}bash_completion if exists.
-for etc in /etc /usr/local/etc; do
-    if [ -f $etc/bash_completion ] && ! shopt -oq posix; then
-        . $etc/bash_completion
-    fi
-    unset etc
-done
 
 #
 ## Prompt settings {{
@@ -83,17 +89,28 @@ case ${OSTYPE} in
 esac
     
 # Let GPG to use pinentry TTY.
-#(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
+if type 'gpg' > /dev/null 2>&1; then
+    export GPG_TTY=${TTY}
+fi
 ##}}
 
+#
 ## Aliases {{
+#
 alias ll='ls -lAF'
-if type 'vim' > /dev/null 2>&1; then
+if type 'nvim' > /dev/null 2>&1; then
+    alias vi='nvim'
+    alias vim='nvim'
+elif type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
 fi
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+if type 'tmux' > /dev/null 2>&1; then
+    if [[ -d ${XDG_CONFIG_HOME}/tmux ]]; then
+        alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
+    fi
+    [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
+    export TMUX_TMPDIR=/tmp
+fi
 
 # Load .bash_aliases if exists.
 if [ -f ~/.bash_aliases ]; then
