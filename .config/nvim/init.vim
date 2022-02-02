@@ -84,7 +84,8 @@ set smartcase
 set hlsearch
 set incsearch
 set wrapscan
-set wildmenu wildmode=list:full
+set wildmenu
+set wildmode=list:full
 "" }}
 
 "" Tab settings {{
