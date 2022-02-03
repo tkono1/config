@@ -4,6 +4,14 @@
 #
 
 #
+## General settings {{
+#
+# Ignore Ctrl+S.
+stty stop undef
+stty start undef
+## }}
+
+#
 ## Language settings {{
 #
 export LANG=en_US.UTF-8
