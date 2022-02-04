@@ -6,16 +6,28 @@
 #
 ## General settings {{
 #
+# Set language.
+export LANG=en_US.UTF-8
+
 # Ignore Ctrl+S.
 stty stop undef
 stty start undef
+
+# Do not exit on end-of-file.
+setopt ignore_eof
+
+# Try to correct the spelling of commands.
+setopt correct
+
+# Disable beep.
+setopt no_beep
+
+# Set emacs-like keybinding.
+bindkey -e
 ## }}
 
-#
-## Language settings {{
-#
+# Language settings 
 export LANG=en_US.UTF-8
-## }}
 
 #
 ## Color settings {{
@@ -65,24 +77,8 @@ setopt print_eight_bit
 # Allow comments even in interactive shells
 setopt interactive_comments
 
-# Disable beep.
-setopt no_beep
-
 # Disable beep when complete list displayed.
 setopt nolistbeep
-## }}
-
-#
-## Input/Output {{
-#
-# Try to correct the spelling of commands.
-setopt correct
-
-# Do not exit on end-of-file.
-setopt ignore_eof
-
-# Set emacs-like keybinding.
-bindkey -e
 ## }}
 
 #
