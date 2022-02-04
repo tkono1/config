@@ -10,7 +10,7 @@ let g:python3_host_prog=system('echo -n $(which python3)')
 "" }}
 
 "" vim-plug {{
-" curl -fLo ${XDG_DATA_HOME}/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ${XDG_DATA_HOME}/nvim/site/autoload/plug.vim --create-dirs      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " PlugInstall [name ...] : Install plugins.
 " PlugUpdate [name ...] : Install or update plugins.
 " PlugUpgrade : Update vim-plug itself.
@@ -177,10 +177,11 @@ set laststatus=2
 " Load lightline components.
 let g:lightline={'colorscheme': 'nord'}
 let g:lightline.active={
- \  'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+ \  'left': [['mode', 'paste'], ['readonly', 'filepath', 'modified']],
  \  'right': [['line'], [], ['fileformat', 'fileencoding', 'filetype']]
  \ }
 let g:lightline.component={
+ \  'filepath': '%f',
  \  'line': '%l/%LL'
  \ }
 
