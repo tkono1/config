@@ -164,8 +164,8 @@ case ${OSTYPE} in
         ;;
     linux*)
         alias ls='ls --color=auto'
-        if [[ -f ${HOME}/.dircolors ]]; then
-            eval $(cat ${HOME}/.dircolors)
+        if [[ -f ${XDG_CONFIG_HOME}/dircolors ]]; then
+            eval $(cat ${XDG_CONFIG_HOME}/dircolors)
         else
             export LS_COLORS='di=01;94'
         fi
