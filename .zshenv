@@ -29,6 +29,8 @@
 [[ ! -d ${ZDOTDIR}/functions ]] && mkdir ${ZDOTDIR}/functions
 [[ -d ${ZDOTDIR}/functions ]] && export FPATH="${ZDOTDIR}/functions:$FPATH"
 
+SHELL_SESSIONS_DISABLE=1
+
 limit coredumpsize 0
 ## }}
 
