@@ -60,7 +60,7 @@ case ${OSTYPE} in
         if [[ -d ${HOME}/.local/bin ]]; then
             export PATH=${HOME}/.local/bin:${PATH}
         fi
-        # If you don't want compinit called here, place the line
+        # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         skip_global_compinit=1
         ;;
 esac
