@@ -61,7 +61,7 @@ case ${OSTYPE} in
             export PATH=${HOME}/.local/bin:${PATH}
         fi
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
-        skip_global_compinit=1
+        export skip_global_compinit=1
         ;;
 esac
 ## }}
