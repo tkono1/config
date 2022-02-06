@@ -109,11 +109,7 @@ set noautoindent
 set nosmartindent
 set nocindent
 set indentexpr=
-filetype plugin indent off
-
-let g:netrw_dirhistmax=10
-let g:netrw_dirhistcnt=1
-let g:netrw_dirhist_1="${XDG_CONFIG_HOME}/nvim"
+filetype indent off
 "" }}
 
 "" Edit settings {{
