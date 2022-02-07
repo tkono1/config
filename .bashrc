@@ -64,7 +64,7 @@ HISTCONTROL=ignoreboth
 #
 ## Prompt settings {{
 #
-PS1="\[\e[0;32m\][\u@\h\[\e[0;36m\]:\w\[\e[0;32m\]]\$ \[\e[0m\]"
+PS1="\[\e[1;32m\][\u@\h\[\e[1;36m\]:\w\[\e[1;32m\]]\$ \[\e[0m\]"
 ## }}
 
 #
