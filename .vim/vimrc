@@ -107,7 +107,7 @@ set noautoindent
 set nosmartindent
 set nocindent
 set indentexpr=
-filetype plugin indent off
+filetype indent off
 "" }}
 
 "" Edit settings {{
