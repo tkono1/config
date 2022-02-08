@@ -148,7 +148,7 @@ fi
 ## Prompt settings {{
 #
 PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
-#PROMPT="%B%K{235}%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%k%b "
+#PROMPT="%K{023}%F{007}[%n@%m%F{004}:%~%F{007}]%#%f%k "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
@@ -192,7 +192,7 @@ elif (( ${+commands[vim]} )); then
     export EDITOR='vim'
 fi
 if (( ${+commands[tmux]} )); then
-    if [[ -d ${XDG_CONFIG_HOME}/tmux ]]; then
+    if [[ $(tmux -V|grep -o -E "([0-9]+\.)([0-9])") -lt 3.1 ]]; then
         alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     fi
     [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
