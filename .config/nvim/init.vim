@@ -18,6 +18,7 @@ let g:python3_host_prog=system('echo -n $(which python3)')
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 "" }}
 
@@ -169,6 +170,15 @@ syntax on
 " Enable file type detection.
 filetype on
 "" }}
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+    },
+}
+EOF
 
 "" Statusline settings {{
 " Always shows status line.
