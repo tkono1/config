@@ -154,9 +154,6 @@ syntax enable
 
 " If you want to overrule your syntax, use below instead.
 syntax on
-
-" Enable file type detection.
-filetype on
 "" }}
 
 lua <<EOF
