@@ -4,7 +4,11 @@ vim.opt.mouse = ''
 vim.opt.swapfile = false
 
 -- Set python location.
-vim.g.python3_host_prog = '/usr/bin/python3'
+if vim.fn.has('mac') then
+    vim.g.python3_host_prog = '/usr/local/bin/python3'
+else
+    vim.g.python3_host_prog = '/usr/bin/python3'
+end
 --- }}
 
 --- vim-plug {{
@@ -15,9 +19,8 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 -- PlugClean : Remove unlisted plugins.
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
-Plug 'arcticicestudio/nord-vim'
---Plug 'itchyny/lightline.vim'
-Plug'nvim-lualine/lualine.nvim'
+Plug('arcticicestudio/nord-vim')
+Plug('nvim-lualine/lualine.nvim')
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 vim.call('plug#end')
 --- }}
@@ -179,7 +182,7 @@ require('lualine').setup {
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'%f'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {''},
+        lualine_y = {'tabs'},
         lualine_z = {'%l/%LL'},
     },
 }
