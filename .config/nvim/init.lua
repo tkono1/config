@@ -146,10 +146,10 @@ vim.opt.listchars = 'tab:<->', 'space:.', 'eol:↲'
 vim.opt.title = false
 
 -- Line longer than the width of the window will wrap.
-vim.opt.wrap = true
+vim.wo.wrap = true
 
 -- Every wrapped line will continue visually indented.
-vim.opt.breakindent = true
+vim.wo.breakindent = true
 
 -- Show command in the last line of screen.
 vim.opt.showcmd = true
