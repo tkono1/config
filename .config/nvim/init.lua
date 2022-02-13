@@ -4,11 +4,7 @@ vim.opt.mouse = ''
 vim.opt.swapfile = false
 
 -- Set python location.
-if vim.fn.has('mac') then
-    vim.g.python3_host_prog = '/usr/local/bin/python3'
-else
-    vim.g.python3_host_prog = '/usr/bin/python3'
-end
+vim.g.python3_host_prog = '/usr/local/bin/python3'
 --- }}
 
 --- vim-plug {{
