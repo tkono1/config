@@ -42,7 +42,7 @@ if has('unix')
     set fileformat=unix
     set fileformats=unix,dos,mac
     set fileencodings=utf-8,iso-2022-jp,cp932,euc-jp,latin
-elseif has('win32') || ('win64')
+elseif has('win32')
     set fileformat=dos
     set fileformats=dos,unix,mac
     set fileencodings=iso-2022-jp,utf-8,euc-jp,cp932,latin
