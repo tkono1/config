@@ -157,7 +157,6 @@ set showcmd
 " Disable visual bells.
 set noerrorbells
 set novisualbell
-set visualbell t_vb=
 "" }}
 
 "" Syntax settings {{
