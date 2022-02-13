@@ -20,12 +20,6 @@ call plug#end()
 "" }}
 
 "" Language and encoding settings {{
-" Set language to UTF-8.
-if has('multi_lang')
-    set langmenu=en_US.UTF-8
-    let $LANG="en"
-endif
-
 " Set the character encoding used inside vim.
 set encoding=utf-8
 
