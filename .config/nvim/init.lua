@@ -184,7 +184,7 @@ require('lualine').setup {
         lualine_b = {'branch', 'diff', 'diagnostics'},
         lualine_c = {'%f'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'tabs'},
+        lualine_y = {''},
         lualine_z = {'%l/%LL'},
     },
 }
