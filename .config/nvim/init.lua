@@ -4,8 +4,13 @@ vim.opt.mouse = ''
 vim.opt.swapfile = false
 
 -- Set python location.
-vim.g.python_host_prog = 0
 vim.g.python3_host_prog = '/usr/local/bin/python3'
+
+-- Disable unused providers
+vim.g.loaded_python_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
 --- }}
 
 --- vim-plug {{
