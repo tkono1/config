@@ -1,6 +1,5 @@
 "" General settings {{
 set backspace=start,eol,indent
-set whichwrap=b,s
 set mouse=
 set noswapfile
 
