@@ -25,9 +25,6 @@ call plug#end()
 " Set the character encoding used inside vim.
 set encoding=utf-8
 
-" Set script encoding.
-scriptencoding utf-8
-
 " Set the character encoding for the file of this buffer.
 set fileencoding=utf-8
 
