@@ -151,9 +151,6 @@ set novisualbell
 "" Syntax settings {{
 " Enable syntax highlighting.
 syntax enable
-
-" If you want to overrule your syntax, use below instead.
-syntax on
 "" }}
 
 lua <<EOF
