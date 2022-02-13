@@ -4,7 +4,11 @@ vim.opt.mouse = ''
 vim.opt.swapfile = false
 
 -- Set python location.
-vim.g.python3_host_prog = '/usr/local/bin/python3'
+if vim.fn.has('macunix') == 1 then
+    vim.g.python3_host_prog = '/usr/local/bin/python3'
+elseif vim.fn.has('unix') == 1 then
+    vim.g.python3_host_prog = '/usr/bin/python3'
+end
 
 -- Disable unused providers
 vim.g.loaded_python_provider = 0
