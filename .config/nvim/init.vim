@@ -15,7 +15,7 @@ let g:python3_host_prog=system('echo -n $(which python3)')
 " PlugClean : Remove unlisted plugins.
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
-Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 "" }}
@@ -163,22 +163,29 @@ require('nvim-treesitter.configs').setup {
 EOF
 
 "" Statusline settings {{
-" Always shows status line.
-set laststatus=2
+lua <<EOF
+-- Always shows status line.
+vim.opt.laststatus=2
 
-" Load lightline components.
-let g:lightline={'colorscheme': 'nord'}
-let g:lightline.active={
- \  'left': [['mode', 'paste'], ['readonly', 'filepath', 'modified']],
- \  'right': [['line'], [], ['fileformat', 'fileencoding', 'filetype']]
- \ }
-let g:lightline.component={
- \  'filepath': '%f',
- \  'line': '%l/%LL'
- \ }
+-- Load lualine components.
+require('lualine').setup {
+    options = {
+        icons_enabled = false,
+        theme = 'auto',
+        component_separators = {left = ' ', right = '|'},
+        section_separators = {left = ' ', right = ' '},
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'%f'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {''},
+        lualine_z = {'%l/%LL'},
+    },
+}
 
-" Hide current mode if lightline.vim is set.
-if exists("g:lightline")
-    set noshowmode
-endif
+-- Hide current mode if lualine.nvim is set.             
+vim.opt.showmode = false
+EOF
 "" }}
