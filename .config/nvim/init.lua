@@ -115,7 +115,7 @@ vim.cmd('filetype indent off')
 
 --- Edit settings {{
 -- Disable insert comment automatically.
-vim.cmd('autocmd FileType * set formatoptions-=cro')
+vim.cmd [[ autocmd FileType * setlocal formatoptions-=cro ]]
 
 -- Share clipboard with OS.
 vim.opt.clipboard:append({unnamedplus = true})
