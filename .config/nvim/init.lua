@@ -143,9 +143,6 @@ vim.wo.wrap = true
 -- Every wrapped line will continue visually indented.
 vim.wo.breakindent = true
 
--- Show command in the last line of screen.
-vim.opt.showcmd = true
-
 -- Disable visual bells.
 vim.opt.errorbells = false
 vim.opt.visualbell = false
