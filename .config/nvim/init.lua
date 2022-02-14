@@ -59,8 +59,8 @@ if vim.fn.has('termguicolors') and vim.env.COLORTERM == 'truecolor' then
     vim.opt.cursorline = true
     --vim.opt.list =  tue
     if vim.env.TERM:match('^screen') or vim.env.TERM:match('^tmux') then
-        vim.cmd [[ let &t_8f="\<Esc>[38;2;%lu;%lu;%lum" ]]
-        vim.cmd [[ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum" ]]
+        vim.cmd [[let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"]]
+        vim.cmd [[let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"]]
     end
 end
 
@@ -115,7 +115,7 @@ vim.cmd('filetype indent off')
 
 --- Edit settings {{
 -- Disable insert comment automatically.
-vim.cmd [[ autocmd FileType * setlocal formatoptions-=cro ]]
+vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 
 -- Share clipboard with OS.
 vim.opt.clipboard:append({unnamedplus = true})
@@ -126,12 +126,12 @@ vim.opt.equalalways = true
 
 --- Display settings {{
 -- Enable italic support since terminfo doesn't define the sitm.
-vim.cmd [[ let &t_ZH="\e[3m" ]]
-vim.cmd [[ let &t_ZR="\e[23m" ]]
+vim.cmd [[let &t_ZH="\e[3m"]]
+vim.cmd [[let &t_ZR="\e[23m"]]
 
 -- Enable undercurl support.
-vim.cmd [[ let &t_Cs="\e[4:3m" ]]
-vim.cmd [[ let &t_Ce="\e[4:0m" ]]
+vim.cmd [[let &t_Cs="\e[4:3m"]]
+vim.cmd [[let &t_Ce="\e[4:0m"]]
 
 -- Show line number.
 vim.wo.number = true
