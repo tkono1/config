@@ -162,14 +162,17 @@ vim.opt.visualbell = false
 --- Syntax settings {{
 -- Enable syntax highlighting.
 vim.cmd('syntax enable')
---- }}
 
+-- nvim-treesitter
+-- TSUpdate {language} : Update modules.
+-- TSModuleInfo : list information about modules state.
 require('nvim-treesitter.configs').setup {
     ensure_installed = "maintained",
     highlight = {
         enable = true,
     },
 }
+--- }}
 
 --- Statusline settings {{
 -- Always shows status line.
