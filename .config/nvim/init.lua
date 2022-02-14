@@ -58,7 +58,7 @@ if vim.fn.has('termguicolors') and vim.env.COLORTERM == 'truecolor' then
     vim.opt.termguicolors = true
     vim.opt.cursorline = true
     --vim.opt.list =  tue
-    if vim.env.TERM:match('^screen') == 'screen' or vim.env.TERM:match('^tmux') == 'tmux' then
+    if vim.env.TMUX ~= nill then
         vim.cmd [[let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"]]
         vim.cmd [[let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"]]
     end
