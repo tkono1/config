@@ -8,7 +8,7 @@ set viminfo+=n$HOME/.vim/viminfo
 "" }}
 
 "" vim-plug {{
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs                           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " PlugInstall [name ...] : Install plugins.
 " PlugUpdate [name ...] : Install or update plugins.
 " PlugUpgrade : Update vim-plug itself.
@@ -22,9 +22,6 @@ call plug#end()
 "" Language and encoding settings {{
 " Set the character encoding used inside vim.
 set encoding=utf-8
-
-" Set script encoding.
-scriptencoding utf-8
 
 " Set the character encoding for the file of this buffer.
 set fileencoding=utf-8
@@ -106,7 +103,7 @@ filetype indent off
 
 "" Edit settings {{
 " Disable insert comment automatically.
-autocmd FileType * set formatoptions-=cro
+autocmd FileType * setlocal formatoptions-=cro
 
 " Share clipboard with OS.
 if has('clipboard')
@@ -150,7 +147,6 @@ set showcmd
 " Disable visual bells.
 set noerrorbells
 set novisualbell
-set visualbell t_vb=
 "" }}
 
 "" Syntax settings {{
