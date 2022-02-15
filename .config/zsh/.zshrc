@@ -148,7 +148,6 @@ fi
 ## Prompt settings {{
 #
 PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
-#PROMPT="%K{023}%F{007}[%n@%m%F{004}:%~%F{007}]%#%f%k "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## }}
