@@ -1,5 +1,4 @@
 -- General settings {{
-vim.opt.backspace = {'start', 'eol', 'indent'}
 vim.opt.mouse = ''
 vim.opt.swapfile = false
 
