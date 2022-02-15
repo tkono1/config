@@ -1,5 +1,4 @@
 "" General settings {{
-set backspace=start,eol,indent
 set mouse=
 set noswapfile
 
@@ -23,9 +22,6 @@ call plug#end()
 "" Language and encoding settings {{
 " Set the character encoding used inside vim.
 set encoding=utf-8
-
-" Set the character encoding for the file of this buffer.
-set fileencoding=utf-8
 
 if has('unix')
     set fileformat=unix
@@ -132,19 +128,12 @@ set wrap
 " Every wrapped line will continue visually indented.
 set breakindent
 
-" Show command in the last line of screen.
-set showcmd
-
 " Disable visual bells.
 set noerrorbells
 set novisualbell
 "" }}
 
 "" Syntax settings {{
-" Enable syntax highlighting.
-syntax enable
-"" }}
-
 lua <<EOF
 require('nvim-treesitter.configs').setup {
     ensure_installed = "maintained",
