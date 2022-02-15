@@ -141,9 +141,6 @@ set wrap
 " Every wrapped line will continue visually indented.
 set breakindent
 
-" Show command in the last line of screen.
-set showcmd
-
 " Disable visual bells.
 set noerrorbells
 set novisualbell
