@@ -114,7 +114,7 @@ vim.cmd('filetype indent off')
 vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 
 -- Share clipboard with OS.
-vim.opt.clipboard:append({unnamedplus = true})
+vim.opt.clipboard:append('unnamedplus')
 
 -- Keep all windows size as same when add/remove.
 vim.opt.equalalways = true
