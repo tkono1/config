@@ -35,9 +35,6 @@ vim.call('plug#end')
 -- Set the character encoding used inside vim.
 vim.opt.encoding = 'utf-8'
 
--- Set the character encoding for the file of this buffer.
-vim.opt.fileencoding = 'utf-8'
-
 if vim.fn.has('unix') == 1 then
     vim.opt.fileformat = 'unix'
     vim.opt.fileformats = {'unix', 'dos', 'mac'}
