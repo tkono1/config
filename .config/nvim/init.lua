@@ -72,7 +72,7 @@ vim.g.nord_uniform_diff_background = 1
 vim.g.nord_bold_vertical_split_line = 1
 
 -- Set color scheme.
-vim.cmd('colorscheme nord')
+vim.cmd [[colorscheme nord]]
 --- }}
 
 --- Search settings {{
@@ -106,7 +106,7 @@ vim.bo.autoindent = false
 vim.bo.smartindent = false
 vim.bo.cindent = false
 vim.bo.indentexpr = ''
-vim.cmd('filetype indent off')
+vim.cmd [[filetype indent off]]
 --- }}
 
 --- Edit settings {{
