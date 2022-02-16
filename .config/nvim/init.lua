@@ -176,11 +176,7 @@ require('lualine').setup {
             {
                 'fileformat',
                 icons_enabled = true,
-                symbols = {
-                    unix = 'LF',
-                    dos = 'CRLF',
-                    mac = 'CR'
-                }
+                symbols = {unix = 'LF', dos = 'CRLF', mac = 'CR'}
             }
         },
         lualine_y = {'filetype'},
