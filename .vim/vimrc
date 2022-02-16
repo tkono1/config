@@ -162,7 +162,7 @@ let g:lightline.active={
  \  'right': [['line'], ['filetype'], ['fileformat', 'fileencoding']]
  \ }
 let g:lightline.component={
- \  'filepath': '%f'
+ \  'filepath': '%f',
  \  'line': '%l/%LL'
  \ }
 
