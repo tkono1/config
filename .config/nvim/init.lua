@@ -169,8 +169,8 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {''},
-        lualine_c = {{'filename', path = 1, shorting_target = 0}},
+        lualine_b = {{'filename', path = 1, shorting_target = 0}},
+        lualine_c = {''},
         lualine_x = {
             'encoding',
             {
