@@ -25,7 +25,6 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 Plug('arcticicestudio/nord-vim')
 Plug('nvim-lualine/lualine.nvim')
-Plug('kyazdani42/nvim-web-devicons')
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 vim.call('plug#end')
 --- }}
