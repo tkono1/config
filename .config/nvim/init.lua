@@ -25,6 +25,7 @@ local Plug = vim.fn['plug#']
 vim.call('plug#begin')
 Plug('arcticicestudio/nord-vim')
 Plug('nvim-lualine/lualine.nvim')
+Plug('kyazdani42/nvim-web-devicons')
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 vim.call('plug#end')
 --- }}
@@ -164,12 +165,12 @@ require('lualine').setup {
     options = {
         icons_enabled = false,
         theme = 'auto',
-        component_separators = {left = ' ', right = '|'},
-        section_separators = {left = ' ', right = ' '},
+        component_separators = {left = ' ', right = ''},
+        section_separators = {left = '', right = ''},
     },
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_b = {''},
         lualine_c = {{'filename', path = 1, shorting_target = 0}},
         lualine_x = {'encoding', 'fileformat'},
         lualine_y = {'filetype'},
