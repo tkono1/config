@@ -158,10 +158,10 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'%f'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {''},
+        lualine_b = {''},
+        lualine_c = {{'filename', path = 1, shorting_target = 0}},
+        lualine_x = {'encoding', 'fileformat'},
+        lualine_y = {'filetype'},
         lualine_z = {'%l/%LL'},
     },
 }
