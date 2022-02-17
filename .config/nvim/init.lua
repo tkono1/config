@@ -23,7 +23,7 @@ vim.g.loaded_perl_provider = 0
 -- PlugClean : Remove unlisted plugins.
 local Plug = vim.fn['plug#']
 vim.call('plug#begin')
-Plug('arcticicestudio/nord-vim')
+Plug('shaunsingh/nord.nvim')
 Plug('nvim-lualine/lualine.nvim')
 Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
 vim.call('plug#end')
@@ -62,16 +62,12 @@ end
 -- Set background scheme. Set this option before syntax highlighting.
 vim.opt.background = 'dark'
 
--- Nord scheme options.
-vim.g.nord_cursor_line_number_background = 1
-vim.g.nord_italic = 1
-vim.g.nord_italic_comments = 1
-vim.g.nord_underline = 1
-vim.g.nord_uniform_diff_background = 1
-vim.g.nord_bold_vertical_split_line = 1
+-- nord.nvim scheme options.
+vim.g.nord_borders = true
+vim.g.nord_italic = true
 
 -- Set color scheme.
-vim.cmd [[colorscheme nord]]
+require('nord').set()
 --- }}
 
 --- Search settings {{
