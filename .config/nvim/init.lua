@@ -1,8 +1,8 @@
 -- General settings {{
 vim.opt.mouse = ''
-vim.opt.swapfile = false
+vim.bo.swapfile = false
 
--- Set python location.
+-- Set python3 path.
 local handle = io.popen('echo $(which python3)')
 local python3_path = handle:read('*all')
 handle:close()
@@ -34,11 +34,11 @@ vim.call('plug#end')
 vim.opt.encoding = 'utf-8'
 
 if vim.fn.has('unix') == 1 then
-    vim.opt.fileformat = 'unix'
+    vim.bo.fileformat = 'unix'
     vim.opt.fileformats = {'unix', 'dos', 'mac'}
     vim.opt.fileencodings = {'utf-8', 'cp932', 'euc-jp', 'latin'}
 elseif vim.fn.has('win32') == 1 then
-    vim.opt.fileformat = 'dos'
+    vim.bo.fileformat = 'dos'
     vim.opt.fileformats = {'dos', 'unix', 'mac'}
     vim.opt.fileencodings = {'utf-8', 'euc-jp', 'cp932', 'latin'}
 end
@@ -51,7 +51,7 @@ vim.opt.ambiwidth = 'double'
 -- 24-bit color settings.
 if vim.fn.has('termguicolors') and vim.env.COLORTERM == 'truecolor' then
     vim.opt.termguicolors = true
-    vim.opt.cursorline = true
+    vim.wo.cursorline = true
     --vim.opt.list =  tue
 end
 
