@@ -26,11 +26,11 @@ set encoding=utf-8
 if has('unix')
     set fileformat=unix
     set fileformats=unix,dos,mac
-    set fileencodings=utf-8,cp932,euc-jp,latin
+    set fileencodings=utf-8,cp932,euc-jp
 elseif has('win32')
     set fileformat=dos
     set fileformats=dos,unix,mac
-    set fileencodings=utf-8,euc-jp,cp932,latin
+    set fileencodings=utf-8,cp932,euc-jp
 endif
 
 " Treat East Asian Width class as ambiguous.
