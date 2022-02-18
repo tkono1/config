@@ -22,9 +22,8 @@ vim.g.loaded_perl_provider = 0
 -- PackerInstall : Clean, then install missing plugins
 -- PackerUpdate : Clean, then update and install plugins
 -- PackerSync : Perform `PackerUpdate` and then `PackerCompile`
-vim.cmd [[packadd packer.nvim]]
 require('packer').startup(function()
-    use {'wbthomason/packer.nvim', opt = true}
+    use {'wbthomason/packer.nvim'}
     use {'shaunsingh/nord.nvim'}
     use {'nvim-lualine/lualine.nvim'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
