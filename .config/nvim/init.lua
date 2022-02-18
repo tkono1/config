@@ -41,7 +41,7 @@ if vim.fn.has('unix') == 1 then
 elseif vim.fn.has('win32') == 1 then
     vim.bo.fileformat = 'dos'
     vim.opt.fileformats = {'dos', 'unix', 'mac'}
-    vim.opt.fileencodings = {'utf-8', 'euc-jp', 'cp932', 'latin'}
+    vim.opt.fileencodings = {'utf-8', 'cp932', 'euc-jp', 'latin'}
 end
 
 -- Treat East Asian Width class as ambiguous.
