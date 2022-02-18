@@ -15,18 +15,20 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 --- }}
 
---- vim-plug {{
--- curl -fLo ${XDG_DATA_HOME}/nvim/site/autoload/plug.vim --create-dirs      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
--- PlugInstall [name ...] : Install plugins.
--- PlugUpdate [name ...] : Install or update plugins.
--- PlugUpgrade : Update vim-plug itself.
--- PlugClean : Remove unlisted plugins.
-local Plug = vim.fn['plug#']
-vim.call('plug#begin')
-Plug('shaunsingh/nord.nvim')
-Plug('nvim-lualine/lualine.nvim')
-Plug('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})
-vim.call('plug#end')
+--- packer.nvim {{
+-- git clone --depth 1 https://github.com/wbthomason/packer.nvim                   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+-- PackerCompile : Regenerate compiled loader file
+-- PackerClean : Remove any disabled or unused plugins
+-- PackerInstall : Clean, then install missing plugins
+-- PackerUpdate : Clean, then update and install plugins
+-- PackerSync : Perform `PackerUpdate` and then `PackerCompile`
+vim.cmd [[packadd packer.nvim]]
+require('packer').startup(function()
+    use {'wbthomason/packer.nvim', opt = true}
+    use {'shaunsingh/nord.nvim'}
+    use {'nvim-lualine/lualine.nvim'}
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+end)
 --- }}
 
 --- Language and encoding settings {{
