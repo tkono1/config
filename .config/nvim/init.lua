@@ -8,10 +8,18 @@ local python3_path = handle:read('*all')
 handle:close()
 vim.g.python3_host_prog = python3_path:gsub('\n[^\n]*$', '')
 
+-- Check if node exists.
+local handle = io.popen('which node > /dev/null 2>&1;echo $?')
+local node_exists = handle:read('*all')
+handle:close()
+node_exists = node_exists:gsub('\n[^\n]*$', '')
+
 -- Disable unused providers
 vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider = 0
-vim.g.loaded_node_provider = 0
+if node_exists == '1' then
+    vim.g.loaded_node_provider = 0
+end
 vim.g.loaded_perl_provider = 0
 --- }}
 
@@ -81,7 +89,7 @@ vim.opt.wildmode = 'list:full'
 -- Insert spaces instead of tab.
 vim.bo.expandtab = true
 
--- Tab width.
+-- Set number of spaces to be converted to a tab.
 vim.bo.tabstop = 4
 
 -- Set how many spaces are entered when press tab key.
