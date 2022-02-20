@@ -60,6 +60,9 @@ case ${OSTYPE} in
         if [[ -d ${HOME}/.local/bin ]]; then
             export PATH=${HOME}/.local/bin:${PATH}
         fi
+        if [[ -d ${XDG_DATA_HOME}/npm/bin ]]; then
+            export PATH=${XDG_DATA_HOME}/npm/bin:${PATH}
+        fi
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         ;;
