@@ -40,17 +40,19 @@ limit coredumpsize 0
 #
 case ${OSTYPE} in
     darwin*)
-        # Add a path for brew.
-        if [[ -d /usr/local/bin ]]; then
-            export PATH=/usr/local/bin:${PATH}
-        fi
         # Add a path for brew Intel.
         if [[ -d /usr/local/sbin ]]; then
             export PATH=/usr/local/sbin:${PATH}
         fi
+        if [[ -d /usr/local/bin ]]; then
+            export PATH=/usr/local/bin:${PATH}
+        fi
         # Add a path for brew Apple Silicon.
         if [[ -d /opt/homebrew/sbin ]]; then
             export PATH=/opt/homebrew/sbin:${PATH}
+        fi
+        if [[ -d /opt/homebrew/bin ]]; then
+            export PATH=/opt/homebrew/bin:${PATH}
         fi
         # Set path to python modules.
         PY3_PATH=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
