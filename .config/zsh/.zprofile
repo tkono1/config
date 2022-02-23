@@ -1,20 +1,22 @@
 ## {{
+add_path(){
+    if [[ -d $1 ]]; then
+        export PATH=$1:${PATH}
+    fi
+}
+
 case ${OSTYPE} in
     darwin*)
-        # Add brew path for Intel.
-        if [[ -d /usr/local/sbin ]]; then
-            export PATH=/usr/local/sbin:${PATH}
-        fi
-        # Add brew path for Apple Silicon.
-        if [[ -d /opt/homebrew/sbin ]]; then
-            export PATH=/opt/homebrew/sbin:${PATH}
-        fi
+        # Add a path for brew Intel.
+        add_path "/usr/local/sbin"
+        add_path "/usr/local/bin"
+        # Add a path for brew Apple Silicon.
+        add_path "/opt/homebrew/sbin"
+        add_path "/opt/homebrew/bin"
         # Set path to python modules.
         if (( ${+commands[python3]} )); then
             py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
-            if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
-                export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
-            fi
+                 add_path "${HOME}/Library/Python/${py3_ver}/bin"
         fi
         unset py3_ver
         # Remove duplicated path frim ${PATH}.
