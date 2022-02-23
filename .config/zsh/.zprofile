@@ -10,10 +10,13 @@ case ${OSTYPE} in
             export PATH=/opt/homebrew/sbin:${PATH}
         fi
         # Set path to python modules.
-        py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
-        if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
-            export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
+        if (( ${+commands[python3]} )); then
+            py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
+            if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
+                export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
+            fi
         fi
+        unset py3_ver
         # Remove duplicated path frim ${PATH}.
         typeset -U path
         ;;

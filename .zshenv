@@ -55,9 +55,12 @@ case ${OSTYPE} in
             export PATH=/opt/homebrew/bin:${PATH}
         fi
         # Set path to python modules.
-        py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
-        if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
-            export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
+        if (( ${+commands[python3]} )); then
+            py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
+            if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
+                export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
+            fi
+            unset py3_ver
         fi
         ;;
     linux*)
