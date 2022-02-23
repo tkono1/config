@@ -1,7 +1,6 @@
 "" General settings {{
 set nocompatible
 set backspace=start,eol,indent
-set whichwrap=b,s
 set mouse=
 set noswapfile
 set viminfo+=n$HOME/.vim/viminfo
@@ -22,9 +21,6 @@ call plug#end()
 "" Language and encoding settings {{
 " Set the character encoding used inside vim.
 set encoding=utf-8
-
-" Set the character encoding for the file of this buffer.
-set fileencoding=utf-8
 
 if has('unix')
     set fileformat=unix
@@ -81,7 +77,7 @@ set wildmode=list:full
 " Insert spaces instead of tab.
 set expandtab
 
-" Tab width.
+" Set number of spaces to be converted to a tab.
 set tabstop=4
 
 " Set how many spaces are entered when press tab key.
