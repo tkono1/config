@@ -15,7 +15,7 @@ case ${OSTYPE} in
         add_path "/opt/homebrew/bin"
         # Set path to python modules.
         if (( ${+commands[python3]} )); then
-            py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
+            local py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
                  add_path "${HOME}/Library/Python/${py3_ver}/bin"
         fi
         unset py3_ver
