@@ -38,38 +38,32 @@ limit coredumpsize 0
 #
 ## Set command path {{
 #
+add_path(){
+    if [[ -d $1 ]]; then
+        export PATH=$1:${PATH}
+    fi
+}
+
 case ${OSTYPE} in
     darwin*)
         # Add a path for brew Intel.
-        if [[ -d /usr/local/sbin ]]; then
-            export PATH=/usr/local/sbin:${PATH}
-        fi
-        if [[ -d /usr/local/bin ]]; then
-            export PATH=/usr/local/bin:${PATH}
-        fi
+        add_path "/usr/local/sbin"
+        add_path "/usr/local/bin"
         # Add a path for brew Apple Silicon.
-        if [[ -d /opt/homebrew/sbin ]]; then
-            export PATH=/opt/homebrew/sbin:${PATH}
-        fi
-        if [[ -d /opt/homebrew/bin ]]; then
-            export PATH=/opt/homebrew/bin:${PATH}
-        fi
+        add_path "/opt/homebrew/sbin"
+        add_path "/opt/homebrew/bin"
         # Set path to python modules.
         if (( ${+commands[python3]} )); then
             py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
-            if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
-                export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
-            fi
+            add_path "${HOME}/Library/Python/${py3_ver}/bin"
             unset py3_ver
         fi
         ;;
     linux*)
-        if [[ -d ${HOME}/.local/bin ]]; then
-            export PATH=${HOME}/.local/bin:${PATH}
-        fi
-        if [[ -d ${XDG_DATA_HOME}/npm/bin ]]; then
-            export PATH=${XDG_DATA_HOME}/npm/bin:${PATH}
-        fi
+        # Add a path for local bin.
+        add_path "${HOME}/.local/bin"
+        # Add a path for npm
+        add_path "${XDG_DATA_HOME}/npm/bin"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         ;;
