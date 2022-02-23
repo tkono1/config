@@ -22,28 +22,32 @@ fi
 #
 ## Set command path {{
 #
+add_path(){
+    if [[ -d $1 ]]; then
+        export PATH=$1:${PATH}
+    fi
+}
+
 case ${OSTYPE} in
     darwin*)
-        # Add brew path for Intel.
-        if [[ -d /usr/local/sbin ]]; then
-            export PATH=/usr/local/sbin:${PATH}
-        fi
-        # Add brew path for Apple Silicon.
-        if [[ -d /opt/homebrew/sbin ]]; then
-            export PATH=/opt/homebrew/sbin:${PATH}
-        fi
+        # Add a path for brew Intel.
+        add_path "/usr/local/sbin"
+        add_path "/usr/local/bin"
+        # Add a path for brew Apple Silicon.
+        add_path "/opt/homebrew/sbin"
+        add_path "/opt/homebrew/bin"
         # Set path to python modules.
-        if [[ -d ${HOME}/Library/Python/3.9/bin ]]; then
-            export PATH=${HOME}/Library/Python/3.9/bin:${PATH}
-        fi
+        py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
+        add_path "${HOME}/Library/Python/${py3_ver}/bin"
+        unset py3_ver
         ;;
     linux*)
-        if [[ -d /usr/local/sbin ]]; then
-            export PATH=/usr/local/sbin:${PATH}
-        fi
-        if [[ -d ${HOME}/.local/bin ]]; then
-            export PATH=${HOME}/.local/bin:${PATH}
-        fi
+        # Add a path for local bin.
+        add_path "${HOME}/.local/bin"
+        # Add a path for npm
+        add_path "${HOME}/.local/share/npm/bin"
+        # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
+        export skip_global_compinit=1
         ;;
 esac
 ## }}
