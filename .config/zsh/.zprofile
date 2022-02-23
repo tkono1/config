@@ -10,8 +10,9 @@ case ${OSTYPE} in
             export PATH=/opt/homebrew/sbin:${PATH}
         fi
         # Set path to python modules.
-        if [[ -d ${HOME}/Library/Python/3.9/bin ]]; then
-            export PATH=${HOME}/Library/Python/3.9/bin:${PATH}
+        py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
+        if [[ -d ${HOME}/Library/Python/${py3_ver}/bin ]]; then
+            export PATH=${HOME}/Library/Python/${py3_ver}/bin:${PATH}
         fi
         # Remove duplicated path frim ${PATH}.
         typeset -U path
