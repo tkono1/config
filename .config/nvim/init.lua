@@ -24,12 +24,15 @@ vim.g.loaded_perl_provider = 0
 --- }}
 
 --- packer.nvim {{
--- git clone --depth 1 https://github.com/wbthomason/packer.nvim                   ~/.local/share/nvim/site/pack/packer/start/packer.nvim
--- PackerCompile : Regenerate compiled loader file
--- PackerClean : Remove any disabled or unused plugins
--- PackerInstall : Clean, then install missing plugins
--- PackerUpdate : Clean, then update and install plugins
--- PackerSync : Perform `PackerUpdate` and then `PackerCompile`
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    packer_bootstrap = vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
+-- :PackerCompile : Regenerate compiled loader file
+-- :PackerClean : Remove any disabled or unused plugins
+-- :PackerInstall : Clean, then install missing plugins
+-- :PackerUpdate : Clean, then update and install plugins
+-- :PackerSync : Perform `PackerUpdate` and then `PackerCompile`
 require('packer').startup(function()
     use {'wbthomason/packer.nvim'}
     use {'shaunsingh/nord.nvim'}
@@ -146,8 +149,8 @@ vim.opt.visualbell = false
 
 --- Syntax settings {{
 -- nvim-treesitter
--- TSUpdate {language} : Update modules.
--- TSModuleInfo : list information about modules state.
+-- :TSUpdate {language} : Update modules.
+-- :TSModuleInfo : list information about modules state.
 require('nvim-treesitter.configs').setup {
     ensure_installed = "maintained",
     highlight = {
