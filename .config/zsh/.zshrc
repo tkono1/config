@@ -29,6 +29,21 @@ bindkey -e
 export LANG=en_US.UTF-8
 ## }}
 
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+### End of Zinit's installer chunk
+
+zinit light woefe/git-prompt.zsh
+
 #
 ## Color settings {{
 #
@@ -82,6 +97,9 @@ setopt interactive_comments
 
 # Disable beep when complete list displayed.
 setopt nolistbeep
+
+# zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 ## }}
 
 #
@@ -118,8 +136,6 @@ setopt hist_reduce_blanks
 ## Git prompt settings {{
 #
 if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
-    autoload -Uz git-prompt.zsh && git-prompt.zsh
-
     ZSH_GIT_PROMPT_FORCE_BLANK=1
     ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
 
