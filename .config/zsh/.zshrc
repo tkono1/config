@@ -38,8 +38,12 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{160} The clone has failed.%f%b"
 fi
 
+declare -A ZINIT
+ZINIT[ZCOMPDUMP_PATH]=${XDG_CACHE_HOME}/zsh
+
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
 zinit light woefe/git-prompt.zsh
@@ -57,7 +61,7 @@ fi
 ## Completion {{
 #
 # Set auto completion.
-autoload -Uz compinit && compinit -d ${XDG_CONFIG_HOME}/zsh/.zcompdump
+autoload -Uz compinit && compinit -d ${XDG_CACHE_HOME}/zsh/.zcompdump
 
 # Set location of zcompcache directory.
 zstyle ':completion:*' cache-path ${XDG_CACHE_HOME}/zsh/zcompcache
@@ -97,9 +101,6 @@ setopt interactive_comments
 
 # Disable beep when complete list displayed.
 setopt nolistbeep
-
-# zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 ## }}
 
 #
