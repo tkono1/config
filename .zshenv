@@ -43,10 +43,10 @@ add_path(){
 
 case ${OSTYPE} in
     darwin*)
-        # Add a path for brew Intel.
+        # Add path for brew Intel.
         add_path "/usr/local/sbin"
         add_path "/usr/local/bin"
-        # Add a path for brew Apple Silicon.
+        # Add path for brew Apple Silicon.
         add_path "/opt/homebrew/sbin"
         add_path "/opt/homebrew/bin"
         # Set path to python modules.
@@ -57,9 +57,9 @@ case ${OSTYPE} in
         fi
         ;;
     linux*)
-        # Add a path for local bin.
+        # Add path for local bin.
         add_path "${HOME}/.local/bin"
-        # Add a path for npm
+        # Add path for npm
         add_path "${XDG_DATA_HOME}/npm/bin"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
