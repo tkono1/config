@@ -61,7 +61,8 @@ fi
 ## Completion {{
 #
 # Set auto completion.
-autoload -Uz compinit && compinit -d ${XDG_CACHE_HOME}/zsh/.zcompdump
+#autoload -Uz compinit && compinit -d ${XDG_CACHE_HOME}/zsh/.zcompdump
+autoload -Uz compinit && compinit -D
 
 # Set location of zcompcache directory.
 zstyle ':completion:*' cache-path ${XDG_CACHE_HOME}/zsh/zcompcache
