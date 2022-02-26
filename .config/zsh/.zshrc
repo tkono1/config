@@ -40,6 +40,7 @@ fi
 
 declare -A ZINIT
 ZINIT[ZCOMPDUMP_PATH]=${XDG_CACHE_HOME}/zsh
+ZINIT[COMPINIT_OPTS]="-D"
 
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
