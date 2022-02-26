@@ -151,12 +151,14 @@ vim.opt.visualbell = false
 -- nvim-treesitter
 -- :TSUpdate {language} : Update modules.
 -- :TSModuleInfo : list information about modules state.
-require('nvim-treesitter.configs').setup {
-    ensure_installed = "maintained",
-    highlight = {
-        enable = true,
-    },
-}
+if vim.fn.system("uname -m") == "x86_64\n" then
+    require('nvim-treesitter.configs').setup {
+        ensure_installed = "maintained",
+        highlight = {
+            enable = true,
+        },
+    }
+end
 --- }}
 
 --- Statusline settings {{
