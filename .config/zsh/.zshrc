@@ -2,7 +2,6 @@
 ## Zsh configurations.
 ## You can check zsh options using "set -o" command.
 #
-
 #
 ## General settings {{
 #
@@ -91,7 +90,7 @@ setopt auto_param_keys
 # Show the type of each file with a trailing identifying mark.
 setopt list_types
 
-# Automatically use menu completion after the cecond consecutive rquest.
+# Automatically use menu completion after the second consecutive rquest.
 setopt auto_menu
 
 # Files beginning with a . be matched without explicitly specifying the dot.
@@ -123,20 +122,16 @@ SAVEHIST=10000
 # Share command history.
 setopt share_history
 
-# Do not enter command lines into the history list
-# if they are duplicates of the previous event.
+# Do not enter duplicated command lines into the history list.
 setopt hist_ignore_dups
 
-# If a new command line being added to the history list
-# duplicates an older one, the older command is removed.
+# Remove older duplicated command from the history list.
 setopt hist_ignore_all_dups
 
-# Remove command lines from the history list 
-# when the first charactoer on the line is a space.
+# Remove command if first character is space lines from the history list. 
 setopt hist_ignore_space
 
-# Remove superfluous blanks from each command line
-# being added to the history list.
+# Remove superfluous blanks from each command line from the history list.
 setopt hist_reduce_blanks
 ## }}
 
