@@ -114,6 +114,7 @@ vim.cmd [[filetype indent off]]
 
 --- Edit settings {{
 -- Disable insert comment automatically.
+vim.cmd [[filetype plugin on]]
 vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 
 -- Share clipboard with OS.
