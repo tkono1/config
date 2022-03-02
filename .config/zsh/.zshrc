@@ -141,7 +141,6 @@ setopt hist_reduce_blanks
 if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     ZSH_GIT_PROMPT_FORCE_BLANK=1
     ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
-
     ZSH_THEME_GIT_PROMPT_PREFIX="["
     ZSH_THEME_GIT_PROMPT_SUFFIX="]"
     ZSH_THEME_GIT_PROMPT_SEPARATOR="|"
