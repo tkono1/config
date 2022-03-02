@@ -89,7 +89,6 @@ vim.opt.wildmode = 'list:full'
 --- }}
 
 --- Tab settings {{
--- Insert spaces instead of tab.
 vim.bo.expandtab = true
 
 -- Set number of spaces to be converted to a tab.
@@ -110,9 +109,7 @@ vim.bo.smartindent = false
 vim.bo.cindent = false
 vim.bo.indentexpr = ''
 vim.cmd [[filetype indent off]]
---- }}
 
---- Edit settings {{
 -- Disable insert comment automatically.
 vim.cmd [[filetype plugin on]]
 vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
