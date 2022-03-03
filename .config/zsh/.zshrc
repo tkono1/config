@@ -1,8 +1,4 @@
 #
-## Zsh configurations.
-## You can check zsh options using "set -o" command.
-#
-#
 ## General settings {{
 #
 # Set language.
@@ -136,8 +132,9 @@ setopt hist_reduce_blanks
 ## }}
 
 #
-## Git prompt settings {{
+## Prompt settings {{
 #
+# Git prompt settings.
 if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     ZSH_GIT_PROMPT_FORCE_BLANK=1
     ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
@@ -157,14 +154,10 @@ if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
     ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
     ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
-
     RPROMPT='$(gitprompt)'
 fi
-## }}
 
-#
-## Prompt settings {{
-#
+# Prompt settings.
 PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
