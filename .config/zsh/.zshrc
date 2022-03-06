@@ -157,10 +157,13 @@ if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     RPROMPT='$(gitprompt)'
 fi
 
-# Prompt settings.
+# Command prompt settings.
 PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
+
+# Title setting.
+echo -en "\e]0;${HOST}\a"
 ## }}
 
 #
