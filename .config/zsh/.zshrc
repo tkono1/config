@@ -165,7 +165,6 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
 # Title setting.
 ZSH_TAB_TITLE_ONLY_FOLDER=true
-ZSH_TAB_TITLE_PREFIX='$USER@$HOST - '
 ## }}
 
 #
