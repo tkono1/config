@@ -47,6 +47,7 @@ autoload -Uz _zinit
 
 # Load plugins.
 zinit light woefe/git-prompt.zsh
+zinit light trystan2k/zsh-tab-title
 ## }}
 
 #
@@ -163,7 +164,8 @@ PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
 # Title setting.
-echo -en "\e]0;${HOST}\a"
+ZSH_TAB_TITLE_ONLY_FOLDER=true
+ZSH_TAB_TITLE_PREFIX='$USER@$HOST - '
 ## }}
 
 #
