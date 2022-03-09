@@ -1,7 +1,3 @@
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
 #
 ## XDG base directories {{
 #
@@ -50,4 +46,11 @@ case ${OSTYPE} in
         export skip_global_compinit=1
         ;;
 esac
+## }}
+#
+## Load .bashrc {{
+#
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
 ## }}
