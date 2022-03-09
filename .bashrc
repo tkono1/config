@@ -80,8 +80,8 @@ case ${OSTYPE} in
         ;;
     linux*)
         alias ls='ls --color=auto'
-        if [[ -f ${HOME}/.config/dir_colors ]]; then
-            eval $(cat ${HOME}/.config/dir_colors)
+        if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
+            eval $(cat ${XDG_CONFIG_HOME}/dir_colors)
         else
             export LS_COLORS='di=01;94'
         fi
@@ -106,7 +106,7 @@ elif type 'vim' > /dev/null 2>&1; then
 fi
 if type 'tmux' > /dev/null 2>&1; then
     if [[ $(tmux -V|grep -o -E "([0-9]+\.)([0-9])") -lt 3.1 ]]; then
-        alias tmux="tmux -f ${HOME}/.config/tmux/tmux.conf"
+        alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     fi
     [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
     export TMUX_TMPDIR=/tmp
