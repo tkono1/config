@@ -193,7 +193,9 @@ esac
 (( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
 
 # Don't print any hits of Homebrew.
-export HOMEBREW_NO_ENV_HINTS=1
+if (( ${+commands[brew]} )); then
+    export HOMEBREW_NO_ENV_HINTS=1
+fi
 ##}}
 
 #
