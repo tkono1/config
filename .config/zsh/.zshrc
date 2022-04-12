@@ -191,6 +191,9 @@ esac
     
 # Let GPG to use pinentry TTY.
 (( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
+
+# Don't print any hits of Homebrew.
+export HOMEBREW_NO_ENV_HINTS=1
 ##}}
 
 #
