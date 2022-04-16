@@ -15,7 +15,6 @@ handle:close()
 node_exists = node_exists:gsub('\n[^\n]*$', '')
 
 -- Disable unused providers
-vim.g.loaded_python_provider = 0
 vim.g.loaded_ruby_provider = 0
 if node_exists == '1' then
     vim.g.loaded_node_provider = 0
