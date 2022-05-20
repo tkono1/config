@@ -63,7 +63,6 @@ vim.opt.ambiwidth = 'double'
 if vim.fn.has('termguicolors') and vim.env.COLORTERM == 'truecolor' then
     vim.opt.termguicolors = true
     vim.wo.cursorline = true
-    --vim.opt.list =  tue
 end
 
 -- Set background scheme. Set this option before syntax highlighting.
@@ -128,6 +127,7 @@ vim.wo.number = true
 vim.opt.ruler = true
 
 -- Show invisible characters
+--vim.opt.list = true
 vim.opt.listchars = 'tab:<->', 'space:.', 'eol:↲'
 
 -- Set title of the window to the value of titlestring.
