@@ -148,7 +148,7 @@ vim.opt.visualbell = false
 -- nvim-treesitter
 -- :TSUpdate {language} : Update modules.
 -- :TSModuleInfo : list information about modules state.
-if not (jit.version == nil) then
+if type(jit) =='table' then
     require('nvim-treesitter.configs').setup {
         ensure_installed = "all",
         highlight = {
