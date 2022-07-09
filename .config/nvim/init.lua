@@ -148,7 +148,7 @@ vim.opt.visualbell = false
 -- nvim-treesitter
 -- :TSUpdate {language} : Update modules.
 -- :TSModuleInfo : list information about modules state.
-if vim.fn.system("uname -m") == "arm64\n" or "x86_64\n" then
+if not (jit.version == nil) then
     require('nvim-treesitter.configs').setup {
         ensure_installed = "all",
         highlight = {
