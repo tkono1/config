@@ -87,16 +87,16 @@ vim.opt.wildmode = 'list:full'
 --- }}
 
 --- Tab settings {{
-vim.bo.expandtab = true
+vim.o.expandtab = true
 
 -- Set number of spaces to be converted to a tab.
-vim.bo.tabstop = 4
+vim.o.tabstop = 4
 
 -- Set how many spaces are entered when press tab key.
-vim.bo.softtabstop = 4
+vim.o.softtabstop = 4
 
 -- Width of indent when insert mode.
-vim.bo.shiftwidth = 4
+vim.o.shiftwidth = 4
 
 -- Round indent to multiple of shiftwidth.
 vim.opt.shiftround = true
