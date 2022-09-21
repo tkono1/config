@@ -59,7 +59,7 @@ case ${OSTYPE} in
     linux*)
         # Add path for local bin.
         add_path "${HOME}/.local/bin"
-        # Set npm to use XDG_Config_home.
+        # Set npm to use XDG_CONFIG_HOME.
         export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
         # Add path for npm.
         add_path "${XDG_DATA_HOME}/npm/bin"
