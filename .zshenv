@@ -59,7 +59,9 @@ case ${OSTYPE} in
     linux*)
         # Add path for local bin.
         add_path "${HOME}/.local/bin"
-        # Add path for npm
+        # Set npm to use XDG_Config_home.
+        export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+        # Add path for npm.
         add_path "${XDG_DATA_HOME}/npm/bin"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
