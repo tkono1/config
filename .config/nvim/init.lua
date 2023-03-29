@@ -1,4 +1,10 @@
 --- General settings {{
+-- Enable lua module loader if available.
+if vim.loader then
+    vim.loader.enable()
+end
+
+-- 
 vim.opt.mouse = ''
 vim.bo.swapfile = false
 
