@@ -160,6 +160,9 @@ if type(jit) =='table' then
         highlight = {
             enable = true,
         },
+        indent = {
+            enable = true,
+        },
     }
 end
 --- }}
