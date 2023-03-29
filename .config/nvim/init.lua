@@ -1,4 +1,4 @@
--- General settings {{
+--- General settings {{
 vim.opt.mouse = ''
 vim.bo.swapfile = false
 
