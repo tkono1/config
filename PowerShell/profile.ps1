@@ -15,9 +15,6 @@ if ($host.Name -eq 'ConsoleHost') {
     if (get-Module -ListAvailable -Name 'posh-git') {
         Import-Module posh-git
     }
-    if (Get-Module -ListAvailable -Name 'Get-ChildItemColor') {
-        Import-Module Get-ChildItemColor
-    }
     if (Get-Module -ListAvailable -Name 'BurntToast') {
         Import-Module BurntToast
     }
