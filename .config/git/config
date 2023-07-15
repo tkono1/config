@@ -1,7 +1,7 @@
 [user]
 	name = ${USER}
 	email = <email>
-	signingkey = <signing key ID, gpg --list-secret-keys --keyid-format LONG>
+	signingkey = <git config --global user.signingkey <SSH public key>>
 [color]
 	ui = auto
 [core]
@@ -13,8 +13,10 @@
 [alias]
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 [gpg]
-	program = gpg
+	format = ssh
 [commit]
 	gpgsign = true
 [pull]
 	rebase = false
+[gpg "ssh"]
+allowedSignersFile = ${HOME}/.config/git/allowed_signers
