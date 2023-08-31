@@ -59,6 +59,8 @@ case ${OSTYPE} in
     linux*)
         # Add path for local bin.
         add_path "${HOME}/.local/bin"
+        # Add path for snap
+        add_path "/snap/bin"
         # Set npm to use XDG_CONFIG_HOME.
         export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
         # Add path for npm.
