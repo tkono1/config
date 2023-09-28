@@ -19,4 +19,4 @@
 [pull]
 	rebase = false
 [gpg "ssh"]
-allowedSignersFile = ${HOME}/.config/git/allowed_signers
+    allowedSignersFile = ${HOME}/.config/git/allowed_signers
