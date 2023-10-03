@@ -66,7 +66,7 @@ vim.opt.ambiwidth = 'double'
 
 --- Color scheme settings {{
 -- 24-bit color settings.
-if vim.fn.has('termguicolors') and vim.env.COLORTERM == 'truecolor' then
+if vim.fn.has('termguicolors') == 1 and vim.env.COLORTERM == 'truecolor' then
     vim.opt.termguicolors = true
     vim.wo.cursorline = true
 end
