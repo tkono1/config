@@ -1,13 +1,13 @@
 [core]
-	editor = \"C:\\Users\\tkono\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+	editor = \"C:\\Users\\<username>\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
 	autocrlf = input
 	quotepath = false
 	ignorecase = false
-	excludesfile = C:\\Users\\tkono\\.config\\git\\ignore
+	excludesfile = C:\\Users\\<username>\\.config\\git\\ignore
 [user]
-	name = tkono1
-	email = tkono1@gmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILg4oCZqzg0FPZ7vaddLgLDpk0ggjU+y/NpJWIQNpUe1 tkono1@gmail.com
+	name = <username>
+	email = <mail address>
+	signingkey = <SSH public key>
 [color]
 	ui = auto
 [alias]
@@ -19,4 +19,4 @@
 [pull]
 	rebase = false
 [gpg "ssh"]
-	allowedSignersFile = C:\\Users\\tkono\\.config\\git\\allowed_signers
+	allowedSignersFile = C:\\Users\\<username>\\.config\\git\\allowed_signers
