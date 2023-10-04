@@ -3,35 +3,21 @@
 #
 # Install-Module -Name posh-git -Scope CurrentUser -Force
 # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
-# Install-Module -Name BurntToast -Scope CurrentUser
-# https://github.com/Windos/BurntToast
 
 if ($host.Name -eq 'ConsoleHost') {
     if (Get-Module -ListAvailable -Name 'PSReadLine') {
         Import-Module PSReadLine
         Set-PSReadlineOption -EditMode Emacs
-        Set-PSReadLineOption -PredictionSource History -PredictionViewStyle ListView
+        Set-PSReadLineOption -PredictionSource HistoryAndPlugin -PredictionViewStyle ListView
     }
     if (get-Module -ListAvailable -Name 'posh-git') {
         Import-Module posh-git
-    }
-    if (Get-Module -ListAvailable -Name 'BurntToast') {
-        Import-Module BurntToast
     }
 } elseif ($host.Name -eq 'Vusual Studio Code Host') {
     if (Get-Module -ListAvailable -Name 'PSReadLine') {
         Import-Module PSReadline
         #Set-PSReadlineOption -EditMode Emacs
     }
-}
-
-#
-## Formatting ##
-#
-
-if ($PSVersionTable.PSVersion.Major -ge 7 -and $PSVersionTable.PSVersion.Minor -ge 2) {
-    $PSStyle.Formatting.TableHeader = $PSStyle.Bold + $PSStyle.Italic + "`e[32;1m"
-    $PSStyle.Formatting.FormatAccent = $PSStyle.Bold + $PSStyle.Italic + "`e[32;1m"
 }
 
 #
