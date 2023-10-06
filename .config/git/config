@@ -1,12 +1,12 @@
 [user]
-	name = ${USER}
-	email = <email>
-	signingkey = <git config --global user.signingkey <SSH public key>>
+	name = tkono1
+	email = tkono1@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILg4oCZqzg0FPZ7vaddLgLDpk0ggjU+y/NpJWIQNpUe1 tkono1@gmail.com
 [color]
 	ui = auto
 [core]
 	editor = vim
-	excludesfile = ${HOME}/.config/git/ignore
+	excludesfile = ~/.config/git/ignore
 	autocrlf = input
 	quotepath = false
 	ignorecase = false
@@ -19,4 +19,4 @@
 [pull]
 	rebase = false
 [gpg "ssh"]
-    allowedSignersFile = ${HOME}/.config/git/allowed_signers
+	allowedSignersFile = ~/.config/git/allowed_signers
