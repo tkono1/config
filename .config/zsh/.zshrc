@@ -17,6 +17,9 @@ setopt correct
 # Disable beep.
 setopt no_beep
 
+# Suppress "no matches" message. 
+setopt nonomatch
+
 # Set emacs-like keybinding.
 bindkey -e
 ## }}
