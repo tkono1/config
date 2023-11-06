@@ -9,8 +9,10 @@ case ${OSTYPE} in
         ;;
     linux*)
         ## Start ssh-agent.
-        if (( $+commands[ssh-agent] )) && (( -! $+SSH_AUTH_SOCK )); then
-            ls ${HOME}/.ssh | grep -q 'id_*' && exec ssh-agent zsh
+        if ls ${HOME}/.ssh/id_* > /dev/null 2>&1; then
+            if (( $+commands[ssh-agent] )) && (( -! $+SSH_AUTH_SOCK )); then
+                ls ${HOME}/.ssh | grep -q 'id_*' && exec ssh-agent zsh
+            fi
         fi
         ;;
 esac
