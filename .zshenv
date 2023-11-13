@@ -61,10 +61,9 @@ case ${OSTYPE} in
         add_path "${HOME}/.local/bin"
         # Add path for snap
         add_path "/snap/bin"
-        # Set npm to use XDG_CONFIG_HOME.
-        export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
-        # Add path for npm.
-        add_path "${XDG_DATA_HOME}/npm/bin"
+        # Load nvm.
+        export NVM_DIR="$HOME/.config/nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         ;;
