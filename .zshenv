@@ -58,9 +58,9 @@ case ${OSTYPE} in
         ;;
     linux*)
         # Add path for local bin.
-        add_path "${HOME}/.local/bin"
+        [[ -d ${HOME}/.local/bin ]] && add_path "${HOME}/.local/bin"
         # Add path for snap
-        add_path "/snap/bin"
+        [[ -d /snap/bin ]] && add_path "/snap/bin"
         # Load nvm.
         export NVM_DIR="$HOME/.config/nvm"
         [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
