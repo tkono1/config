@@ -63,7 +63,7 @@ case ${OSTYPE} in
         [[ -d /snap/bin ]] && add_path "/snap/bin"
         # Load nvm.
         export NVM_DIR="$HOME/.config/nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        [[ -s ${NVM_DIR}/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         ;;
