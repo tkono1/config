@@ -44,11 +44,11 @@ add_path(){
 case ${OSTYPE} in
     darwin*)
         # Add path for brew Intel.
-        add_path "/usr/local/sbin"
-        add_path "/usr/local/bin"
+        [[ -d /usr/local/sbin ]] && add_path "/usr/local/sbin"
+        [[ -d /usr/local/bin ]] && add_path "/usr/local/bin"
         # Add path for brew Apple Silicon.
-        add_path "/opt/homebrew/sbin"
-        add_path "/opt/homebrew/bin"
+        [[ -d /opt/homebrew/sbin ]] && add_path "/opt/homebrew/sbin"
+        [[ -d /opt/homebrew/bin ]] && add_path "/opt/homebrew/bin"
         # Set path to python modules.
         if (( ${+commands[python3]} )); then
             local py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
