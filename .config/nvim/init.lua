@@ -121,21 +121,6 @@ vim.cmd [[autocmd FileType * setlocal formatoptions-=cro]]
 -- Share clipboard with OS.
 vim.opt.clipboard:append('unnamedplus')
 
-if vim.fn.has('wsl') == 1 then
-    vim.g.clipboard = {
-        name = "win32yank-wsl",
-        copy = {
-            ["+"] = "win32yank.exe -i --crlf",
-            ["*"] = "win32yank.exe -i --crlf"
-        },
-        paste = {
-            ["+"] = "win32yank.exe -o --crlf",
-            ["*"] = "win32yank.exe -o --crlf"
-        },
-        cache_enabled = 0
-    }
-end
-
 -- Keep all windows size as same when add/remove.
 vim.opt.equalalways = true
 --- }}
