@@ -29,6 +29,8 @@ case ${OSTYPE} in
         [[ -s ${NVM_DIR}/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
+        # Remove duplicated path frim ${PATH}.
+        typeset -U path
         ;;
 esac
 ## }}
