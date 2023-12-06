@@ -223,6 +223,8 @@ fi
 ## Application specific {{
 #
 # Load nvm.
-export NVM_DIR="$HOME/.config/nvm"
-[[ -s ${NVM_DIR}/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"
+if [[ -d ${XDG_CONFIG_HOME}/nvm ]]; then
+    export NVM_DIR=${XDG_CONFIG_HOME}/nvm
+    [[ -s ${NVM_DIR}/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"
+fi
 ## }}
