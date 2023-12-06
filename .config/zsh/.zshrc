@@ -218,13 +218,3 @@ if (( ${+commands[tmux]} )); then
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
-
-#
-## Application specific {{
-#
-# Load nvm.
-if [[ -d ${XDG_CONFIG_HOME}/nvm ]]; then
-    export NVM_DIR=${XDG_CONFIG_HOME}/nvm
-    [[ -s ${NVM_DIR}/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"
-fi
-## }}
