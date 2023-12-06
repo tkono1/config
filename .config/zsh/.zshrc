@@ -218,3 +218,11 @@ if (( ${+commands[tmux]} )); then
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
+
+#
+## Application specific {{
+#
+# Load nvm.
+export NVM_DIR="$HOME/.config/nvm"
+[[ -s ${NVM_DIR}/nvm.sh ]] && \. "$NVM_DIR/nvm.sh"
+## }}
