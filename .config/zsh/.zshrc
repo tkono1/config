@@ -46,8 +46,17 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 
 # Load plugins.
-zinit light woefe/git-prompt.zsh
-zinit light trystan2k/zsh-tab-title
+case ${OSTYPE} in
+    darwin*)
+        zinit light woefe/git-prompt.zsh
+        zinit light trystan2k/zsh-tab-title
+        ;;
+    linux*)
+        zinit light woefe/git-prompt.zsh
+        zinit light trystan2k/zsh-tab-title
+        zinit light lukechilds/zsh-nvm
+        ;;
+esac
 ## }}
 
 #
