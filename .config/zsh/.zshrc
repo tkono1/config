@@ -227,3 +227,16 @@ if (( ${+commands[tmux]} )); then
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
+
+#
+## Application specific settings {{
+#
+# pyenv
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+(( ${+commands[pyenv]} )) || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# cargo
+(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
+## }}
+
