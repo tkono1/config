@@ -199,7 +199,7 @@ case ${OSTYPE} in
 esac
     
 # Let GPG to use pinentry TTY.
-(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
+#(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
 
 # Don't print any hits of Homebrew.
 if (( ${+commands[brew]} )); then
