@@ -112,10 +112,10 @@ vim.bo.autoindent = false
 vim.bo.smartindent = false
 vim.bo.cindent = false
 vim.bo.indentexpr = ''
-vim.cmd [[filetype indent off]]
+vim.cmd.filetype({ "indent", "off" })
 
 -- Disable insert comment automatically.
-vim.cmd [[filetype plugin on]]
+vim.cmd.filetype({ "plugin", "on" })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     command = "setlocal formatoptions-=cro",
