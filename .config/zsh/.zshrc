@@ -49,11 +49,9 @@ autoload -Uz _zinit
 case ${OSTYPE} in
     darwin*)
         zinit light woefe/git-prompt.zsh
-        zinit light trystan2k/zsh-tab-title
         ;;
     linux*)
         zinit light woefe/git-prompt.zsh
-        zinit light trystan2k/zsh-tab-title
         zinit light lukechilds/zsh-nvm
         ;;
 esac
@@ -171,10 +169,6 @@ fi
 PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
-
-# Title setting.
-#ZSH_TAB_TITLE_ONLY_FOLDER=true
-## }}
 
 #
 ## Command specific settings {{
