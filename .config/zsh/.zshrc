@@ -225,12 +225,6 @@ fi
 #
 ## Application specific settings {{
 #
-# pyenv
-if (( ${+commands[pyenv]} )); then
-    export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-    (( ${+commands[pyenv]} )) || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
 
 # cargo
 (( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
