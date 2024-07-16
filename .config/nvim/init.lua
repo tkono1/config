@@ -42,7 +42,6 @@ require('packer').startup(function()
     use {'wbthomason/packer.nvim'}
     use {'shaunsingh/nord.nvim'}
     use {'nvim-lualine/lualine.nvim'}
---    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter'}
 end)
 --- }}
