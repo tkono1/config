@@ -68,6 +68,23 @@ require("lazy").setup({
         { "nvim-treesitter/nvim-treesitter" },
     },
     checker = { enabled = true },
+    ui = {
+        icons = {
+            cmd = "⌘",
+            config = "🛠",
+            event = "📅",
+            ft = "📂",
+            init = "⚙",
+            keys = "🗝",
+            plugin = "🔌",
+            runtime = "💻",
+            require = "🌙",
+            source = "📄",
+            start = "🚀",
+            task = "📌",
+            lazy = "💤 ",
+        },
+    },
 })
 --- }}
 
