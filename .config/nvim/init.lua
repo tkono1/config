@@ -68,6 +68,10 @@ require("lazy").setup({
         { "nvim-treesitter/nvim-treesitter" },
     },
     checker = { enabled = true },
+    rocks = {
+        enabled = false,
+        hererocks = false,
+    },
     ui = {
         icons = {
             cmd = "⌘",
