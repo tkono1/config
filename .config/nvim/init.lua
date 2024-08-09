@@ -122,10 +122,10 @@ vim.opt.background = 'dark'
 
 -- nord.nvim scheme options.
 vim.g.nord_borders = true
-vim.g.nord_italic = true
 
 -- Set color scheme.
 require('nord').set()
+
 --- }}
 
 --- Search settings {{
