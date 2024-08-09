@@ -63,7 +63,12 @@ vim.g.maplocalleader = "\\"
 -- :Lazy clean : Clean plugins that are no longer needed.
 require("lazy").setup({
     spec = {
-        { "shaunsingh/nord.nvim", lazy = false },
+        { "shaunsingh/nord.nvim",
+            lazy = false, 
+            config = function()
+                require('nord').set()
+            end,
+        },
         { "nvim-lualine/lualine.nvim" },
         { "nvim-treesitter/nvim-treesitter" },
     },
@@ -119,12 +124,6 @@ end
 
 -- Set background scheme. Set this option before syntax highlighting.
 vim.opt.background = 'dark'
-
--- nord.nvim scheme options.
-vim.g.nord_borders = true
-
--- Set color scheme.
-require('nord').set()
 
 --- }}
 
