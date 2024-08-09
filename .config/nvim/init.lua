@@ -204,7 +204,7 @@ vim.opt.visualbell = false
 -- :TSUpdate {language} : Update modules.
 -- :TSModuleInfo : list information about modules state.
 if type(jit) =='table' then
-    require('nvim-treesitter.configs').setup {
+    require('nvim-treesitter.configs').setup({
         ensure_installed = "all",
         highlight = {
             enable = true,
@@ -212,7 +212,7 @@ if type(jit) =='table' then
         indent = {
             enable = true,
         },
-    }
+    })
 end
 --- }}
 
@@ -221,7 +221,7 @@ end
 vim.opt.laststatus = 2
 
 -- Load lualine components.
-require('lualine').setup {
+require('lualine').setup({
     options = {
         icons_enabled = false,
         theme = 'auto',
@@ -243,7 +243,7 @@ require('lualine').setup {
         lualine_y = {'filetype'},
         lualine_z = {'%l/%LL'},
     },
-}
+})
 
 -- Hide current mode if lualine.nvim is set.
 vim.opt.showmode = false
