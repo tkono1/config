@@ -65,12 +65,20 @@ require("lazy").setup({
     spec = {
         { "shaunsingh/nord.nvim",
             lazy = false, 
+            priority = 1000,
             config = function()
                 require('nord').set()
             end,
         },
         { "nvim-lualine/lualine.nvim" },
-        { "nvim-treesitter/nvim-treesitter" },
+        { "nvim-treesitter/nvim-treesitter",
+            main = 'nvim-treesitter.configs',
+            opts = {
+                ensure_installed = "all",
+                highlight = { enable = true },
+                indent = { enable = true },
+            },
+        },
     },
     checker = { enabled = true },
     rocks = {
@@ -196,23 +204,6 @@ vim.wo.breakindent = true
 -- Disable visual bells.
 vim.opt.errorbells = false
 vim.opt.visualbell = false
---- }}
-
---- Syntax settings {{
--- nvim-treesitter
--- :TSUpdate {language} : Update modules.
--- :TSModuleInfo : list information about modules state.
-if type(jit) =='table' then
-    require('nvim-treesitter.configs').setup({
-        ensure_installed = "all",
-        highlight = {
-            enable = true,
-        },
-        indent = {
-            enable = true,
-        },
-    })
-end
 --- }}
 
 --- Statusline settings {{
