@@ -5,7 +5,7 @@ if vim.loader then
 end
 
 -- 
-vim.opt.mouse = ''
+vim.opt.mouse = ""
 vim.bo.swapfile = false
 
 -- Set python3 path.
@@ -67,12 +67,12 @@ require("lazy").setup({
             lazy = false, 
             priority = 1000,
             config = function()
-                require('nord').set()
+                require("nord").set()
             end,
         },
         { "nvim-lualine/lualine.nvim" },
         { "nvim-treesitter/nvim-treesitter",
-            main = 'nvim-treesitter.configs',
+            main = "nvim-treesitter.configs",
             opts = {
                 ensure_installed = "all",
                 highlight = { enable = true },
@@ -107,31 +107,31 @@ require("lazy").setup({
 
 --- Language and encoding settings {{
 -- Set the character encoding used inside vim.
-vim.opt.encoding = 'utf-8'
+vim.opt.encoding = "utf-8"
 
-if vim.fn.has('unix') == 1 then
-    vim.bo.fileformat = 'unix'
-    vim.opt.fileformats = {'unix', 'dos', 'mac'}
-    vim.opt.fileencodings = {'utf-8', 'cp932', 'euc-jp'}
-elseif vim.fn.has('win32') == 1 then
-    vim.bo.fileformat = 'dos'
-    vim.opt.fileformats = {'dos', 'unix', 'mac'}
-    vim.opt.fileencodings = {'utf-8', 'cp932', 'euc-jp'}
+if vim.fn.has("unix") == 1 then
+    vim.bo.fileformat = "unix"
+    vim.opt.fileformats = {"unix", "dos", "mac"}
+    vim.opt.fileencodings = {"utf-8", "cp932", "euc-jp"}
+elseif vim.fn.has("win32") == 1 then
+    vim.bo.fileformat = "dos"
+    vim.opt.fileformats = {"dos", "unix", "mac"}
+    vim.opt.fileencodings = {"utf-8", "cp932", "euc-jp"}
 end
 
 -- Treat East Asian Width class as ambiguous.
-vim.opt.ambiwidth = 'double'
+vim.opt.ambiwidth = "double"
 --- }}
 
 --- Color scheme settings {{
 -- 24-bit color settings.
-if vim.fn.has('termguicolors') == 1 and vim.env.COLORTERM == 'truecolor' then
+if vim.fn.has("termguicolors") == 1 and vim.env.COLORTERM == "truecolor" then
     vim.opt.termguicolors = true
     vim.wo.cursorline = true
 end
 
 -- Set background scheme. Set this option before syntax highlighting.
-vim.opt.background = 'dark'
+vim.opt.background = "dark"
 
 --- }}
 
@@ -142,7 +142,7 @@ vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.wrapscan = true
 vim.opt.wildmenu = true
-vim.opt.wildmode = 'list:full'
+vim.opt.wildmode = "list:full"
 --- }}
 
 --- Tab settings {{
@@ -175,7 +175,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Share clipboard with OS.
-vim.opt.clipboard:append('unnamedplus')
+vim.opt.clipboard:append("unnamedplus")
 
 -- Keep all windows size as same when add/remove.
 vim.opt.equalalways = true
@@ -211,27 +211,27 @@ vim.opt.visualbell = false
 vim.opt.laststatus = 2
 
 -- Load lualine components.
-require('lualine').setup({
+require("lualine").setup({
     options = {
         icons_enabled = false,
-        theme = 'auto',
-        component_separators = {left = ' ', right = ''},
-        section_separators = {left = '', right = ''},
+        theme = "auto",
+        component_separators = {left = " ", right = ""},
+        section_separators = {left = "", right = ""},
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {{'filename', path = 1, shorting_target = 0}},
-        lualine_c = {''},
+        lualine_a = {"mode"},
+        lualine_b = {{"filename", path = 1, shorting_target = 0}},
+        lualine_c = {""},
         lualine_x = {
-            'encoding',
+            "encoding",
             {
-                'fileformat',
+                "fileformat",
                 icons_enabled = true,
-                symbols = {unix = 'LF', dos = 'CRLF', mac = 'CR'}
+                symbols = {unix = "LF", dos = "CRLF", mac = "CR"}
             }
         },
-        lualine_y = {'filetype'},
-        lualine_z = {'%l/%LL'},
+        lualine_y = {"filetype"},
+        lualine_z = {"%l/%LL"},
     },
 })
 
