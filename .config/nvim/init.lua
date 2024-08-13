@@ -70,7 +70,37 @@ require("lazy").setup({
                 require("nord").set()
             end,
         },
-        { "nvim-lualine/lualine.nvim" },
+        { "nvim-lualine/lualine.nvim",
+            opts = {
+                options = {
+                    icons_enabled = false,
+                    theme = "auto",
+                    component_separators = {left = " ", right = ""},
+                    section_separators = {left = "", right = ""},
+                },
+                sections = {
+                    lualine_a = {"mode"},
+                    lualine_b = {
+                        {"filename", path = 1, shorting_target = 0}
+                    },
+                    lualine_c = {""},
+                    lualine_x = {
+                        "encoding",
+                        {
+                            "fileformat",
+                            icons_enabled = true,
+                            symbols = {
+                                unix = "LF",
+                                dos = "CRLF",
+                                mac = "CR"
+                            }
+                        }
+                    },
+                    lualine_y = {"filetype"},
+                    lualine_z = {"%l/%LL"},
+                },
+            },
+        },
         { "nvim-treesitter/nvim-treesitter",
             main = "nvim-treesitter.configs",
             opts = {
@@ -209,31 +239,6 @@ vim.opt.visualbell = false
 --- Statusline settings {{
 -- Always shows status line.
 vim.opt.laststatus = 2
-
--- Load lualine components.
-require("lualine").setup({
-    options = {
-        icons_enabled = false,
-        theme = "auto",
-        component_separators = {left = " ", right = ""},
-        section_separators = {left = "", right = ""},
-    },
-    sections = {
-        lualine_a = {"mode"},
-        lualine_b = {{"filename", path = 1, shorting_target = 0}},
-        lualine_c = {""},
-        lualine_x = {
-            "encoding",
-            {
-                "fileformat",
-                icons_enabled = true,
-                symbols = {unix = "LF", dos = "CRLF", mac = "CR"}
-            }
-        },
-        lualine_y = {"filetype"},
-        lualine_z = {"%l/%LL"},
-    },
-})
 
 -- Hide current mode if lualine.nvim is set.
 vim.opt.showmode = false
