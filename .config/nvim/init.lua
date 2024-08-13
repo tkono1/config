@@ -194,7 +194,7 @@ vim.opt.shiftround = true
 vim.bo.autoindent = false
 vim.bo.smartindent = false
 vim.bo.cindent = false
-vim.bo.indentexpr = ''
+vim.bo.indentexpr = ""
 vim.cmd.filetype({ "indent", "off" })
 
 -- Disable insert comment automatically.
@@ -219,8 +219,8 @@ vim.wo.number = true
 vim.opt.ruler = true
 
 -- Show invisible characters
---vim.opt.list = true
-vim.opt.listchars = 'tab:<->', 'space:.', 'eol:↲'
+vim.opt.listchars = { tab = "<->", space = ".", eol = "↲" }
+vim.opt.list = true
 
 -- Set title of the window to the value of titlestring.
 vim.opt.title = false
