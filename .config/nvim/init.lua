@@ -220,7 +220,7 @@ vim.opt.ruler = true
 
 -- Show invisible characters
 vim.opt.listchars = { tab = "<->", space = ".", eol = "↲" }
---  vim.opt.list = true
+vim.opt.list = false
 
 -- Set title of the window to the value of titlestring.
 vim.opt.title = false
