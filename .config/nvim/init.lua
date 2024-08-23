@@ -63,14 +63,16 @@ vim.g.maplocalleader = "\\"
 -- :Lazy clean : Clean plugins that are no longer needed.
 require("lazy").setup({
     spec = {
-        { "shaunsingh/nord.nvim",
+        {
+            "shaunsingh/nord.nvim",
             lazy = false, 
             priority = 1000,
             config = function()
                 require("nord").set()
             end,
         },
-        { "nvim-lualine/lualine.nvim",
+        {
+            "nvim-lualine/lualine.nvim",
             opts = {
                 options = {
                     icons_enabled = false,
@@ -79,11 +81,11 @@ require("lazy").setup({
                     section_separators = {left = "", right = ""},
                 },
                 sections = {
-                    lualine_a = {"mode"},
+                    lualine_a = { "mode" },
                     lualine_b = {
-                        {"filename", path = 1, shorting_target = 0}
+                        { "filename", path = 1, shorting_target = 0 }
                     },
-                    lualine_c = {""},
+                    lualine_c = { "" },
                     lualine_x = {
                         "encoding",
                         {
@@ -96,15 +98,17 @@ require("lazy").setup({
                             }
                         }
                     },
-                    lualine_y = {"filetype"},
-                    lualine_z = {"%l/%LL"},
+                    lualine_y = { "filetype" },
+                    lualine_z = { "%l/%LL" },
                 },
             },
         },
-        { "nvim-treesitter/nvim-treesitter",
+        {
+            "nvim-treesitter/nvim-treesitter",
             main = "nvim-treesitter.configs",
             opts = {
-                ensure_installed = "all",
+                --ensure_installed = "all",
+                ensure_installed = { "awk", "bash", "c", "c_sharp", "cmake", "cpp", "csv", "dart", "dockerfile", "git_config", "git_rebase", "gitcommit", "gitignore", "go", "html", "java", "javascript", "json", "lua", "make", "markdown", "perl", "python", "rust", "typescript", "yaml" },
                 highlight = { enable = true },
                 indent = { enable = true },
             },
@@ -141,12 +145,12 @@ vim.opt.encoding = "utf-8"
 
 if vim.fn.has("unix") == 1 then
     vim.bo.fileformat = "unix"
-    vim.opt.fileformats = {"unix", "dos", "mac"}
-    vim.opt.fileencodings = {"utf-8", "cp932", "euc-jp"}
+    vim.opt.fileformats = { "unix", "dos", "mac" }
+    vim.opt.fileencodings = { "utf-8", "cp932", "euc-jp" }
 elseif vim.fn.has("win32") == 1 then
     vim.bo.fileformat = "dos"
-    vim.opt.fileformats = {"dos", "unix", "mac"}
-    vim.opt.fileencodings = {"utf-8", "cp932", "euc-jp"}
+    vim.opt.fileformats = { "dos", "unix", "mac" }
+    vim.opt.fileencodings = { "utf-8", "cp932", "euc-jp" }
 end
 
 -- Treat East Asian Width class as ambiguous.
