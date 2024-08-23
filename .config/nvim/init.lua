@@ -107,8 +107,7 @@ require("lazy").setup({
             "nvim-treesitter/nvim-treesitter",
             main = "nvim-treesitter.configs",
             opts = {
-                --ensure_installed = "all",
-                ensure_installed = { "awk", "bash", "c", "c_sharp", "cmake", "cpp", "csv", "dart", "dockerfile", "git_config", "git_rebase", "gitcommit", "gitignore", "go", "html", "java", "javascript", "json", "lua", "make", "markdown", "perl", "python", "rust", "typescript", "yaml" },
+                ensure_installed = { "bash", "c", "c_sharp", "cmake", "cpp", "dart", "dockerfile", "git_config", "git_rebase", "gitcommit", "gitignore", "go", "html", "java", "javascript", "json", "lua", "make", "markdown", "perl", "python", "rust", "typescript", "yaml" },
                 highlight = { enable = true },
                 indent = { enable = true },
             },
