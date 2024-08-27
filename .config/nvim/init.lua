@@ -111,7 +111,7 @@ require("lazy").setup({
                     "cmake", "cpp", "dart", "dockerfile",
                     "git_config", "git_rebase", "gitignore",
                     "go", "html", "java", "javascript", "json",
-                    "lua", "make", "markdown", "python", "rust",
+                    "lua", "markdown", "objc", "python", "rust",
                     "typescript", "yaml" },
                 highlight = { enable = true },
                 indent = { enable = true },
