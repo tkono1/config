@@ -192,14 +192,26 @@ case ${OSTYPE} in
         ;;
 esac
     
-# Let GPG to use pinentry TTY.
-#(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
-
+#
+## Application specific settings {{
+#
 # Don't print any hits of Homebrew.
 if (( ${+commands[brew]} )); then
     export HOMEBREW_NO_ENV_HINTS=1
 fi
-##}}
+
+# Let GPG to use pinentry TTY.
+#(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
+
+# cargo
+(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
+## }}
+
+# iTerm2 shell integration.
+if [[ -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" ]] && [[ -d /Applications/iTerm2.app ]]; then
+    source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
+fi
+## }}
 
 #
 ## Aliases {{
@@ -221,17 +233,3 @@ if (( ${+commands[tmux]} )); then
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
-
-#
-## Application specific settings {{
-#
-
-# cargo
-(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
-## }}
-
-case ${OSTYPE} in
-    darwin*)
-    test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh" || true
-    ;;
-esac
