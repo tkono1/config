@@ -230,3 +230,8 @@ fi
 (( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
 ## }}
 
+case ${OSTYPE} in
+    darwin*)
+    test -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" && source "${ZDOTDIR}/.iterm2_shell_integration.zsh" || true
+    ;;
+esac
