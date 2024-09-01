@@ -192,9 +192,6 @@ case ${OSTYPE} in
         ;;
 esac
     
-#
-## Application specific settings {{
-#
 # Don't print any hits of Homebrew.
 if (( ${+commands[brew]} )); then
     export HOMEBREW_NO_ENV_HINTS=1
@@ -204,8 +201,7 @@ fi
 #(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
 
 # cargo
-(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
-## }}
+#(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
 
 # iTerm2 shell integration.
 if [[ -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" ]] && [[ -d /Applications/iTerm2.app ]]; then
