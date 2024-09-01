@@ -197,9 +197,6 @@ if (( ${+commands[brew]} )); then
     export HOMEBREW_NO_ENV_HINTS=1
 fi
 
-# Let GPG to use pinentry TTY.
-#(( ${+commands[gpg]} )) && export GPG_TTY=${TTY}
-
 # cargo
 #(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
 
