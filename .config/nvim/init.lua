@@ -120,6 +120,7 @@ require("lazy").setup({
         {
             "nvim-treesitter/nvim-treesitter",
             main = "nvim-treesitter.configs",
+            build = ":TSUpdate",
             opts = {
                 ensure_installed = { "bash", "c", "c_sharp",
                     "cmake", "cpp", "dart", "dockerfile",
