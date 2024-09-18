@@ -65,7 +65,8 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = augroup("autoupdate"),
     callback = function()
         if require("lazy.status").has_updates then
-            require("lazy").update({ show = false, lazy = true, })
+            --require("lazy").update({ show = false, })
+            require("lazy").update({ show = true, })
         end
     end,
 })
@@ -120,7 +121,7 @@ require("lazy").setup({
         {
             "nvim-treesitter/nvim-treesitter",
             main = "nvim-treesitter.configs",
-            --build = ":TSUpdate",
+            build = ":TSUpdate",
             opts = {
                 ensure_installed = { "bash", "c", "c_sharp",
                     "cmake", "cpp", "dart", "dockerfile",
@@ -133,7 +134,7 @@ require("lazy").setup({
             },
         },
     },
-    checker = { enabled = true },
+    checker = { enabled = false },
     rocks = {
         enabled = false,
         hererocks = false,
