@@ -65,8 +65,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = augroup("autoupdate"),
     callback = function()
         if require("lazy.status").has_updates then
-            --require("lazy").update({ show = false, })
-            require("lazy").update({ show = true, })
+            require("lazy").update({ show = false, })
         end
     end,
 })
@@ -134,7 +133,7 @@ require("lazy").setup({
             },
         },
     },
-    checker = { enabled = false },
+    checker = { enabled = true, concurrency = 1, },
     rocks = {
         enabled = false,
         hererocks = false,
