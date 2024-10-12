@@ -11,11 +11,11 @@ case ${OSTYPE} in
         [[ -d /opt/homebrew/sbin ]] && add_path "/opt/homebrew/sbin"
         [[ -d /opt/homebrew/bin ]] && add_path "/opt/homebrew/bin"
         # Set path to python modules.
-        if (( ${+commands[python3]} )); then
-            local py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
-            add_path "${HOME}/Library/Python/${py3_ver}/bin"
-            unset py3_ver
-        fi
+#        if (( ${+commands[python3]} )); then
+#            local py3_ver=$(python3 -V | awk -F'[ .]' '{print $2"."$3}')
+#            add_path "${HOME}/Library/Python/${py3_ver}/bin"
+#            unset py3_ver
+#        fi
         # Remove duplicated path frim ${PATH}.
         typeset -U path
         ;;
