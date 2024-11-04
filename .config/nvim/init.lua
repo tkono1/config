@@ -127,7 +127,7 @@ require("lazy").setup({
                     "git_config", "git_rebase", "gitignore",
                     "go", "html", "java", "javascript", "json",
                     "lua", "markdown", "objc", "python", "rust",
-                    "typescript", "vim", "vimdoc", "yaml" },
+                    "typescript", "vim", "yaml" },
                 highlight = { enable = true },
                 indent = { enable = true },
             },
