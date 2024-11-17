@@ -3,7 +3,7 @@ case ${OSTYPE} in
         ## Load SSH keys from Keychain.
         if [ -x /usr/bin/ssh-add ]; then
             if ls ${HOME}/.ssh | grep -q 'id_*'; then
-                /usr/bin/ssh-add -q --apple-load-keychain
+                /usr/bin/ssh-add -q --apple-load-keychain || /usr/bin/ssh-add --apple-use-keychain
             fi
         fi
         ;;
