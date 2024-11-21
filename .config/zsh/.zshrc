@@ -135,6 +135,9 @@ setopt hist_ignore_all_dups
 # Remove command if first character is space lines from the history list. 
 setopt hist_ignore_space
 
+# Do not add history command to the history list.
+setopt hist_no_store
+
 # Remove superfluous blanks from each command line from the history list.
 setopt hist_reduce_blanks
 ## }}
