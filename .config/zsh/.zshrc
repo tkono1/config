@@ -197,6 +197,11 @@ if (( ${+commands[brew]} )); then
     export HOMEBREW_NO_ENV_HINTS=1
 fi
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # cargo
 #(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
 
