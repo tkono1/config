@@ -10,7 +10,7 @@ case ${OSTYPE} in
     linux*)
         ## Start ssh-agent.
         if (( ${+commands[ssh-agent]} )) && (( -! $+SSH_AUTH_SOCK )); then
-            ls ${HOME}/.ssh | grep -q 'id_*' && exec ssh-agent ${SHELL}
+            exec ssh-agent ${SHELL}
         fi
         ;;
 esac
