@@ -170,6 +170,7 @@ fi
 
 # Command prompt settings.
 PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
+#PROMPT="%B%K{064}%F{253}%n@%m%k%K{027}%F{253}:%~%F{253} %#%f%k%b "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
