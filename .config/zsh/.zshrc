@@ -117,7 +117,7 @@ setopt nolistbeep
 ## History {{
 #
 # Location of history file.
-HISTFILE=${XDG_STATE_HOME}/zsh/.zsh_history
+HISTFILE=${XDG_STATE_HOME}/zsh/history
 
 # Size of history file.
 HISTSIZE=10000
