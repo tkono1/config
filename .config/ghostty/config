@@ -1,0 +1,11 @@
+font-family = "menlo"
+font-size = 12
+
+background-opacity = 0.95
+background-blur-radius = 20
+
+window-height = 60
+window-width = 80
+window-save-state = "always"
+
+macos-titlebar-style = "tabs"
