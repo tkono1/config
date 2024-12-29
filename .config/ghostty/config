@@ -8,4 +8,6 @@ window-height = 60
 window-width = 80
 window-save-state = "always"
 
+shell-integration-features = "no-cursor"
+
 macos-titlebar-style = "tabs"
