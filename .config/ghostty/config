@@ -6,6 +6,8 @@ theme = "nord"
 background-opacity = 0.95
 background-blur-radius = 20
 
+cursor-style-blink = "false"
+
 window-colorspace = "display-p3"
 window-height = 60
 window-width = 80
