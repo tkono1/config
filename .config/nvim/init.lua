@@ -129,6 +129,9 @@ require("lazy").setup({
                     "go", "html", "java", "javascript", "json",
                     "lua", "markdown", "objc", "python", "rust",
                     "typescript", "vim", "yaml" },
+                incremental_selection = {
+                    enable = true,
+                },
                 highlight = {
                     enable = true,
                     additional_vim_regex_highlighting = false,
