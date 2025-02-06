@@ -9,7 +9,8 @@ vim.opt.mouse = ""
 vim.bo.swapfile = false
 
 -- Set python3 path.
-local handle = io.popen('echo $(which python3)')
+--local handle = io.popen('echo $(which python3)')
+local handle = io.popen('echo $(command -v python3)')
 local python3_path = handle:read('*all')
 handle:close()
 vim.g.python3_host_prog = python3_path:gsub('\n[^\n]*$', '')
