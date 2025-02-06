@@ -130,7 +130,7 @@ require("lazy").setup({
                     "typescript", "vim", "yaml" },
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = true,
+                    additional_vim_regex_highlighting = false,
                 },
                 indent = { enable = true },
             },
