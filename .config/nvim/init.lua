@@ -234,30 +234,8 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Share clipboard with OS.
+-- Need to install wl-clipboard for Linux running on WSL.
 vim.opt.clipboard:append("unnamedplus")
-
--- Use wl-clipboard as a clipboard between Linux and Windows.
--- Need to install wl-clipboard and wayland to Linux.
-if vim.fn.has("wsl") == 1 then
-    if vim.fn.executable("wl-copy") == 1 then
-        vim.g.clipboard = {
-            name = "wl-clipboard (wsl)",
-            copy = {
-                ["+"] = 'wl-copy --foreground --type text/plain',
-                ["*"] = 'wl-copy --foreground --primary --type text/plain',
-            },
-            paste = {
-                ["+"] = (function()
-                    return vim.fn.systemlist('wl-paste --no-newline|sed -e "s/\r$//"', {''}, 1) -- '1' keeps empty lines
-	    	end),
-                ["*"] = (function()
-                    return vim.fn.systemlist('wl-paste --primary --no-newline|sed -e "s/\r$//"', {''}, 1)
-	    	end),
-            },
-            cache_enabled = true
-        }
-    end
-end
 
 -- Keep all windows size as same when add/remove.
 vim.opt.equalalways = true
