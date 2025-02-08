@@ -18,7 +18,6 @@ if ($host.Name -eq 'ConsoleHost') {
         Import-Module PSReadline
         #Set-PSReadlineOption -EditMode Emacs
     }
-    . "$(code --locate-shell-integration-path pwsh)"
 }
 
 #
