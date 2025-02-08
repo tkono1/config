@@ -211,12 +211,6 @@ fi
 # cargo
 #(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
 
-# iTerm2 shell integration.
-if [[ -e "${ZDOTDIR}/.iterm2_shell_integration.zsh" ]] && [[ -d /Applications/iTerm2.app ]]; then
-    source "${ZDOTDIR}/.iterm2_shell_integration.zsh"
-fi
-## }}
-
 #
 ## Aliases {{
 #
