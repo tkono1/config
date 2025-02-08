@@ -13,11 +13,12 @@ if ($host.Name -eq 'ConsoleHost') {
     if (Get-InstalledPSResource -Name 'posh-git') {
         Import-Module posh-git
     }
-} elseif ($host.Name -eq 'Vusual Studio Code Host') {
+} elseif ($env:TERM_PROGRAM -eq 'vscode') {
     if (Get-InstalledPSResource -Name 'PSReadLine') {
         Import-Module PSReadline
         #Set-PSReadlineOption -EditMode Emacs
     }
+    . "$(code --locate-shell-integration-path pwsh)"
 }
 
 #
