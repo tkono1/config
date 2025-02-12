@@ -24,32 +24,67 @@ if ($host.Name -eq 'ConsoleHost') {
 ## Defining functions ##
 #
 
-function prompt () {
+$Global:__LastHistoryId = -1
+
+function Global:__TerminalLastExitCode {
+    if ($? -eq $True) {
+        return 0
+    }
+    $LastHistoryEntry = $(Get-History -Count 1)
+    $IsPowerShellError = $Error[0].InvocationInfo.HistoryId -eq $LastHistoryEntry.Id
+    if ($IsPowerShellError) {
+        return -1
+    }
+    return $LastExitCode
+}
+
+function prompt {
+    [string]$Computername = ($env:COMPUTERNAME).ToLower()
+    [string]$CWD = (Get-Location).Path
+    [string]$ESC07 = "$([char]07)"
+<#
+    # First, emit a mark for the _end_ of the previous command.
+    $gle = $(__TerminalLastExitCode)
+    $LastHistoryEntry = $(Get-History -Count 1)
+    # Skip finishing the command if the first command has not yet started
+    if ($Global:__LastHistoryId -ne -1) {
+        if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
+            # Don't provide a command line or exit code if there was no history entry (eg. ctrl+c, enter on no command)
+            $out += "`e]133;D`a"
+        } else {
+            $out += "`e]133;D;${gle}`a"
+        }
+    }#>
+
+    # Prompt started
+    $out += "`e]133;A${ESC07}"
+    # CWD
+    $out += "`e]9;9;`"${CWD}`"${ESC07}"
+    # Prompt here
     [string]$RgbPromptColor1 = '0x00BFFF' # DeepSkyBlue
     [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
 
-    [string]$PromptUsername = ($env:USERNAME).ToLower()
-    [string]$PromptComputername = ($env:COMPUTERNAME).ToLower()
-    [string]$isAdmin = '>'
-
     if (Get-Module -Name 'posh-git') {
         $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-        $GitPromptSettings.DefaultPromptPrefix.Text = "[$($PromptUsername)@$($PromptComputername)]"
+        $GitPromptSettings.DefaultPromptPrefix.Text = "[$(${Computername})]"
         $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = ${RgbPromptColor1}
         $GitPromptSettings.DefaultPromptPath.ForegroundColor = ${RgbPromptColor2}
         $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = ${RgbPromptColor1}
-        $GitPromptSettings.DefaultPromptSuffix.Text = "$($isAdmin * ($nestedPromptLevel + 1)) "
+        $GitPromptSettings.DefaultPromptSuffix.Text = "$('>' * (${nestedPromptLevel} + 1)) "
+        $Global:__OriginalPrompt = ${GitPromptScriptBlock}
 
-        & $GitPromptScriptBlock
+        $out += $Global:__OriginalPrompt.Invoke()
     } else {
-        [string]$PromptColor1 = 'Blue'
-        [string]$PromptColor2 = 'DarkCyan'
+        [string]$ESC27 = "$([char]27)"
 
-        Write-Host ("[$($PromptUsername)@$($PromptComputername):") -ForegroundColor $PromptColor1 -NoNewline
-        Write-Host ((Get-Location).Path).Replace($HOME, '~') -ForegroundColor $PromptColor2 -NoNewline
-        Write-Host ("]" + $isAdmin) -ForegroundColor $PromptColor1 -NoNewline
-        Return " "
+        $out += "${ESC27}[38;5;45m[${Computername}:${ESC27}[0m${ESC27}[38;5;140m${CWD}]$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
     }
+    # Prompt ended, Command started
+    $out += "`e]133;B${ESC07}"
+
+    $Global:__LastHistoryId = $LastHistoryEntry.Id
+
+    return $out
 }
 
 function which {
