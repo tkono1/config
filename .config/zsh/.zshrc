@@ -224,9 +224,6 @@ elif (( ${+commands[vim]} )); then
     export EDITOR='vim'
 fi
 if (( ${+commands[tmux]} )); then
-    if [[ $(tmux -V|grep -o -E "([0-9]+\.)([0-9])") -lt 3.1 ]]; then
-        alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
-    fi
     [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
     export TMUX_TMPDIR=/tmp
 fi
