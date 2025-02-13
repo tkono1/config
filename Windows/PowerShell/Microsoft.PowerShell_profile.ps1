@@ -56,7 +56,7 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
 
         if (Get-Module -Name 'posh-git') {
-            $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+            #$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $$true
             $GitPromptSettings.DefaultPromptPrefix.Text = "[$($Computername)]"
             $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $RgbPromptColor1
             $GitPromptSettings.DefaultPromptPath.ForegroundColor = $RgbPromptColor2
@@ -85,7 +85,7 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         [string]$Computername = ($env:COMPUTERNAME).ToLower()
     
         if (Get-Module -Name 'posh-git') {
-            $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
+            #$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
             $GitPromptSettings.DefaultPromptPrefix.Text = "[$($Computername)]"
             $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $RgbPromptColor1
             $GitPromptSettings.DefaultPromptPath.ForegroundColor = $RgbPromptColor2
