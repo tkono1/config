@@ -207,9 +207,7 @@ if (( ${+commands[pyenv]} )); then
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
-
-# cargo
-#(( ${+commands[cargo]} )) && export CARGO_HOME="$XDG_DATA_HOME"
+# }}
 
 #
 ## Aliases {{
