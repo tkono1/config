@@ -201,6 +201,11 @@ if (( ${+commands[brew]} )); then
     export HOMEBREW_NO_ENV_HINTS=1
 fi
 
+# Python
+export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
+export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+export PYTHONUSERBASE=$XDG_DATA_HOME/python
+
 # pyenv
 if (( ${+commands[pyenv]} )); then
     [[ -d $HOME/.pyenv ]] && export PYENV_ROOT="$HOME/.pyenv"
