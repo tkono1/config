@@ -40,7 +40,7 @@ declare -A ZINIT
 ZINIT[ZCOMPDUMP_PATH]=${XDG_CACHE_HOME}/zsh
 ZINIT[COMPINIT_OPTS]="-D"
 
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+source "${XDG_DATA_HOME}/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
