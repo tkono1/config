@@ -1,3 +1,6 @@
+# Start of zprof
+#zmodload zsh/zprof && zprof
+
 #
 ## XDG base directories {{
 #

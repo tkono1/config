@@ -231,3 +231,8 @@ if (( ${+commands[tmux]} )); then
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
+
+# End of zprof
+#if (which zprof > /dev/null) ;then
+#  zprof | less
+#fi
