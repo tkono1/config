@@ -273,3 +273,17 @@ vim.opt.laststatus = 2
 -- Hide current mode if lualine.nvim is set.
 vim.opt.showmode = false
 --- }}
+
+--- Terminal settings {{
+-- Start terminal insert mode.
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    command = "startinsert",
+})
+
+-- No line number when terminal mode.
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "*",
+    command = "setlocal nonumber",
+})
+--- }}
