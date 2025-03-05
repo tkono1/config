@@ -56,8 +56,7 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
 
         if (Get-Module -Name 'posh-git') {
-            #$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $$true
-            $GitPromptSettings.DefaultPromptPrefix.Text = "[$($Computername)]"
+            $GitPromptSettings.DefaultPromptPrefix.Text = "PS "
             $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $RgbPromptColor1
             $GitPromptSettings.DefaultPromptPath.ForegroundColor = $RgbPromptColor2
             $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = $RgbPromptColor1
@@ -68,7 +67,7 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         } else {
             [string]$ESC27 = "$([char]27)"
 
-            $Result += "${ESC27}[38;5;45m[${Computername}:${ESC27}[0m${ESC27}[38;5;140m${CWD}]$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
+            $Result += "${ESC27}[38;5;45m[PS :${ESC27}[0m${ESC27}[38;5;140m${CWD}]$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
         }
 
         # Prompt ended, Command started
@@ -82,11 +81,8 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         [string]$RgbPromptColor1 = '0x00BFFF' # DeepSkyBlue
         [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
     
-        [string]$Computername = ($env:COMPUTERNAME).ToLower()
-    
         if (Get-Module -Name 'posh-git') {
-            #$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-            $GitPromptSettings.DefaultPromptPrefix.Text = "[$($Computername)]"
+            $GitPromptSettings.DefaultPromptPrefix.Text = "PS "
             $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $RgbPromptColor1
             $GitPromptSettings.DefaultPromptPath.ForegroundColor = $RgbPromptColor2
             $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = $RgbPromptColor1
@@ -96,7 +92,7 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         } else {
             [string]$ESC27 = "$([char]27)"
 
-            $out = "${ESC27}[38;5;45m[${Computername}:${ESC27}[0m${ESC27}[38;5;140m${CWD}]$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
+            $out = "${ESC27}[38;5;45m[PS :${ESC27}[0m${ESC27}[38;5;140m${CWD}]$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
 
             return $out
         }
