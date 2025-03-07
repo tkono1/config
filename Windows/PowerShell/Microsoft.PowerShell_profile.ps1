@@ -4,18 +4,17 @@
 # Install-Module -Name posh-git -Scope CurrentUser -Force
 # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 
+[string]$CWD = (Get-Location).Path
+
 if (Get-InstalledPSResource -Name 'PSReadLine') {
     Import-Module PSReadLine
     Set-PSReadlineOption -EditMode Emacs
     Set-PSReadLineOption -PredictionSource HistoryAndPlugin -PredictionViewStyle ListView
 }
+
 if (Get-InstalledPSResource -Name 'posh-git') {
     Import-Module posh-git
-}
 
-[string]$CWD = (Get-Location).Path
-
-if (Get-Module -Name 'posh-git') {
     [string]$RgbPromptColor1 = '0x00BFFF' # DeepSkyBlue
     [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
 
