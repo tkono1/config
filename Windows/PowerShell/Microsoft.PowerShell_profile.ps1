@@ -4,20 +4,13 @@
 # Install-Module -Name posh-git -Scope CurrentUser -Force
 # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 
-if ($host.Name -eq 'ConsoleHost') {
-    if (Get-InstalledPSResource -Name 'PSReadLine') {
-        Import-Module PSReadLine
-        Set-PSReadlineOption -EditMode Emacs
-        Set-PSReadLineOption -PredictionSource HistoryAndPlugin -PredictionViewStyle ListView
-    }
-    if (Get-InstalledPSResource -Name 'posh-git') {
-        Import-Module posh-git
-    }
-} elseif ($env:TERM_PROGRAM -eq 'vscode') {
-    if (Get-InstalledPSResource -Name 'PSReadLine') {
-        Import-Module PSReadline
-        Set-PSReadlineOption -EditMode Emacs
-    }
+if (Get-InstalledPSResource -Name 'PSReadLine') {
+    Import-Module PSReadLine
+    Set-PSReadlineOption -EditMode Emacs
+    Set-PSReadLineOption -PredictionSource HistoryAndPlugin -PredictionViewStyle ListView
+}
+if (Get-InstalledPSResource -Name 'posh-git') {
+    Import-Module posh-git
 }
 
 [string]$CWD = (Get-Location).Path
