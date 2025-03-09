@@ -122,11 +122,13 @@ require("lazy").setup({
             main = "nvim-treesitter.configs",
             build = ":TSUpdate",
             opts = {
-                ensure_installed = { "bash", "c", "c_sharp",
-                    "cmake", "cpp", "dart", "dockerfile",
-                    "go", "html", "javascript", "json",
-                    "lua", "markdown", "objc", "python", "rust",
-                    "toml", "typescript", "yaml" },
+                ensure_installed = {
+                    "bash", "c", "c_sharp", "cmake",
+                    "cpp", "dart", "dockerfile", "go",
+                    "html", "javascript", "json", "objc",
+                    "python", "rust", "toml",
+                    "typescript", "yaml",
+                },
                 incremental_selection = {
                     enable = true,
                 },
