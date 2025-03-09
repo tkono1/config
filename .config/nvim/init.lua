@@ -124,10 +124,9 @@ require("lazy").setup({
             opts = {
                 ensure_installed = { "bash", "c", "c_sharp",
                     "cmake", "cpp", "dart", "dockerfile",
-                    "git_config", "git_rebase", "gitignore",
-                    "go", "html", "java", "javascript", "json",
+                    "go", "html", "javascript", "json",
                     "lua", "markdown", "objc", "python", "rust",
-                    "typescript", "vim", "yaml" },
+                    "toml", "typescript", "yaml" },
                 incremental_selection = {
                     enable = true,
                 },
