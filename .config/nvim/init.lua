@@ -123,9 +123,9 @@ require("lazy").setup({
             build = ":TSUpdate",
             opts = {
                 ensure_installed = {
-                    "bash", "c", "c_sharp", "cpp",
-                    "dart", "go", "html", "javascript",
-                    "json", "objc", "python", "rust",
+                    "bash", "c_sharp", "cpp", "dart",
+                    "go", "html", "javascript", "json",
+                    "objc", "python", "rust",
                     "toml", "typescript", "yaml",
                 },
                 incremental_selection = {
