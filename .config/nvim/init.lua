@@ -124,8 +124,8 @@ require("lazy").setup({
             opts = {
                 ensure_installed = {
                     "bash", "c", "c_sharp", "cmake",
-                    "cpp", "dart", "dockerfile", "go",
-                    "html", "javascript", "json", "objc",
+                    "cpp", "dart", "go", "html",
+                    "javascript", "json", "objc",
                     "python", "rust", "toml",
                     "typescript", "yaml",
                 },
