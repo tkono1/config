@@ -12,6 +12,16 @@ case ${OSTYPE} in
         add_path "/opt/homebrew/bin"
         ;;
     linux*)
+        # Linuxbrew
+        if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+            export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+            export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+            export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+            fpath[1,0]="/home/linuxbrew/.linuxbrew/share/zsh/site-functions"
+            export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}"
+            [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
+            export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
+        fi
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         ;;
@@ -25,16 +35,6 @@ add_path "/snap/bin"
 [[ -d ${XDG_CONFIG_HOME}/nvm ]] && export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 # npm
 [[ -d ${XDG_CONFIG_HOME}/npm ]] && export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
-# Linuxbrew
-if [[ -d /home/linuxbrew/.linuxbrew ]]; then
-    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-    export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
-    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-    fpath[1,0]="/home/linuxbrew/.linuxbrew/share/zsh/site-functions";
-    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
-    [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
-    export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
-fi
 # Remove duplicated path frim ${PATH}.
 typeset -U path
 ## }}
