@@ -8,8 +8,8 @@ add_path(){
 case ${OSTYPE} in
     darwin*)
         # Add path for brew Apple Silicon.
-        [[ -d /opt/homebrew/sbin ]] && add_path "/opt/homebrew/sbin"
-        [[ -d /opt/homebrew/bin ]] && add_path "/opt/homebrew/bin"
+        add_path "/opt/homebrew/sbin"
+        add_path "/opt/homebrew/bin"
         ;;
     linux*)
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
@@ -18,13 +18,23 @@ case ${OSTYPE} in
 esac
 
 # Add path for local bin.
-[[ -d ${HOME}/.local/bin ]] && add_path "${HOME}/.local/bin"
+add_path "${HOME}/.local/bin"
 # Add path for snap
-[[ -d /snap/bin ]] && add_path "/snap/bin"
+add_path "/snap/bin"
 # zsh-nvm
 [[ -d ${XDG_CONFIG_HOME}/nvm ]] && export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 # npm
 [[ -d ${XDG_CONFIG_HOME}/npm ]] && export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
+# Linuxbrew
+if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+    export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+    export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+    export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+    fpath[1,0]="/home/linuxbrew/.linuxbrew/share/zsh/site-functions";
+    export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+    [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+    export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+fi
 # Remove duplicated path frim ${PATH}.
 typeset -U path
 ## }}
