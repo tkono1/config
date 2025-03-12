@@ -12,6 +12,8 @@ case ${OSTYPE} in
         add_path "/opt/homebrew/bin"
         ;;
     linux*)
+        # Add path for snap
+        add_path "/snap/bin"
         # Linuxbrew
         if [[ -d /home/linuxbrew/.linuxbrew ]]; then
             export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
@@ -29,8 +31,6 @@ esac
 
 # Add path for local bin.
 add_path "${HOME}/.local/bin"
-# Add path for snap
-add_path "/snap/bin"
 # zsh-nvm
 [[ -d ${XDG_CONFIG_HOME}/nvm ]] && export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 # npm
