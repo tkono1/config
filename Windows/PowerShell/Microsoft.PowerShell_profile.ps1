@@ -4,7 +4,7 @@
 # Install-Module -Name posh-git -Scope CurrentUser -Force
 # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 
-[string]$CWD = (Get-Location).Path
+[string]$CWD = $PWD.Path
 
 if (Get-InstalledPSResource -Name 'PSReadLine') {
     Import-Module PSReadLine
