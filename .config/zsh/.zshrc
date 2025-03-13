@@ -202,9 +202,9 @@ if (( ${+commands[brew]} )); then
 fi
 
 # Python
-export PYTHON_HISTORY=$XDG_STATE_HOME/python_history
-export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
-export PYTHONUSERBASE=$XDG_DATA_HOME/python
+export PYTHON_HISTORY=${XDG_STATE_HOME}/python_history
+export PYTHONPYCACHEPREFIX=${XDG_CACHE_HOME}/python
+export PYTHONUSERBASE=${XDG_DATA_HOME}/python
 
 # pyenv
 if (( ${+commands[pyenv]} )); then
