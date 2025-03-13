@@ -32,9 +32,11 @@ esac
 # Add path for local bin.
 add_path "${HOME}/.local/bin"
 # zsh-nvm
-[[ -d ${XDG_CONFIG_HOME}/nvm ]] && export NVM_DIR=${XDG_CONFIG_HOME}/nvm
+[[ ! -d ${XDG_CONFIG_HOME}/nvm ]] && mkdir ${XDG_CONFIG_HOME}/nvm
+export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 # npm
-[[ -d ${XDG_CONFIG_HOME}/npm ]] && export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
+[[ ! -d ${XDG_CONFIG_HOME}/npm ]] && mkdir ${XDG_CONFIG_HOME}/npm
+export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
 # Remove duplicated path frim ${PATH}.
 typeset -U path
 ## }}
