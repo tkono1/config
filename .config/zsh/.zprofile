@@ -31,13 +31,8 @@ esac
 
 # Add path for local bin.
 add_path "${HOME}/.local/bin"
-# nvm and npm.
-if $(command -v nvm > /dev/null 2>&1); then
-    [[ ! -d ${XDG_CONFIG_HOME}/nvm ]] && mkdir ${XDG_CONFIG_HOME}/nvm
-    export NVM_DIR=${XDG_CONFIG_HOME}/nvm
-    [[ ! -d ${XDG_CONFIG_HOME}/npm ]] && mkdir ${XDG_CONFIG_HOME}/npm
-    export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
-fi
+# nvm
+export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 # Remove duplicated path frim ${PATH}.
 typeset -U path
 ## }}
