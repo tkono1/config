@@ -212,6 +212,12 @@ if (( ${+commands[pyenv]} )); then
     export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
     eval "$(pyenv init -)"
 fi
+
+# npm
+if [ -e ${^fpath}/zsh-nvm.zsh(N) ]; then
+    [[ ! -d ${XDG_CONFIG_HOME}/npm ]] && mkdir ${XDG_CONFIG_HOME}/npm
+    export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
+fi
 # }}
 
 #
