@@ -87,11 +87,6 @@ case ${OSTYPE} in
         fi
         ;;
 esac
-    
-# Let GPG to use pinentry TTY.
-if type 'gpg' > /dev/null 2>&1; then
-    export GPG_TTY=${TTY}
-fi
 ##}}
 
 #
@@ -101,8 +96,10 @@ alias ll='ls -lAF'
 if type 'nvim' > /dev/null 2>&1; then
     alias vi='nvim'
     alias vim='nvim'
+    export EDITOR='nvim'
 elif type 'vim' > /dev/null 2>&1; then
     alias vi='vim'
+    export EDITOR='vim'
 fi
 if type 'tmux' > /dev/null 2>&1; then
     if [[ $(tmux -V|grep -o -E "([0-9]+\.)([0-9])") -lt 3.1 ]]; then
