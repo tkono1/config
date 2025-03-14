@@ -208,8 +208,8 @@ export PYTHONUSERBASE=${XDG_DATA_HOME}/python
 
 # pyenv
 if (( ${+commands[pyenv]} )); then
-    [[ -d $HOME/.pyenv ]] && export PYENV_ROOT="${HOME}/.pyenv"
-    [[ -d $PYENV_ROOT/bin ]] && export PATH="${PYENV_ROOT}/bin:${PATH}"
+    [[ ! -d ${XDG_DATA_HOME}/pyenv ]] && mkdir ${XDG_DATA_HOME}/pyenv
+    export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
     eval "$(pyenv init -)"
 fi
 # }}
