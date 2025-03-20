@@ -25,7 +25,7 @@ if (Get-InstalledPSResource -Name 'posh-git') {
     $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 } else {
     [string]$ESC27 = "$([char]27)"
-    $out = "${ESC27}[38;5;45mPS ${ESC27}[0m${ESC27}[38;5;140m${CWD}$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
+    $out = "${ESC27}[38;5;45mPS ${ESC27}[0m${ESC27}[38;5;51m${CWD}>${ESC27}[0m "
 }
 
 if ($env:TERM_PROGRAM -ne 'vscode') {
