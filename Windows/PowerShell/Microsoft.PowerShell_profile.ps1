@@ -1,5 +1,4 @@
-[string]$CWD = $PWD.Path
-
+# Configure PSReadLine.
 if (Get-InstalledPSResource -Name 'PSReadLine') {
     Import-Module PSReadLine
     $PSROptions = @{
@@ -25,7 +24,7 @@ if (Get-InstalledPSResource -Name 'posh-git') {
     $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 } else {
     [string]$ESC27 = "$([char]27)"
-    $out = "${ESC27}[38;5;45mPS ${ESC27}[0m${ESC27}[38;5;51m${CWD}>${ESC27}[0m "
+    $out = "${ESC27}[38;5;45mPS ${ESC27}[0m${ESC27}[38;5;51m${PWD}>${ESC27}[0m "
 }
 
 if ($env:TERM_PROGRAM -ne 'vscode') {
@@ -56,7 +55,7 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         # Prompt started
         $Result += "${OSC133};A${ESC07}"
         # Current Working Directory
-        $Result += "`e]9;9;`"${CWD}`"${ESC07}"
+        $Result += "`e]9;9;`"${PWD}`"${ESC07}"
 
         if (Get-Module -Name 'posh-git') {
             $Global:__OriginalPrompt = ${GitPromptScriptBlock}
