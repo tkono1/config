@@ -1,9 +1,3 @@
-#
-## PowerShell modules ##
-#
-# Install-Module -Name posh-git -Scope CurrentUser -Force
-# https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
-
 [string]$CWD = $PWD.Path
 
 if (Get-InstalledPSResource -Name 'PSReadLine') {
@@ -20,17 +14,15 @@ if (Get-InstalledPSResource -Name 'PSReadLine') {
     Set-PSReadLineOption @PSROptions
 }
 
+# Install-Module -Name posh-git -Scope CurrentUser -Force
+# https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 if (Get-InstalledPSResource -Name 'posh-git') {
     Import-Module posh-git
 
-    [string]$RgbPromptColor1 = '0x00BFFF' # DeepSkyBlue
-    [string]$RgbPromptColor2 = '0x40E0D0' # Turquoise
-
     $GitPromptSettings.DefaultPromptPrefix.Text = "PS "
-    $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = $RgbPromptColor1
-    $GitPromptSettings.DefaultPromptPath.ForegroundColor = $RgbPromptColor2
-    $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = $RgbPromptColor1
-    $GitPromptSettings.DefaultPromptSuffix.Text = "$('>' * ($nestedPromptLevel + 1)) "
+    $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
+    $GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
+    $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 } else {
     [string]$ESC27 = "$([char]27)"
     $out = "${ESC27}[38;5;45mPS ${ESC27}[0m${ESC27}[38;5;140m${CWD}$('>' * ($nestedPromptLevel + 1))${ESC27}[0m "
