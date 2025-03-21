@@ -1,6 +1,7 @@
 # Configure PSReadLine.
 if (Get-InstalledPSResource -Name 'PSReadLine') {
     Import-Module PSReadLine
+
     $PSROptions = @{
         EditMode = "Emacs"
         PredictionSource = "HistoryAndPlugin"
@@ -23,8 +24,10 @@ if (Get-InstalledPSResource -Name 'posh-git') {
     $GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
     $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 } else {
-    [string]$ESC27 = "$([char]27)"
-    $out = "${ESC27}[38;5;45mPS ${ESC27}[0m${ESC27}[38;5;51m${PWD}>${ESC27}[0m "
+    [string]$StartOfColor = "$([char]27)[38;5;"
+    [string]$EndOfColor = "$([char]27)[0m"
+
+    $out = "${StartOfColor}45mPS ${EndOfColor}${StartOfColor}51m${PWD}>${$EndOfColor} "
 }
 
 if ($env:TERM_PROGRAM -ne 'vscode') {
@@ -35,8 +38,6 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         [string]$OSC133 = "`e]133"
 
         $FakeCode = [int]!$global:?
-        # NOTE: We disable strict mode for the scope of this function because it unhelpfully throws an
-        # error when $LastHistoryEntry is null, and is not otherwise useful.
         Set-StrictMode -Off
         $LastHistoryEntry = Get-History -Count 1
         $Result = ""
@@ -47,7 +48,6 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
                 $Result += "${OSC133};D`a"
             } else {
                 # Command finished exit code
-                # OSC 133 ; D [; <ExitCode>] ST
                 $Result += "${OSC133};D;${FakeCode}`a"
             }
         }
