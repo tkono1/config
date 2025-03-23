@@ -8,8 +8,9 @@ add_path(){
 case ${OSTYPE} in
     darwin*)
         # Add path for brew Apple Silicon.
-        add_path "/opt/homebrew/sbin"
-        add_path "/opt/homebrew/bin"
+        if [[ -d /opt/homebrew ]]; then
+            eval $(/opt/homebrew/bin/brew shellenv)
+        fi
         ;;
     linux*)
         # Add path for snap
