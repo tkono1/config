@@ -7,7 +7,7 @@ add_path(){
 
 case ${OSTYPE} in
     darwin*)
-        # Add path for brew Apple Silicon.
+        # Add homebrew environments for Apple Silicon.
         if [[ -d /opt/homebrew ]]; then
             eval $(/opt/homebrew/bin/brew shellenv)
         fi
@@ -15,15 +15,9 @@ case ${OSTYPE} in
     linux*)
         # Add path for snap
         add_path "/snap/bin"
-        # Linuxbrew
+        # Add homebrew envirinments for Linux.
         if [[ -d /home/linuxbrew/.linuxbrew ]]; then
-            export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-            export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
-            export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
-            fpath[1,0]="/home/linuxbrew/.linuxbrew/share/zsh/site-functions"
-            export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}"
-            [ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
-            export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}"
+            eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
         fi
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
