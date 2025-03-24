@@ -24,6 +24,9 @@ setopt nonomatch
 bindkey -e
 ## }}
 
+# Set NVM_DIR before loading nvm plugin.
+export NVM_DIR=${XDG_CONFIG_HOME}/nvm
+
 #
 ## Plugins {{
 #
