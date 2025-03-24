@@ -1,3 +1,36 @@
+## Application specific settings before loading plugins {{
+add_path(){
+    if [[ -d $1 ]]; then
+        export PATH=$1:${PATH}
+    fi
+}
+
+case ${OSTYPE} in
+    darwin*)
+        # Add homebrew environments for Apple Silicon.
+        if [[ -x /opt/homebrew/bin/brew ]]; then
+            eval $(/opt/homebrew/bin/brew shellenv)
+        fi
+        ;;
+    linux*)
+        # Add path for snap
+        add_path "/snap/bin"
+        # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
+        export skip_global_compinit=1
+        # Add homebrew envirinments for Linux.
+        if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+            eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+        fi
+        ;;
+esac
+
+# Set NVM_DIR before loading nvm plugin.
+export NVM_DIR=${XDG_CONFIG_HOME}/nvm
+
+# Add path for local bin.
+add_path "${HOME}/.local/bin"
+## }}
+
 #
 ## General settings {{
 #
@@ -23,9 +56,6 @@ setopt nonomatch
 # Set emacs-like keybinding.
 bindkey -e
 ## }}
-
-# Set NVM_DIR before loading nvm plugin.
-export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 
 #
 ## Plugins {{
@@ -241,6 +271,9 @@ if (( ${+commands[tmux]} )); then
     export TMUX_TMPDIR=/tmp
 fi
 ## }}
+
+# Remove duplicated path frim ${PATH}.
+typeset -U path
 
 # End of zprof
 #if (which zprof > /dev/null) ;then
