@@ -287,3 +287,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
     command = "setlocal nonumber",
 })
 --- }}
+
+-- checkhealth style.
+if vim.fn.has("nvim-0.11") then
+    vim.g.health = { style = 'float' }
+end
