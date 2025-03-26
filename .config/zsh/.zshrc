@@ -225,7 +225,7 @@ case ${OSTYPE} in
         if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
             eval $(dircolors ${XDG_CONFIG_HOME}/dir_colors)
         else
-            export LS_COLORS='di=01;94'
+            export LS_COLORS='di=01;34'
         fi
         ;;
 esac
