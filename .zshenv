@@ -29,8 +29,12 @@ export ZDOTDIR=${XDG_CONFIG_HOME}/zsh
 # Prepare zsh directory for zcompdump and zcompcache.
 [[ ! -d ${XDG_CACHE_HOME}/zsh ]] && mkdir ${XDG_CACHE_HOME}/zsh
 
-# Disable .zsh_sessions.
-SHELL_SESSIONS_DISABLE=1
+# Disable resume support for macOS.
+case ${OSTYPE} in
+    darwin*)
+        SHELL_SESSIONS_DISABLE=1
+        ;;
+esac
 
 limit coredumpsize 0
 ## }}
