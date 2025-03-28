@@ -35,6 +35,4 @@ case ${OSTYPE} in
         SHELL_SESSIONS_DISABLE=1
         ;;
 esac
-
-limit coredumpsize 0
 ## }}
