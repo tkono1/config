@@ -224,7 +224,7 @@ case ${OSTYPE} in
         export LSCOLORS=Exfxcxdxbxegedabagacad
         ;;
     linux*)
-        alias ls='ls --color=auto'
+        alias ls='ls --color=auto --time-style=long-iso'
         if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
             eval $(dircolors ${XDG_CONFIG_HOME}/dir_colors)
         else
