@@ -207,7 +207,7 @@ fi
 
 # Command prompt settings.
 #PROMPT="%B%F{034}[%n@%m%F{004}:%~%F{034}]%#%f%b "
-PROMPT="%B%K{004}%F{023} %n@%m %k%K{023}%F{004} %~%F{004} %#%f%k%b "
+PROMPT="%B%K{004}%F{023} %n@%m %k%K{023}%F{044} %~%F{044} %#%f%k%b "
 PROMPT2="%F{034}[%_]%#%k%f "
 SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 
