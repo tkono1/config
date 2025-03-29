@@ -220,11 +220,11 @@ export LESSHISTFILE=-
 # ls color.
 case ${OSTYPE} in
     darwin*)
-        alias ls='ls -G'
+        alias ls='ls -Gh'
         export LSCOLORS=Exfxcxdxbxegedabagacad
         ;;
     linux*)
-        alias ls='ls --color=auto --time-style=long-iso'
+        alias ls='ls -h --color=auto --time-style=long-iso'
         if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
             eval $(dircolors ${XDG_CONFIG_HOME}/dir_colors)
         else
@@ -260,7 +260,6 @@ fi
 #
 ## Aliases {{
 #
-alias ll='ls -lAF'
 if (( ${+commands[nvim]} )); then
     alias vi='nvim'
     alias vim='nvim'
