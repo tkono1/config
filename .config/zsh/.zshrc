@@ -110,9 +110,6 @@ autoload -Uz compinit && compinit -d ${XDG_CACHE_HOME}/zsh/.zcompdump
 # Disable zcompdump with -D option.
 #autoload -Uz compinit && compinit -D
 
-# Set location of zcompcache directory.
-#zstyle ':completion:*' cache-path ${XDG_CACHE_HOME}/zsh/zcompcache
-
 # Colorize completion items.
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31
 
