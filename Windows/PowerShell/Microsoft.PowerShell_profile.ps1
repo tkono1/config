@@ -1,6 +1,10 @@
 # Configure PSReadLine.
 if (Get-InstalledPSResource -Name 'PSReadLine') {
-    Import-Module PSReadLine
+    Import-Module -Name PSReadLine
+
+    if (Get-InstalledPSResource -Name 'CompletionPredictor') {
+        Import-Module -Name CompletionPredictor
+    }
 
     $PSROptions = @{
         EditMode = "Emacs"
@@ -17,7 +21,7 @@ if (Get-InstalledPSResource -Name 'PSReadLine') {
 # Install-Module -Name posh-git -Scope CurrentUser -Force
 # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 if (Get-InstalledPSResource -Name 'posh-git') {
-    Import-Module posh-git
+    Import-Module -Name posh-git
 
     $GitPromptSettings.DefaultPromptPrefix.Text = "PS "
     $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
