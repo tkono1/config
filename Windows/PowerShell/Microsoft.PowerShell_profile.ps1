@@ -4,6 +4,9 @@ if (Get-InstalledPSResource -Name 'PSReadLine') {
 
     if (Get-InstalledPSResource -Name 'CompletionPredictor') {
         Import-Module -Name CompletionPredictor
+    } else {
+        Install-Module -Name CompletionPredictor -Scope CurrentUser -Force `
+        && Import-Module -Name CompletionPredictor
     }
 
     $PSROptions = @{
@@ -34,7 +37,7 @@ if (Get-InstalledPSResource -Name 'posh-git') {
     $out = "${StartOfColor}45mPS ${EndOfColor}${StartOfColor}51m${PWD}>${$EndOfColor} "
 }
 
-if ($env:TERM_PROGRAM -ne 'vscode') {
+if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
     $Global:__LastHistoryId = -1
 
     function prompt {
@@ -73,8 +76,8 @@ if ($env:TERM_PROGRAM -ne 'vscode') {
         $Global:__LastHistoryId = $LastHistoryEntry.Id
 
         return $Result
-    } 
-} elseif ($env:TERM_PROGRAM -eq 'vscode') {
+    }
+} elseif (((get-process -Id $PID).Parent).ProcessName -eq 'Code') {
     function prompt () {    
         if (Get-Module -Name 'posh-git') {    
             & $GitPromptScriptBlock
