@@ -21,21 +21,17 @@ if (Get-InstalledPSResource -Name 'PSReadLine') {
     Set-PSReadLineOption @PSROptions
 }
 
-# Install-Module -Name posh-git -Scope CurrentUser -Force
-# https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
 if (Get-InstalledPSResource -Name 'posh-git') {
     Import-Module -Name posh-git
-
-    $GitPromptSettings.DefaultPromptPrefix.Text = "PS "
-    $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
-    $GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
-    $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 } else {
-    [string]$StartOfColor = "$([char]27)[38;5;"
-    [string]$EndOfColor = "$([char]27)[0m"
-
-    $out = "${StartOfColor}45mPS ${EndOfColor}${StartOfColor}51m${PWD}>${$EndOfColor} "
+    Install-Module -Name posh-git -Scope CurrentUser -Force `
+    && Import-Module -Name posh-git
 }
+# https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
+$GitPromptSettings.DefaultPromptPrefix.Text = "PS "
+$GitPromptSettings.DefaultPromptPrefix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
+$GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
+$GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 
 if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
     $Global:__LastHistoryId = -1
@@ -64,12 +60,8 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
         # Current Working Directory
         $Result += "`e]9;9;`"${PWD}`"${ESC07}"
 
-        if (Get-Module -Name 'posh-git') {
-            $Global:__OriginalPrompt = ${GitPromptScriptBlock}
-            $Result += $Global:__OriginalPrompt.Invoke()
-        } else {
-            $Result += $out
-        }
+        $Global:__OriginalPrompt = ${GitPromptScriptBlock}
+        $Result += $Global:__OriginalPrompt.Invoke()
 
         # Prompt ended, Command started
         $Result += "${OSC133};B${ESC07}"
@@ -79,13 +71,7 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
     }
 } elseif (((get-process -Id $PID).Parent).ProcessName -eq 'Code') {
     function prompt () {    
-        if (Get-Module -Name 'posh-git') {    
-            & $GitPromptScriptBlock
-        } else {
-            $Result = $out
-
-            return $Result
-        }
+        & $GitPromptScriptBlock
     }
 }
 
