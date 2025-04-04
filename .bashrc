@@ -74,19 +74,12 @@ PS1="\[\e[1;32m\][\u@\h\[\e[1;36m\]:\w\[\e[1;32m\]]\$ \[\e[0m\]"
 export LESSHISTFILE=-
 
 # ls color.
-case ${OSTYPE} in
-    darwin*)
-        alias ls='ls -G'
-        ;;
-    linux*)
-        alias ls='ls --color=auto'
-        if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
-            eval $(cat ${XDG_CONFIG_HOME}/dir_colors)
-        else
-            export LS_COLORS='di=01;94'
-        fi
-        ;;
-esac
+alias ls='ls --color=auto'
+if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
+    eval $(cat ${XDG_CONFIG_HOME}/dir_colors)
+else
+    export LS_COLORS='di=01;94'
+fi
 ##}}
 
 #
