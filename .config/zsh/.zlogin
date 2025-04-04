@@ -1,7 +1,7 @@
 if ls ${HOME}/.ssh | grep -q 'id_*'; then
     case ${OSTYPE} in
         darwin*)
-        ## Load SSH keys from Keychain.
+            ## Load SSH keys from Keychain.
             /usr/bin/ssh-add -q --apple-load-keychain || /usr/bin/ssh-add --apple-use-keychain
             ;;
         linux*)
