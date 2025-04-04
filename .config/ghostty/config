@@ -3,18 +3,18 @@ font-family = "JetBrains Mono"
 font-feature = -dlig
 font-size = 12
 
-theme = "nord"
+theme = nord
 
 background-opacity = 0.95
 background-blur-radius = 20
 
-cursor-style-blink = "false"
+cursor-style-blink = false
 
-window-colorspace = "display-p3"
+window-colorspace = display-p3
 window-height = 60
 window-width = 80
-window-save-state = "always"
+window-save-state = always
 
-shell-integration-features = "no-cursor"
+shell-integration-features = no-cursor
 
-macos-titlebar-style = "tabs"
+macos-titlebar-style = tabs
