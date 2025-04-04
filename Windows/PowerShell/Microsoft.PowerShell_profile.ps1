@@ -57,6 +57,7 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
 
         # Prompt started
         $Result += "${OSC133};A${ESC07}"
+        
         # Current Working Directory
         $Result += "`e]9;9;`"${PWD}`"${ESC07}"
 
