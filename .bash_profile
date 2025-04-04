@@ -18,31 +18,13 @@ export XDG_CACHE_HOME=${HOME}/.cache
 #
 ## Set command path {{
 #
-add_path(){
-    if [[ -d $1 ]]; then
-        export PATH=$1:${PATH}
-    fi
-}
+# Add path for snap
+test -d /snap/bin && export PATH=/snap/bin:${PATH}
 
-case ${OSTYPE} in
-    darwin*)
-        # Add a path for brew Apple Silicon.
-        add_path "/opt/homebrew/sbin"
-        add_path "/opt/homebrew/bin"
-        # Set path to python modules.
-        ;;
-    linux*)
-        # Add path for snap
-        add_path "/snap/bin"
-        # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
-        export skip_global_compinit=1
-        ;;
-esac
 # Add a path for local bin.
-add_path "${HOME}/.local/bin"
-# nvm
-export NVM_DIR=${XDG_CONFIG_HOME}/nvm
+test -d ${HOME}/.local/bin && export PATH=${HOME}/.local/bin:${PATH}
 ## }}
+
 #
 ## Load .bashrc {{
 #
