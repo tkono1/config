@@ -1,10 +1,4 @@
 ## Application specific settings before loading plugins {{
-add_path(){
-    if [[ -d $1 ]]; then
-        export PATH=$1:${PATH}
-    fi
-}
-
 case ${OSTYPE} in
     darwin*)
         # Add homebrew environments for Apple Silicon.
@@ -14,7 +8,8 @@ case ${OSTYPE} in
         ;;
     linux*)
         # Add path for snap
-        add_path "/snap/bin"
+        test -d /snap/bin && export PATH=/snap/bin:${PATH}
+
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         # Add homebrew envirinments for Linux.
@@ -24,11 +19,11 @@ case ${OSTYPE} in
         ;;
 esac
 
+# Add path for local bin.
+test -d ${HOME}/.local/bin && export PATH=${HOME}/.local/bin:${PATH}
+
 # Set NVM_DIR before loading nvm plugin.
 export NVM_DIR=${XDG_CONFIG_HOME}/nvm
-
-# Add path for local bin.
-add_path "${HOME}/.local/bin"
 ## }}
 
 #
