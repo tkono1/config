@@ -9,7 +9,6 @@ case ${OSTYPE} in
     linux*)
         # Add path for snap
         test -d /snap/bin && export PATH=/snap/bin:${PATH}
-
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         # Add homebrew envirinments for Linux.
@@ -21,9 +20,6 @@ esac
 
 # Add path for local bin.
 test -d ${HOME}/.local/bin && export PATH=${HOME}/.local/bin:${PATH}
-
-# Set NVM_DIR before loading nvm plugin.
-export NVM_DIR=${XDG_CONFIG_HOME}/nvm
 ## }}
 
 #
@@ -83,6 +79,7 @@ case ${OSTYPE} in
         ;;
     linux*)
         zinit light woefe/git-prompt.zsh
+        zinit ice atinit"export NVM_DIR=${XDG_CONFIG_HOME}/nvm" nocd
         zinit light lukechilds/zsh-nvm
         ;;
 esac
