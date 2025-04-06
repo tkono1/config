@@ -8,7 +8,7 @@ case ${OSTYPE} in
         ;;
     linux*)
         # Add path for snap
-        test -d /snap/bin && export PATH=/snap/bin:${PATH}
+        [[ -d /snap/bin ]] && export PATH=/snap/bin:${PATH}
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
         # Add homebrew envirinments for Linux.
@@ -19,7 +19,7 @@ case ${OSTYPE} in
 esac
 
 # Add path for local bin.
-test -d ${HOME}/.local/bin && export PATH=${HOME}/.local/bin:${PATH}
+[[ -d ${HOME}/.local/bin ]] && export PATH=${HOME}/.local/bin:${PATH}
 ## }}
 
 #
@@ -89,9 +89,7 @@ esac
 ## Color settings {{
 #
 # Set 24-bit color even though WSL or remote.
-if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
-    export COLORTERM='truecolor'
-fi
+[[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]] && export COLORTERM='truecolor'
 ## }}
 
 #
@@ -224,9 +222,7 @@ case ${OSTYPE} in
 esac
     
 # Don't print any Homebrew hints.
-if (( ${+commands[brew]} )); then
-    export HOMEBREW_NO_ENV_HINTS=1
-fi
+(( ${+commands[brew]} )) && export HOMEBREW_NO_ENV_HINTS=1
 
 # Python
 export PYTHON_HISTORY=${XDG_STATE_HOME}/python_history
