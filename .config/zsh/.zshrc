@@ -258,6 +258,9 @@ if (( ${+commands[tmux]} )); then
     [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
     export TMUX_TMPDIR=/tmp
 fi
+if (( ${+commands[fdfind]} )); then
+    alias fd='fdfind'
+fi
 ## }}
 
 # Remove duplicated path frim ${PATH}.
