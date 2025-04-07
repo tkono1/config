@@ -1,4 +1,4 @@
-## Application specific settings before loading plugins {{
+## OS specific settings before loading plugins {{
 case ${OSTYPE} in
     darwin*)
         # Add homebrew environments for Apple Silicon.
@@ -6,7 +6,9 @@ case ${OSTYPE} in
             eval $(/opt/homebrew/bin/brew shellenv)
             # Don't print any Homebrew hints.
             export HOMEBREW_NO_ENV_HINTS=1
-
+            # ls color.
+            alias ls='ls -Gh'
+            export LSCOLORS=Exfxcxdxbxegedabagacad
         fi
         ;;
     linux*)
@@ -14,6 +16,13 @@ case ${OSTYPE} in
         [[ -d /snap/bin ]] && export PATH=/snap/bin:${PATH}
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
+        # ls color.
+        alias ls='ls -h --color=auto --time-style=long-iso'
+        if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
+            eval $(dircolors ${XDG_CONFIG_HOME}/dir_colors)
+        else
+            export LS_COLORS='di=01;34'
+        fi
         ;;
 esac
 
@@ -72,14 +81,13 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 
 # Load plugins.
+zinit light woefe/git-prompt.zsh
 case ${OSTYPE} in
-    darwin*)
-        zinit light woefe/git-prompt.zsh
-        ;;
     linux*)
-        zinit light woefe/git-prompt.zsh
         zinit ice atinit"export NVM_DIR=${XDG_CONFIG_HOME}/nvm" nocd
         zinit light lukechilds/zsh-nvm
+        [[ ! -d ${XDG_CONFIG_HOME}/npm ]] && mkdir ${XDG_CONFIG_HOME}/npm
+        export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
         ;;
 esac
 ## }}
@@ -202,22 +210,6 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 # Disable less history.
 export LESSHISTFILE=-
 
-# ls color.
-case ${OSTYPE} in
-    darwin*)
-        alias ls='ls -Gh'
-        export LSCOLORS=Exfxcxdxbxegedabagacad
-        ;;
-    linux*)
-        alias ls='ls -h --color=auto --time-style=long-iso'
-        if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
-            eval $(dircolors ${XDG_CONFIG_HOME}/dir_colors)
-        else
-            export LS_COLORS='di=01;34'
-        fi
-        ;;
-esac
-    
 # Python
 export PYTHON_HISTORY=${XDG_STATE_HOME}/python_history
 export PYTHONPYCACHEPREFIX=${XDG_CACHE_HOME}/python
@@ -228,12 +220,6 @@ if (( ${+commands[pyenv]} )); then
     [[ ! -d ${XDG_DATA_HOME}/pyenv ]] && mkdir ${XDG_DATA_HOME}/pyenv
     export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
     eval "$(pyenv init -)"
-fi
-
-# npm
-if [ -e ${^fpath}/zsh-nvm.zsh(N) ]; then
-    [[ ! -d ${XDG_CONFIG_HOME}/npm ]] && mkdir ${XDG_CONFIG_HOME}/npm
-    export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
 fi
 # }}
 
