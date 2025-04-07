@@ -4,6 +4,9 @@ case ${OSTYPE} in
         # Add homebrew environments for Apple Silicon.
         if [[ -x /opt/homebrew/bin/brew ]]; then
             eval $(/opt/homebrew/bin/brew shellenv)
+            # Don't print any Homebrew hints.
+            export HOMEBREW_NO_ENV_HINTS=1
+
         fi
         ;;
     linux*)
@@ -97,8 +100,6 @@ esac
 #
 # Set auto completion.
 autoload -Uz compinit && compinit -d ${XDG_CACHE_HOME}/zsh/.zcompdump
-# Disable zcompdump with -D option.
-#autoload -Uz compinit && compinit -D
 
 # Colorize completion items.
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31
@@ -221,9 +222,6 @@ case ${OSTYPE} in
         ;;
 esac
     
-# Don't print any Homebrew hints.
-(( ${+commands[brew]} )) && export HOMEBREW_NO_ENV_HINTS=1
-
 # Python
 export PYTHON_HISTORY=${XDG_STATE_HOME}/python_history
 export PYTHONPYCACHEPREFIX=${XDG_CACHE_HOME}/python
