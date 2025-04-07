@@ -14,10 +14,6 @@ case ${OSTYPE} in
         [[ -d /snap/bin ]] && export PATH=/snap/bin:${PATH}
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         export skip_global_compinit=1
-        # Add homebrew envirinments for Linux.
-        if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-            eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-        fi
         ;;
 esac
 
