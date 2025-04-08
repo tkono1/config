@@ -72,7 +72,7 @@ if [[ ! -f ${HOME}/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 fi
 
 declare -A ZINIT
-ZINIT[ZCOMPDUMP_PATH]=${XDG_CACHE_HOME}/zsh
+ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh"
 ZINIT[COMPINIT_OPTS]="-D"
 
 source "${XDG_DATA_HOME}/zinit/zinit.git/zinit.zsh"
@@ -87,7 +87,7 @@ case ${OSTYPE} in
         zinit ice atinit"export NVM_DIR=${XDG_CONFIG_HOME}/nvm" nocd
         zinit light lukechilds/zsh-nvm
         [[ ! -d ${XDG_CONFIG_HOME}/npm ]] && mkdir ${XDG_CONFIG_HOME}/npm
-        export NPM_CONFIG_USERCONFIG=${XDG_CONFIG_HOME}/npm/npmrc
+        export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
         ;;
 esac
 ## }}
@@ -146,7 +146,7 @@ setopt nolistbeep
 ## History {{
 #
 # Location of history file.
-HISTFILE=${XDG_STATE_HOME}/zsh/history
+HISTFILE="${XDG_STATE_HOME}/zsh/history"
 
 # Size of history file.
 HISTSIZE=10000
@@ -211,9 +211,9 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 export LESSHISTFILE=-
 
 # Python
-export PYTHON_HISTORY=${XDG_STATE_HOME}/python_history
-export PYTHONPYCACHEPREFIX=${XDG_CACHE_HOME}/python
-export PYTHONUSERBASE=${XDG_DATA_HOME}/python
+export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
+export PYTHONPYCACHEPREFIX="${XDG_CACHE_HOME}/python"
+export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 
 # pyenv
 if (( ${+commands[pyenv]} )); then
