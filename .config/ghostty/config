@@ -18,3 +18,4 @@ window-save-state = always
 shell-integration-features = no-cursor
 
 macos-titlebar-style = tabs
+macos-option-as-alt = true
