@@ -1,17 +1,60 @@
 # macOS
+# General
 .DS_Store
 .AppleDouble
+.LSOverride
 .CFUserTextEncoding
+# Icon must end with two \r
+Icon
+# Thumbnails
+._*
+# Files that might appear in the root of a volume
+.DocumentRevisions-v100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
 .Trash
 .Trashes
-.LSOverride
-.Spotlight-V100
-.python-version
-._*
-Icon
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-# Windows
+# windows
+# Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
-Desktop.ini
+ehthumbs_vista.db
+#Dump file
+.stackdump
+# Folder config file
+[Dd]esktop.ini
+# Recycle Bin used on files shares
 $RECYCLE.BIN/
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+# Windows shortcuts
+*.lnk
+
+# Visual Studio Code
+# General
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+# Local History for Visual Studio Code
+.history/
+# Built Visual Studio Code Extensions
+*.vsix
+
+# Xcode
+# User settings
+xcuserdata/
+
+# Python
+.python-version
