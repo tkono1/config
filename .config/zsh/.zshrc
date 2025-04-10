@@ -208,7 +208,7 @@ SPROMPT="%F{034}%r is correct? [n,y,a,e]:%k%f "
 ## Command specific settings {{
 #
 # Disable less history.
-export LESSHISTFILE=-
+export LESSHISTFILE="-"
 
 # Python
 export PYTHON_HISTORY="${XDG_STATE_HOME}/python_history"
