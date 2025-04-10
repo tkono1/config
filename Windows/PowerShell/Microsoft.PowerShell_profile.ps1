@@ -37,9 +37,6 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
     $Global:__LastHistoryId = -1
 
     function prompt {
-        [string]$ESC07 = "$([char]07)"
-        [string]$OSC133 = "`e]133"
-
         $FakeCode = [int]!$global:?
         Set-StrictMode -Off
         $LastHistoryEntry = Get-History -Count 1
@@ -48,24 +45,24 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
         if ($Global:__LastHistoryId -ne -1) {
             if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
                 # Don't provide a command line or exit code if there was no history entry (eg. ctrl+c, enter on no command)
-                $Result += "${OSC133};D`a"
+                $Result += "`e]133;D`a"
             } else {
                 # Command finished exit code
-                $Result += "${OSC133};D;${FakeCode}`a"
+                $Result += "`e]133;D;${FakeCode}`a"
             }
         }
 
         # Prompt started
-        $Result += "${OSC133};A${ESC07}"
+        $Result += "`e]133;A$([char]07)"
         
         # Current Working Directory
-        $Result += "`e]9;9;`"${PWD}`"${ESC07}"
+        $Result += "`e]9;9;`"${PWD}`"$([char]07)"
 
         $Global:__OriginalPrompt = ${GitPromptScriptBlock}
         $Result += $Global:__OriginalPrompt.Invoke()
 
         # Prompt ended, Command started
-        $Result += "${OSC133};B${ESC07}"
+        $Result += "`e]133;B$([char]07)"
         $Global:__LastHistoryId = $LastHistoryEntry.Id
 
         return $Result
