@@ -34,7 +34,7 @@ $GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
 $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 
 if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
-    $Global:__LastHistoryId = -1
+    $Global:LastHistoryId = -1
 
     function prompt {
         $FakeCode = [int]!$global:?
@@ -42,8 +42,8 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
         $LastHistoryEntry = Get-History -Count 1
         $Result = ""
         # Skip finishing the command if the first command has not yet started
-        if ($Global:__LastHistoryId -ne -1) {
-            if ($LastHistoryEntry.Id -eq $Global:__LastHistoryId) {
+        if ($Global:LastHistoryId -ne -1) {
+            if ($LastHistoryEntry.Id -eq $Global:LastHistoryId) {
                 # Don't provide a command line or exit code if there was no history entry (eg. ctrl+c, enter on no command)
                 $Result += "`e]133;D`a"
             } else {
@@ -58,12 +58,12 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
         # Current Working Directory
         $Result += "`e]9;9;`"${PWD}`"$([char]07)"
 
-        $Global:__OriginalPrompt = ${GitPromptScriptBlock}
-        $Result += $Global:__OriginalPrompt.Invoke()
+        $Global:OriginalPrompt = ${GitPromptScriptBlock}
+        $Result += $Global:OriginalPrompt.Invoke()
 
         # Prompt ended, Command started
         $Result += "`e]133;B$([char]07)"
-        $Global:__LastHistoryId = $LastHistoryEntry.Id
+        $Global:LastHistoryId = $LastHistoryEntry.Id
 
         return $Result
     }
