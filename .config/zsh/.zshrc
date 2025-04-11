@@ -15,7 +15,7 @@ case ${OSTYPE} in
         # Add path for snap
         [[ -d /snap/bin ]] && export PATH=/snap/bin:${PATH}
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
-        export skip_global_compinit=1
+        (grep "skip_global_compinit" /etc/zsh/zshrc > /dev/null 2>&1) && export skip_global_compinit=1
         # ls color.
         alias ls='ls -h --color=auto --time-style=long-iso'
         if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
