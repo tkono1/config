@@ -8,14 +8,14 @@ case ${OSTYPE} in
             export HOMEBREW_NO_ENV_HINTS=1
             # ls color.
             alias ls='ls -Gh'
-            export LSCOLORS=Exfxcxdxbxegedabagacad
+            export LSCOLORS='Exfxcxdxbxegedabagacad'
         fi
         ;;
     linux*)
         # Add path for snap
         [[ -d /snap/bin ]] && export PATH=/snap/bin:${PATH}
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
-        (grep "skip_global_compinit" /etc/zsh/zshrc > /dev/null 2>&1) && export skip_global_compinit=1
+        [[ -f /etc/zsh/zshrc ]] && export skip_global_compinit=1
         # ls color.
         alias ls='ls -h --color=auto --time-style=long-iso'
         if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
@@ -34,7 +34,7 @@ esac
 ## General settings {{
 #
 # Set language.
-export LANG=en_US.UTF-8
+export LANG='en_US.UTF-8'
 
 # Ignore Ctrl+S.
 stty stop undef
