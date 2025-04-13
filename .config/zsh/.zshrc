@@ -247,6 +247,4 @@ fi
 typeset -U path
 
 # End of zprof
-#if (which zprof > /dev/null) ;then
-#  zprof | less
-#fi
+#(which zprof > /dev/null) && zprof | less
