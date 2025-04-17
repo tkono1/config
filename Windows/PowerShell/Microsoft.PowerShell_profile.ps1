@@ -1,3 +1,6 @@
+# Set Console output encoding to UTF-8.
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
 # Configure PSReadLine.
 if (Get-InstalledPSResource -Name 'PSReadLine') {
     Import-Module -Name PSReadLine
@@ -40,7 +43,7 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
         $FakeCode = [int]!$global:?
         Set-StrictMode -Off
         $LastHistoryEntry = Get-History -Count 1
-        $Result = ""
+        [string]$Result = ""
         # Skip finishing the command if the first command has not yet started
         if ($Global:LastHistoryId -ne -1) {
             if ($LastHistoryEntry.Id -eq $Global:LastHistoryId) {
