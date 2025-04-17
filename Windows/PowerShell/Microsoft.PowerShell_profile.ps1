@@ -54,7 +54,7 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
 
         # Prompt started
         $Result += "`e]133;A$([char]07)"
-        
+
         # Current Working Directory
         $Result += "`e]9;9;`"${PWD}`"$([char]07)"
 
@@ -68,7 +68,7 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
         return $Result
     }
 } elseif (((get-process -Id $PID).Parent).ProcessName -eq 'Code') {
-    function prompt () {    
+    function prompt () {
         & $GitPromptScriptBlock
     }
 }
