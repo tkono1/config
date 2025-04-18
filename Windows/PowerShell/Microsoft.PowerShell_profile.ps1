@@ -1,3 +1,5 @@
+##Requires -Version 7
+
 # Set Console output encoding to UTF-8.
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
