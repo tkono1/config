@@ -38,7 +38,7 @@ $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = '0x00BFFF' # DeepSkyBlu
 $GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
 $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 
-if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
+if ((([System.Diagnostics.Process]::GetCurrentProcess()).Parent).ProcessName -eq 'WindowsTerminal') {
     $Global:LastHistoryId = -1
 
     function prompt {
@@ -72,7 +72,7 @@ if (((get-process -Id $PID).Parent).ProcessName -eq 'WindowsTerminal') {
 
         return $Result
     }
-} elseif (((get-process -Id $PID).Parent).ProcessName -eq 'Code') {
+} elseif ((([System.Diagnostics.Process]::GetCurrentProcess()).Parent).ProcessName -eq 'Code') {
     function prompt () {
         & $GitPromptScriptBlock
     }
