@@ -220,7 +220,7 @@ if [[ -e "/usr/share/nvm/nvm.sh" ]]; then
     [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
     [ ! -e "${NVM_DIR}/nvm.sh" ] && ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
     [ ! -e "${NVM_DIR}/nvm-exec" ] && ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
-    . ${NVM_DIR}/nvm.sh --no-use
+    . ${NVM_DIR}/nvm.sh
     . /usr/share/nvm/bash_completion
     export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 fi
