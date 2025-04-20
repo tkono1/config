@@ -2,7 +2,7 @@
 case ${OSTYPE} in
     darwin*)
         # Add homebrew environments for Apple Silicon.
-        if [[ -x /opt/homebrew/bin/brew ]]; then
+        if [[ -x "/opt/homebrew/bin/brew" ]]; then
             eval $(/opt/homebrew/bin/brew shellenv)
             # Don't print any Homebrew hints.
             export HOMEBREW_NO_ENV_HINTS=1
@@ -13,13 +13,13 @@ case ${OSTYPE} in
         ;;
     linux*)
         # Add path for snap
-        [[ -d /snap/bin ]] && export PATH=/snap/bin:${PATH}
+        [[ -d "/snap/bin" ]] && export PATH=/snap/bin:${PATH}
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
-        [[ -f /etc/zsh/zshrc ]] && export skip_global_compinit=1
+        [[ -f "/etc/zsh/zshrc" ]] && export skip_global_compinit=1
         # ls color.
         alias ls='ls -h --color=auto --time-style=long-iso'
-        if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
-            eval $(dircolors ${XDG_CONFIG_HOME}/dir_colors)
+        if [[ -f "${XDG_CONFIG_HOME}/dir_colors" ]]; then
+            eval $(dircolors "${XDG_CONFIG_HOME}/dir_colors")
         else
             export LS_COLORS='di=01;34'
         fi
@@ -27,7 +27,7 @@ case ${OSTYPE} in
 esac
 
 # Add path for local bin.
-[[ -d ${HOME}/.local/bin ]] && export PATH=${HOME}/.local/bin:${PATH}
+[[ -d "${HOME}/.local/bin" ]] && export PATH=${HOME}/.local/bin:${PATH}
 ## }}
 
 #
@@ -63,7 +63,7 @@ bindkey -e
 ## Plugins {{
 #
 ### Added by Zinit's installer
-if [[ ! -f ${HOME}/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+if [[ ! -f "${HOME}/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "${HOME}/.local/share/zinit" && command chmod g-rwX "${HOME}/.local/share/zinit"
     command git clone https://github.com/zdharma-continuum/zinit "${HOME}/.local/share/zinit/zinit.git" && \
@@ -95,7 +95,7 @@ zinit light woefe/git-prompt.zsh
 ## Completion {{
 #
 # Set auto completion.
-autoload -Uz compinit && compinit -d ${XDG_CACHE_HOME}/zsh/.zcompdump
+autoload -Uz compinit && compinit -d "${XDG_CACHE_HOME}/zsh/.zcompdump"
 
 # Colorize completion items.
 zstyle ':completion:*' list-colors di=34 ln=35 ex=31
@@ -215,8 +215,15 @@ if (( ${+commands[pyenv]} )); then
 fi
 
 # NVM and NPM
-[[ -e /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+if [[ -e "/usr/share/nvm/nvm.sh" ]]; then
+    export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
+    [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
+    [ ! -e "${NVM_DIR}/nvm.sh" ] && ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
+    [ ! -e "${NVM_DIR}/nvm-exec" ] && ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
+    . ${NVM_DIR}/nvm.sh --no-use
+    . /usr/share/nvm/bash_completion
+    export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+fi
 # }}
 
 #
