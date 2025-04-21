@@ -88,7 +88,7 @@ zinit light woefe/git-prompt.zsh
 ## Color settings {{
 #
 # Set 24-bit color even though WSL or remote.
-[[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]] && export COLORTERM='truecolor'
+[[ -n ${WSLENV} || -n ${SSH_CLIENT} ]] && export COLORTERM='truecolor'
 ## }}
 
 #
@@ -167,7 +167,7 @@ setopt hist_reduce_blanks
 ## Prompt settings {{
 #
 # Git prompt settings.
-if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
+if (( ${+commands[git]} )) && [[ -e ${^fpath}/git-prompt.zsh(N) ]]; then
     ZSH_GIT_PROMPT_FORCE_BLANK=1
     ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
     ZSH_THEME_GIT_PROMPT_PREFIX="["
@@ -215,16 +215,16 @@ if (( ${+commands[pyenv]} )); then
 fi
 
 # NVM and NPM
-if [[ -e "/usr/share/nvm/nvm.sh" ]] || [[ -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
+if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
     export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
     [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
-    if [[ ! -e "${NVM_DIR}/nvm.sh" ]] && [[ -e "/usr/share/nvm/nvm.sh" ]]; then
+    if [[ ! -e "${NVM_DIR}/nvm.sh" && -e "/usr/share/nvm/nvm.sh" ]]; then
         ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
     fi
-    if [[ ! -e "${NVM_DIR}/nvm-exec" ]] && [[ -e "/usr/share/nvm/nvm-exec" ]]; then
+    if [[ ! -e "${NVM_DIR}/nvm-exec" && -e "/usr/share/nvm/nvm-exec" ]]; then
         ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
     fi
-    if [[ ! -e "${NVM_DIR}/bash_completion" ]] && [[ -e "/usr/share/nvm/bash_completion" ]]; then
+    if [[ ! -e "${NVM_DIR}/bash_completion" && -e "/usr/share/nvm/bash_completion" ]]; then
         ln -s /usr/share/nvm/bash_completion "${NVM_DIR}/bash_completion"
     fi
     [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
