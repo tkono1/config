@@ -215,13 +215,20 @@ if (( ${+commands[pyenv]} )); then
 fi
 
 # NVM and NPM
-if [[ -e "/usr/share/nvm/nvm.sh" ]]; then
+if [[ -e "/usr/share/nvm/nvm.sh" || "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
     export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
     [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
-    [ ! -e "${NVM_DIR}/nvm.sh" ] && ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
-    [ ! -e "${NVM_DIR}/nvm-exec" ] && ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
-    . ${NVM_DIR}/nvm.sh
-    . /usr/share/nvm/bash_completion
+    if [[ ! -e "${NVM_DIR}/nvm.sh" ]] && [[ -e "/usr/share/nvm/nvm.sh" ]]; then
+        ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
+    fi
+    if [[ ! -e "${NVM_DIR}/nvm-exec" ]] && [[ -e "/usr/share/nvm/nvm-exec" ]]; then
+        ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
+    fi
+    if [[ ! -e "${NVM_DIR}/bash_completion" ]] && [[ -e "/usr/share/nvm/bash_competion" ]]; then
+        ln -s /usr/share/nvm/bash_competion "${NVM_DIR}/bash_completion"
+    fi
+    [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
+    [[ -s "$NVM_DIR}/bash_completion" ]] && \. "${XDG_CONFIG_HOME}/nvm/bash_completion"
     export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 fi
 # }}
@@ -251,3 +258,4 @@ typeset -U path
 
 # End of zprof
 #(which zprof > /dev/null) && zprof | less
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
