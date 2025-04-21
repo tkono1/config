@@ -67,8 +67,8 @@ if [[ ! -f "${HOME}/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
     command mkdir -p "${HOME}/.local/share/zinit" && command chmod g-rwX "${HOME}/.local/share/zinit"
     command git clone https://github.com/zdharma-continuum/zinit "${HOME}/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
+    print -P "%F{33} %F{34}Installation successful.%f%b" || \
+    print -P "%F{160} The clone has failed.%f%b"
 fi
 
 declare -A ZINIT
@@ -82,6 +82,14 @@ autoload -Uz _zinit
 
 # Load plugins.
 zinit light woefe/git-prompt.zsh
+case ${OSTYPE} in
+     linux*)
+        zinit ice atinit"export NVM_DIR=${XDG_CONFIG_HOME}/nvm" nocd
+        zinit light lukechilds/zsh-nvm
+        mkdir -p "${XDG_CONFIG_HOME}/npm"
+        export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
+        ;;
+esac
 ## }}
 
 #
@@ -209,7 +217,7 @@ export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 
 # pyenv
 if (( ${+commands[pyenv]} )); then
-    [[ ! -d "${XDG_DATA_HOME}/pyenv" ]] && mkdir "${XDG_DATA_HOME}/pyenv"
+    mkdir -p "${XDG_DATA_HOME}/pyenv"
     export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
     eval "$(pyenv init -)"
 fi
@@ -218,7 +226,7 @@ fi
 #if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
 if [[ -d "/usr/share/nvm" || -d "${XDG_CONFIG_HOME}/nvm" ]]; then
     export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
-    [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
+    mkdir -p "${NVM_DIR}"
     if [[ ! -e "${NVM_DIR}/nvm.sh" && -e "/usr/share/nvm/nvm.sh" ]]; then
         ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
     fi
