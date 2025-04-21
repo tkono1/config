@@ -215,7 +215,8 @@ if (( ${+commands[pyenv]} )); then
 fi
 
 # NVM and NPM
-if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
+#if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
+if [[ -d "/usr/share/nvm" || -d "${XDG_CONFIG_HOME}/nvm" ]]; then
     export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
     [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
     if [[ ! -e "${NVM_DIR}/nvm.sh" && -e "/usr/share/nvm/nvm.sh" ]]; then
@@ -227,8 +228,8 @@ if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
     if [[ ! -e "${NVM_DIR}/bash_completion" && -e "/usr/share/nvm/bash_completion" ]]; then
         ln -s /usr/share/nvm/bash_completion "${NVM_DIR}/bash_completion"
     fi
-    . "${NVM_DIR}/nvm.sh"
-    . "${NVM_DIR}/bash_completion"
+    [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
+    [[ -s "${NVM_DIR}/bash_completion" ]] && \. "${NVM_DIR}/bash_completion"
     export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 fi
 # }}
