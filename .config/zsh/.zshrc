@@ -13,7 +13,7 @@ case ${OSTYPE} in
         ;;
     linux*)
         # Add path for snap
-        [[ -d "/snap/bin" ]] && export PATH=/snap/bin:${PATH}
+        [[ -d "/snap/bin" ]] && export PATH="/snap/bin:${PATH}"
         # Disable auto compinit at /etc/zsh/zshrc on Ubuntu.
         [[ -f "/etc/zsh/zshrc" ]] && export skip_global_compinit=1
         # ls color.
@@ -27,7 +27,7 @@ case ${OSTYPE} in
 esac
 
 # Add path for local bin.
-[[ -d "${HOME}/.local/bin" ]] && export PATH=${HOME}/.local/bin:${PATH}
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 ## }}
 
 #
@@ -209,7 +209,7 @@ export PYTHONUSERBASE="${XDG_DATA_HOME}/python"
 
 # pyenv
 if (( ${+commands[pyenv]} )); then
-    [[ ! -d ${XDG_DATA_HOME}/pyenv ]] && mkdir ${XDG_DATA_HOME}/pyenv
+    [[ ! -d "${XDG_DATA_HOME}/pyenv" ]] && mkdir "${XDG_DATA_HOME}/pyenv"
     export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
     eval "$(pyenv init -)"
 fi
