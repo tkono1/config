@@ -83,7 +83,7 @@ autoload -Uz _zinit
 # Load plugins.
 zinit light woefe/git-prompt.zsh
 case ${OSTYPE} in
-     linux*)
+    linux*)
         zinit ice atinit"export NVM_DIR=${XDG_CONFIG_HOME}/nvm" nocd
         zinit light lukechilds/zsh-nvm
         mkdir -p "${XDG_CONFIG_HOME}/npm"
@@ -175,7 +175,7 @@ setopt hist_reduce_blanks
 ## Prompt settings {{
 #
 # Git prompt settings.
-if (( ${+commands[git]} )) && [[ -e ${^fpath}/git-prompt.zsh(N) ]]; then
+if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     ZSH_GIT_PROMPT_FORCE_BLANK=1
     ZSH_GIT_PROMPT_SHOW_UPSTREAM="no"
     ZSH_THEME_GIT_PROMPT_PREFIX="["
@@ -221,25 +221,6 @@ if (( ${+commands[pyenv]} )); then
     export PYENV_ROOT="${XDG_DATA_HOME}/pyenv"
     eval "$(pyenv init -)"
 fi
-
-# NVM and NPM
-#if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
-if [[ -d "/usr/share/nvm" || -d "${XDG_CONFIG_HOME}/nvm" ]]; then
-    export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
-    mkdir -p "${NVM_DIR}"
-    if [[ ! -e "${NVM_DIR}/nvm.sh" && -e "/usr/share/nvm/nvm.sh" ]]; then
-        ln -s /usr/share/nvm/nvm.sh "${NVM_DIR}/nvm.sh"
-    fi
-    if [[ ! -e "${NVM_DIR}/nvm-exec" && -e "/usr/share/nvm/nvm-exec" ]]; then
-        ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
-    fi
-    if [[ ! -e "${NVM_DIR}/bash_completion" && -e "/usr/share/nvm/bash_completion" ]]; then
-        ln -s /usr/share/nvm/bash_completion "${NVM_DIR}/bash_completion"
-    fi
-    [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
-    [[ -s "${NVM_DIR}/bash_completion" ]] && \. "${NVM_DIR}/bash_completion"
-    export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-fi
 # }}
 
 #
@@ -267,4 +248,3 @@ typeset -U path
 
 # End of zprof
 #(which zprof > /dev/null) && zprof | less
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
