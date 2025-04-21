@@ -24,10 +24,10 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 # Prepare zsh directory for history.
-[[ ! -d ${XDG_STATE_HOME}/zsh ]] && mkdir "${XDG_STATE_HOME}/zsh"
+[[ ! -d "${XDG_STATE_HOME}/zsh" ]] && mkdir "${XDG_STATE_HOME}/zsh"
 
 # Prepare zsh directory for zcompdump and zcompcache.
-[[ ! -d ${XDG_CACHE_HOME}/zsh ]] && mkdir "${XDG_CACHE_HOME}/zsh"
+[[ ! -d "${XDG_CACHE_HOME}/zsh" ]] && mkdir "${XDG_CACHE_HOME}/zsh"
 
 # Disable resume support for macOS. See /etc/zshrc_Apple_Terminal.
 case ${OSTYPE} in
