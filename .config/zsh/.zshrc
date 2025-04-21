@@ -225,7 +225,7 @@ if [[ -e "/usr/share/nvm/nvm.sh" ]] || [[ -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]];
         ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
     fi
     if [[ ! -e "${NVM_DIR}/bash_completion" ]] && [[ -e "/usr/share/nvm/bash_completion" ]]; then
-        ln -s /usr/share/nvm/bash_competion "${NVM_DIR}/bash_completion"
+        ln -s /usr/share/nvm/bash_completion "${NVM_DIR}/bash_completion"
     fi
     [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
     [[ -s "$NVM_DIR}/bash_completion" ]] && \. "${XDG_CONFIG_HOME}/nvm/bash_completion"
