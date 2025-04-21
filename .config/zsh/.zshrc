@@ -227,8 +227,8 @@ if [[ -e "/usr/share/nvm/nvm.sh" || -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
     if [[ ! -e "${NVM_DIR}/bash_completion" && -e "/usr/share/nvm/bash_completion" ]]; then
         ln -s /usr/share/nvm/bash_completion "${NVM_DIR}/bash_completion"
     fi
-    [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
-    [[ -s "$NVM_DIR}/bash_completion" ]] && \. "${XDG_CONFIG_HOME}/nvm/bash_completion"
+    . "${NVM_DIR}/nvm.sh"
+    . "${NVM_DIR}/bash_completion"
     export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
 fi
 # }}
