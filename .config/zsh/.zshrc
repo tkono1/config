@@ -215,7 +215,7 @@ if (( ${+commands[pyenv]} )); then
 fi
 
 # NVM and NPM
-if [[ -e "/usr/share/nvm/nvm.sh" || "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
+if [[ -s "/usr/share/nvm/nvm.sh" ]] || [[ -s "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
     export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
     [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
     if [[ ! -e "${NVM_DIR}/nvm.sh" ]] && [[ -e "/usr/share/nvm/nvm.sh" ]]; then
