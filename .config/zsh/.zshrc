@@ -215,7 +215,7 @@ if (( ${+commands[pyenv]} )); then
 fi
 
 # NVM and NPM
-if [[ -s "/usr/share/nvm/nvm.sh" ]] || [[ -s "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
+if [[ -e "/usr/share/nvm/nvm.sh" ]] || [[ -e "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]]; then
     export NVM_DIR="${XDG_CONFIG_HOME}/nvm"
     [ ! -e "${NVM_DIR}" ] && mkdir "${NVM_DIR}"
     if [[ ! -e "${NVM_DIR}/nvm.sh" ]] && [[ -e "/usr/share/nvm/nvm.sh" ]]; then
@@ -224,7 +224,7 @@ if [[ -s "/usr/share/nvm/nvm.sh" ]] || [[ -s "${XDG_CONFIG_HOME}/nvm/nvm.sh" ]];
     if [[ ! -e "${NVM_DIR}/nvm-exec" ]] && [[ -e "/usr/share/nvm/nvm-exec" ]]; then
         ln -s /usr/share/nvm/nvm-exec "${NVM_DIR}/nvm-exec"
     fi
-    if [[ ! -e "${NVM_DIR}/bash_completion" ]] && [[ -e "/usr/share/nvm/bash_competion" ]]; then
+    if [[ ! -e "${NVM_DIR}/bash_completion" ]] && [[ -e "/usr/share/nvm/bash_completion" ]]; then
         ln -s /usr/share/nvm/bash_competion "${NVM_DIR}/bash_completion"
     fi
     [[ -s "${NVM_DIR}/nvm.sh" ]] && \. "${NVM_DIR}/nvm.sh"
