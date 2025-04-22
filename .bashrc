@@ -31,7 +31,7 @@ export LANG=en_US.UTF-8
 
 ## Set 24-bit color {{
 #
-if [[ -n ${WSLENV} ]] || [[ -n ${SSH_CLIENT} ]]; then
+if [[ -n ${WSLENV} || -n ${SSH_CLIENT} ]]; then
     export COLORTERM='truecolor'
 fi
 ## }}
@@ -40,8 +40,8 @@ fi
 ## Completion {{
 # Load {/etc/,/usr/local/etc/}bash_completion if exists.
 for etc in /etc /usr/local/etc; do
-    if [ -f $etc/bash_completion ] && ! shopt -oq posix; then
-        . $etc/bash_completion
+    if [ -f "$etc/bash_completion" ] && ! shopt -oq posix; then
+        . "$etc/bash_completion"
     fi
     unset etc
 done
@@ -73,12 +73,14 @@ PS1="\[\e[1;32m\][\u@\h\[\e[1;36m\]:\w\[\e[1;32m\]]\$ \[\e[0m\]"
 # Disable less history.
 export LESSHISTFILE=-
 
+# Add path for snap
+[[ -d "/snap/bin" ]] && export PATH="/snap/bin:${PATH}"
 # ls color.
 alias ls='ls --color=auto'
-if [[ -f ${XDG_CONFIG_HOME}/dir_colors ]]; then
-    eval $(cat ${XDG_CONFIG_HOME}/dir_colors)
+if [[ -f "${XDG_CONFIG_HOME}/dir_colors" ]]; then
+    eval $(dircolors "${XDG_CONFIG_HOME}/dir_colors")
 else
-    export LS_COLORS='di=01;94'
+    export LS_COLORS='di=01;34'
 fi
 ##}}
 
@@ -99,6 +101,6 @@ if type 'tmux' > /dev/null 2>&1; then
         alias tmux="tmux -f ${XDG_CONFIG_HOME}/tmux/tmux.conf"
     fi
     [[ -n ${TMUX} ]] && alias ssh='env TERM=xterm-256color ssh'
-    export TMUX_TMPDIR=/tmp
+    export TMUX_TMPDIR="/tmp"
 fi
 ## }}
