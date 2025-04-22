@@ -234,7 +234,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Share clipboard with OS.
--- Need to install wl-clipboard for Linux running on WSL.
 vim.opt.clipboard:append("unnamedplus")
 
 -- Keep all windows size as same when add/remove.
