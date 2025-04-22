@@ -4,30 +4,26 @@
 #
 ## XDG base directories {{
 #
-[[ ! -d "${HOME}/.config" ]] && mkdir "${HOME}/.config"
+mkdir -p "${HOME}/.config"
 export XDG_CONFIG_HOME="${HOME}/.config"
 
-[[ ! -d "${HOME}/.local/share" ]] && mkdir -p "${HOME}/.local/share"
+mkdir -p "${HOME}/.local/share"
 export XDG_DATA_HOME="${HOME}/.local/share"
 
-[[ ! -d "${HOME}/.local/state" ]] && mkdir -p "${HOME}/.local/state"
+mkdir -p "${HOME}/.local/state"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-[[ ! -d "${HOME}/.cache" ]] && mkdir "${HOME}/.cache"
+mkdir -p "${HOME}/.cache"
 export XDG_CACHE_HOME="${HOME}/.cache"
 ## }}
 
 #
 ## Zsh settings {{
 #
-[[ ! -d "${XDG_CONFIG_HOME}/zsh" ]] && mkdir "${XDG_CONFIG_HOME}/zsh"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-
-# Prepare zsh directory for history.
-[[ ! -d "${XDG_STATE_HOME}/zsh" ]] && mkdir "${XDG_STATE_HOME}/zsh"
-
-# Prepare zsh directory for zcompdump and zcompcache.
-[[ ! -d "${XDG_CACHE_HOME}/zsh" ]] && mkdir "${XDG_CACHE_HOME}/zsh"
+mkdir -p "${ZDOTDIR}"
+mkdir -p "${XDG_STATE_HOME}/zsh"
+mkdir -p "${XDG_CACHE_HOME}/zsh"
 
 # Disable resume support for macOS. See /etc/zshrc_Apple_Terminal.
 case ${OSTYPE} in
