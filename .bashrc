@@ -1,7 +1,14 @@
 if [ -z "$PS1" ]; then
    return
 fi
-
+#
+## Add path {{
+#
+# Add path for local bin.
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
+# Add path for snap
+[[ -d "/snap/bin" ]] && export PATH="/snap/bin:${PATH}"
+## }}
 #
 ## General options {{
 #
@@ -73,8 +80,6 @@ PS1="\[\e[1;32m\][\u@\h\[\e[1;36m\]:\w\[\e[1;32m\]]\$ \[\e[0m\]"
 # Disable less history.
 export LESSHISTFILE=-
 
-# Add path for snap
-[[ -d "/snap/bin" ]] && export PATH="/snap/bin:${PATH}"
 # ls color.
 alias ls='ls --color=auto'
 if [[ -f "${XDG_CONFIG_HOME}/dir_colors" ]]; then
