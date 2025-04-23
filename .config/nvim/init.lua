@@ -21,11 +21,11 @@ handle:close()
 node_exists = node_exists:gsub('\n[^\n]*$', '')
 
 -- Disable unused providers
-vim.g.loaded_ruby_provider = 0
 if node_exists == '1' then
     vim.g.loaded_node_provider = 0
 end
 vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 --- }}
 
 --- lazy.nvim {{
@@ -273,6 +273,13 @@ vim.opt.laststatus = 2
 vim.opt.showmode = false
 --- }}
 
+--- checkhealth settings {{
+-- checkhealth style.
+if vim.fn.has("nvim-0.11") then
+    vim.g.health = { style = 'float' }
+end
+--- }}
+
 --- Terminal settings {{
 -- Start terminal insert mode.
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -286,8 +293,3 @@ vim.api.nvim_create_autocmd("TermOpen", {
     command = "setlocal nonumber",
 })
 --- }}
-
--- checkhealth style.
-if vim.fn.has("nvim-0.11") then
-    vim.g.health = { style = 'float' }
-end
