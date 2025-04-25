@@ -18,7 +18,7 @@ case ${OSTYPE} in
         [[ -f "/etc/zsh/zshrc" ]] && export skip_global_compinit=1
         # ls color.
         alias ls='ls -h --color=auto --time-style=long-iso'
-        if [[ -f "${XDG_CONFIG_HOME}/dir_colors" ]]; then
+        if [[ -s "${XDG_CONFIG_HOME}/dir_colors" ]]; then
             eval $(dircolors "${XDG_CONFIG_HOME}/dir_colors")
         else
             export LS_COLORS='di=01;34'
