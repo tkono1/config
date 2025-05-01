@@ -138,6 +138,21 @@ require("lazy").setup({
                 indent = { enable = true },
             },
         },
+        {
+            'romgrk/barbar.nvim',
+            dependencies = {
+                -- 'lewis6991/gitsigns.nvim',
+                -- 'nvim-tree/nvim-web-devicons',
+            },
+            init = function() vim.g.barbar_auto_setup = false end,
+            opts = {
+                auto_hide = true,
+                icons = {
+                    buffer_number = true,
+                    filetype = { enabled = false },
+                },
+            },
+        },
     },
     checker = { enabled = true, concurrency = 1, },
     rocks = {
