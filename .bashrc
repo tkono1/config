@@ -33,7 +33,7 @@ ulimit -c 0
 #
 ## Language settings {{                     
 #                
-export LANG=en_US.UTF-8
+export LANG='en_US.UTF-8'
 ## }}
 
 ## Set 24-bit color {{
@@ -47,8 +47,8 @@ fi
 ## Completion {{
 # Load {/etc/,/usr/local/etc/}bash_completion if exists.
 for etc in /etc /usr/local/etc; do
-    if [ -f "$etc/bash_completion" ] && ! shopt -oq posix; then
-        . "$etc/bash_completion"
+    if [ -f "${etc}/bash_completion" ] && ! shopt -oq posix; then
+        . "${etc}/bash_completion"
     fi
     unset etc
 done
@@ -65,7 +65,7 @@ HISTFILESIZE=10000
 shopt -s histappend
 
 # Ignore both space and duplicates.
-HISTCONTROL=ignoreboth
+HISTCONTROL='ignoreboth'
 ## }}
 
 #
