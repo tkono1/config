@@ -4,7 +4,7 @@ if vim.loader then
     vim.loader.enable()
 end
 
--- 
+-- General settings.
 vim.opt.mouse = ''
 vim.bo.swapfile = false
 
