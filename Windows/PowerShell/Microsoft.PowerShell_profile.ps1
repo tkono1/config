@@ -33,7 +33,7 @@ if (Get-InstalledPSResource -Name 'posh-git') {
     && Import-Module -Name posh-git
 }
 # https://github.com/dahlbyk/posh-git/wiki/Customizing-Your-PowerShell-Prompt
-$GitPromptSettings.DefaultPromptPrefix.Text = "PS "
+$GitPromptSettings.DefaultPromptPrefix.Text = "PWSH "
 $GitPromptSettings.DefaultPromptPrefix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
 $GitPromptSettings.DefaultPromptPath.ForegroundColor = '0x40E0D0' # Turquoise
 $GitPromptSettings.DefaultPromptSuffix.ForegroundColor = '0x00BFFF' # DeepSkyBlue
