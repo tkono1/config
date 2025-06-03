@@ -95,8 +95,8 @@ esac
 #
 ## Color settings {{
 #
-# Set 24-bit color even though WSL or remote.
-[[ -n ${WSLENV} || -n ${SSH_CLIENT} ]] && export COLORTERM='truecolor'
+# Set 24-bit color even though WSL.
+[[ -n ${WSLENV} ]] && export COLORTERM='truecolor'
 ## }}
 
 #
