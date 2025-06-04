@@ -25,9 +25,6 @@ case ${OSTYPE} in
         fi
         ;;
 esac
-
-# Add path for local bin.
-[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
 ## }}
 
 #
@@ -35,6 +32,12 @@ esac
 #
 # Set language.
 export LANG='en_US.UTF-8'
+
+# Add path for local bin.
+[[ -d "${HOME}/.local/bin" ]] && export PATH="${HOME}/.local/bin:${PATH}"
+
+# Load additional terminfo if exists.
+[[ -d "${XDG_DATA_HOME}/terminfo" ]] && export TERMINFO="${XDG_DATA_HOME}/terminfo"
 
 # Ignore Ctrl+S.
 stty stop undef
