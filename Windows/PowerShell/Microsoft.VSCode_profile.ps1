@@ -1,3 +1,7 @@
+# Set Console output encoding to UTF-8.
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+# Configure PSReadLine.
 if (Get-InstalledPSResource -Name 'PSReadLine') {
     #Import-Module PSReadLine
     $PSROptions = @{
