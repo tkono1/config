@@ -119,7 +119,7 @@ require('lazy').setup({
         },
         {
             'nvim-treesitter/nvim-treesitter',
-            main = 'nvim-treesitter.configs',
+            branch = 'main',
             build = ':TSUpdate',
             opts = {
                 ensure_installed = {
@@ -127,9 +127,6 @@ require('lazy').setup({
                     'go', 'html', 'javascript', 'json',
                     'lua', 'markdown', 'objc', 'python', 'rust',
                     'toml', 'typescript', 'yaml',
-                },
-                incremental_selection = {
-                    enable = true,
                 },
                 highlight = {
                     enable = true,
