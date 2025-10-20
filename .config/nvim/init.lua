@@ -87,6 +87,7 @@ require('lazy').setup({
         },
         {
             'nvim-lualine/lualine.nvim',
+            lazy = false,
             opts = {
                 options = {
                     icons_enabled = false,
@@ -119,6 +120,7 @@ require('lazy').setup({
         },
         {
             'nvim-treesitter/nvim-treesitter',
+            lazy = false,
             branch = 'main',
             build = ':TSUpdate',
             opts = {
@@ -137,6 +139,7 @@ require('lazy').setup({
         },
         {
             'romgrk/barbar.nvim',
+            lazy = false,
             dependencies = {
                 -- 'lewis6991/gitsigns.nvim',
                 -- 'nvim-tree/nvim-web-devicons',
