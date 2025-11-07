@@ -85,14 +85,10 @@ autoload -Uz _zinit
 
 # Load plugins.
 zinit light woefe/git-prompt.zsh
-case ${OSTYPE} in
-    linux*)
         zinit ice atinit"export NVM_DIR=${XDG_CONFIG_HOME}/nvm" nocd
         zinit light lukechilds/zsh-nvm
         mkdir -p "${XDG_CONFIG_HOME}/npm"
         export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}/npm/npmrc"
-        ;;
-esac
 ## }}
 
 #
