@@ -28,6 +28,16 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 --- }}
 
+--- vim.pack {{
+vim.pack.add ({
+    -- Nord (no dependencies)
+    { src = 'https://github.com/shaunsingh/nord.nvim' },
+})
+
+-- Configuration plugins after loading
+require('nord').set()
+--- }}
+
 --- lazy.nvim {{
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -77,14 +87,14 @@ vim.api.nvim_create_autocmd('VimEnter', {
 -- :Lazy clean : Clean plugins that are no longer needed.
 require('lazy').setup({
     spec = {
-        {
-            'shaunsingh/nord.nvim',
-            lazy = false, 
-            priority = 1000,
-            config = function()
-                require('nord').set()
-            end,
-        },
+--        {
+--            'shaunsingh/nord.nvim',
+--            lazy = false, 
+--            priority = 1000,
+--            config = function()
+--                require('nord').set()
+--            end,
+--        },
         {
             'nvim-lualine/lualine.nvim',
             lazy = false,
