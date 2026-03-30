@@ -29,10 +29,15 @@ vim.g.loaded_ruby_provider = 0
 --- }}
 
 --- vim.pack {{
+-- :lua vim.pack.update()
 vim.pack.add ({
     { src = 'https://github.com/shaunsingh/nord.nvim' },
     { src = 'https://github.com/nvim-lualine/lualine.nvim' },
-    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
+    {
+        src = 'https://github.com/nvim-treesitter/nvim-treesitter',
+        version = 'main',
+        build = ':TSUpdate'
+    },
 })
 
 -- Configuration plugins after loading
@@ -67,14 +72,11 @@ require('lualine').setup({
     },
 })
 require('nvim-treesitter').setup({
-    build = ':TSUpdate',
-    opts = {
-        highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true },
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
     },
+    indent = { enable = true },
 })
 require('nvim-treesitter').install({
     'bash', 'c', 'c_sharp', 'cpp', 'dart',
