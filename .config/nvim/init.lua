@@ -30,9 +30,9 @@ vim.g.loaded_ruby_provider = 0
 
 --- vim.pack {{
 vim.pack.add ({
-    -- Nord (no dependencies)
     { src = 'https://github.com/shaunsingh/nord.nvim' },
     { src = 'https://github.com/nvim-lualine/lualine.nvim' },
+    { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
 })
 
 -- Configuration plugins after loading
@@ -66,115 +66,21 @@ require('lualine').setup({
         lualine_z = { '%l/%LL' },
     },
 })
---- }}
-
---- lazy.nvim {{
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-    local out = vim.fn.system({
-        'git',
-        'clone',
-        '--filter=blob:none',
-        '--branch=stable',
-        lazyrepo,
-        lazypath
-    })
-    if vim.v.shell_error ~= 0 then
-        vim.api.nvim_echo({
-            { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-            { out, 'WarningMsg' },
-            { '\nPress any key to exit...' },
-        }, true, {})
-        vim.fn.getchar()
-        os.exit(1)
-    end
-end
-vim.opt.rtp:prepend(lazypath)
-
-vim.g.mapleader = ' '
-vim.g.maplocalleader = '\\'
-
--- Lazy autoupdate.
-local function augroup(name)
-    return vim.api.nvim_create_augroup('lazyvim_' .. name, { clear = true })
-end
-
-vim.api.nvim_create_autocmd('VimEnter', {
-    group = augroup('autoupdate'),
-    callback = function()
-        if require('lazy.status').has_updates then
-            require('lazy').update({ show = false, })
-        end
-    end,
+require('nvim-treesitter').setup({
+    build = ':TSUpdate',
+    opts = {
+        highlight = {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+        },
+        indent = { enable = true },
+    },
 })
-
--- Setup lazy.nvim
--- :Lazy : Go back to plugin list.
--- :Lazy install : Install missing plugins.
--- :Lazy update : Update plugins.
--- :Lazy clean : Clean plugins that are no longer needed.
-require('lazy').setup({
-    spec = {
-        {
-            'nvim-treesitter/nvim-treesitter',
-            lazy = false,
-            branch = 'main',
-            build = ':TSUpdate',
-            opts = {
-                ensure_installed = {
-                    'bash', 'c', 'c_sharp', 'cpp', 'dart',
-                    'go', 'html', 'javascript', 'json',
-                    'lua', 'markdown', 'objc', 'python', 'rust',
-                    'toml', 'typescript', 'yaml',
-                },
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
-                indent = { enable = true },
-            },
-        },
-        {
-            'romgrk/barbar.nvim',
-            lazy = false,
-            dependencies = {
-                -- 'lewis6991/gitsigns.nvim',
-                -- 'nvim-tree/nvim-web-devicons',
-            },
-            init = function() vim.g.barbar_auto_setup = false end,
-            opts = {
-                auto_hide = true,
-                icons = {
-                    buffer_number = true,
-                    filetype = { enabled = false },
-                },
-            },
-        },
-    },
-    checker = { enabled = true, concurrency = 1, },
-    rocks = {
-        enabled = false,
-        hererocks = false,
-    },
-    ui = {
-        icons = {
-            cmd = '⌘',
-            config = '🛠',
-            event = '📅',
-            ft = '📂',
-            init = '⚙',
-            keys = '🗝',
-            plugin = '🔌',
-            runtime = '💻',
-            require = '🌙',
-            source = '📄',
-            start = '🚀',
-            task = '📌',
-            lazy = '💤 ',
-        },
-    },
+require('nvim-treesitter').install({
+    'bash', 'c', 'c_sharp', 'cpp', 'dart',
+    'go', 'html', 'javascript', 'json',
+    'lua', 'markdown', 'objc', 'python', 'rust',
+    'toml', 'typescript', 'yaml',
 })
 --- }}
 
