@@ -32,10 +32,40 @@ vim.g.loaded_ruby_provider = 0
 vim.pack.add ({
     -- Nord (no dependencies)
     { src = 'https://github.com/shaunsingh/nord.nvim' },
+    { src = 'https://github.com/nvim-lualine/lualine.nvim' },
 })
 
 -- Configuration plugins after loading
 require('nord').set()
+require('lualine').setup({
+    options = {
+        icons_enabled = false,
+        theme = 'auto',
+        component_separators = {left = ' ', right = ''},
+        section_separators = {left = '', right = ''},
+    },
+    sections = {
+        lualine_a = { 'mode' },
+        lualine_b = {
+            { 'filename', path = 1, shorting_target = 0 }
+        },
+        lualine_c = { '' },
+        lualine_x = {
+            'encoding',
+            {
+                'fileformat',
+                icons_enabled = true,
+                symbols = {
+                    unix = 'LF',
+                    dos = 'CRLF',
+                    mac = 'CR'
+                }
+            }
+        },
+        lualine_y = { 'filetype' },
+        lualine_z = { '%l/%LL' },
+    },
+})
 --- }}
 
 --- lazy.nvim {{
@@ -87,47 +117,6 @@ vim.api.nvim_create_autocmd('VimEnter', {
 -- :Lazy clean : Clean plugins that are no longer needed.
 require('lazy').setup({
     spec = {
---        {
---            'shaunsingh/nord.nvim',
---            lazy = false, 
---            priority = 1000,
---            config = function()
---                require('nord').set()
---            end,
---        },
-        {
-            'nvim-lualine/lualine.nvim',
-            lazy = false,
-            opts = {
-                options = {
-                    icons_enabled = false,
-                    theme = 'auto',
-                    component_separators = {left = ' ', right = ''},
-                    section_separators = {left = '', right = ''},
-                },
-                sections = {
-                    lualine_a = { 'mode' },
-                    lualine_b = {
-                        { 'filename', path = 1, shorting_target = 0 }
-                    },
-                    lualine_c = { '' },
-                    lualine_x = {
-                        'encoding',
-                        {
-                            'fileformat',
-                            icons_enabled = true,
-                            symbols = {
-                                unix = 'LF',
-                                dos = 'CRLF',
-                                mac = 'CR'
-                            }
-                        }
-                    },
-                    lualine_y = { 'filetype' },
-                    lualine_z = { '%l/%LL' },
-                },
-            },
-        },
         {
             'nvim-treesitter/nvim-treesitter',
             lazy = false,
