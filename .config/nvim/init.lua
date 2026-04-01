@@ -41,7 +41,7 @@ vim.pack.add ({
 })
 
 -- Configuration plugins after loading
-require('nord').set()
+vim.cmd.colorscheme('nord')
 require('lualine').setup({
     options = {
         icons_enabled = false,
