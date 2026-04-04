@@ -29,7 +29,7 @@ vim.g.loaded_ruby_provider = 0
 --- }}
 
 --- vim.pack {{
--- :lua vim.pack.update()
+-- :lua vim.pack.update() to download, then :write to update or :quit to deny.
 vim.pack.add ({
     { src = 'https://github.com/shaunsingh/nord.nvim' },
     { src = 'https://github.com/nvim-lualine/lualine.nvim' },
