@@ -17,6 +17,7 @@ window-width = 100
 window-save-state = always
 
 shell-integration-features = no-cursor
+#shell-integration-features = no-cursor,ssh-env
 
 macos-titlebar-style = tabs
 macos-option-as-alt = true
