@@ -82,7 +82,7 @@ require('nvim-treesitter').install({
     'bash', 'c', 'c_sharp', 'cpp', 'dart',
     'go', 'html', 'javascript', 'json',
     'lua', 'markdown', 'objc', 'python', 'rust',
-    'toml', 'typescript', 'yaml',
+    'swift', 'toml', 'typescript', 'yaml',
 })
 --- }}
 
