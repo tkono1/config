@@ -86,6 +86,11 @@ require('nvim-treesitter').install({
 })
 --- }}
 
+--- LSP config {{
+vim.lsp.enable({
+})
+--- }}
+
 --- Language and encoding settings {{
 -- Set the character encoding used inside vim.
 vim.opt.encoding = 'utf-8'
@@ -122,8 +127,13 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.wrapscan = true
+--- }}
+
+--- Autocompletion {{
 vim.opt.wildmenu = true
-vim.opt.wildmode = 'list:full'
+vim.opt.wildmode = { 'list', 'full' }
+vim.opt.wildoptions = 'pum'
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'fuzzy', 'popup' }
 --- }}
 
 --- Tab settings {{
@@ -182,9 +192,20 @@ vim.wo.wrap = true
 -- Every wrapped line will continue visually indented.
 vim.wo.breakindent = true
 
+-- Popup window.
+vim.opt.winborder = 'rounded'
+vim.opt.winblend = 15
+vim.opt.pumborder = 'rounded'
+vim.opt.pumblend = 15
+
 -- Disable visual bells.
 vim.opt.errorbells = false
 vim.opt.visualbell = false
+
+-- UI2
+require('vim._core.ui2').enable({
+    enable = true,
+})
 --- }}
 
 --- Statusline settings {{
