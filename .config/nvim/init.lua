@@ -36,7 +36,6 @@ vim.pack.add ({
     {
         src = 'https://github.com/nvim-treesitter/nvim-treesitter',
         version = 'main',
-        build = ':TSUpdate'
     },
 })
 
@@ -70,13 +69,6 @@ require('lualine').setup({
         lualine_y = { 'filetype' },
         lualine_z = { '%l/%LL' },
     },
-})
-require('nvim-treesitter').setup({
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-    indent = { enable = true },
 })
 require('nvim-treesitter').install({
     'bash', 'c', 'c_sharp', 'cpp', 'dart',
@@ -206,6 +198,25 @@ vim.opt.visualbell = false
 require('vim._core.ui2').enable({
     enable = true,
 })
+--- }}
+
+--- Treesitter {{
+--vim.treesitter.start()
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function(args)
+        local lang = vim.treesitter.language.get_lang(args.match)
+        if not lang then return end
+        local parser = vim.treesitter.get_parser(args.buf, lang)
+        if not parser then
+            return
+        end
+        vim.treesitter.start(args.buf, lang)
+    end,
+})
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.wo.foldmethod = "expr"
+vim.opt.foldlevel = 99
 --- }}
 
 --- Statusline settings {{
