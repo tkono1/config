@@ -41,7 +41,9 @@ vim.pack.add ({
 
 -- Configuration plugins after loading
 vim.cmd.colorscheme('nord')
-require('lualine').setup({
+local ok, lualine = pcall(require, 'lualine')
+if (not ok) then print("lualine is not installed") end
+lualine.setup({
     options = {
         icons_enabled = false,
         theme = 'auto',
@@ -70,7 +72,9 @@ require('lualine').setup({
         lualine_z = { '%l/%LL' },
     },
 })
-require('nvim-treesitter').install({
+local ok, treesitter = pcall(require, 'nvim-treesitter')
+if (not ok) then print("nvim-treesitter is not installed") end
+treesitter.install({
     'bash', 'c', 'c_sharp', 'cpp', 'dart',
     'go', 'html', 'javascript', 'json',
     'lua', 'markdown', 'objc', 'python', 'rust',
@@ -195,9 +199,11 @@ vim.opt.errorbells = false
 vim.opt.visualbell = false
 
 -- UI2
-require('vim._core.ui2').enable({
-    enable = true,
-})
+local ok, ui2 = pcall(require, 'vim._core.ui2')
+if (not ok) then print("ui2 is not available") end
+    ui2.enable({
+        enable = true,
+    })
 --- }}
 
 --- Treesitter {{
