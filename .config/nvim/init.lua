@@ -60,6 +60,9 @@ lualine.setup({
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
     },
+    tabline = {
+        lualine_a = { 'buffers' },
+    },
 })
 local ok, treesitter = pcall(require, 'nvim-treesitter')
 if (not ok) then print("nvim-treesitter is not installed") end
