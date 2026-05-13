@@ -52,24 +52,13 @@ lualine.setup({
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = {
-            { 'filename', path = 1, shorting_target = 0 }
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = {
+            { 'filename', path = 3, shorting_target = 40 },
         },
-        lualine_c = { '' },
-        lualine_x = {
-            'encoding',
-            {
-                'fileformat',
-                icons_enabled = true,
-                symbols = {
-                    unix = 'LF',
-                    dos = 'CRLF',
-                    mac = 'CR'
-                }
-            }
-        },
-        lualine_y = { 'filetype' },
-        lualine_z = { '%l/%LL' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
     },
 })
 local ok, treesitter = pcall(require, 'nvim-treesitter')
@@ -206,6 +195,7 @@ if (not ok) then print("ui2 is not available") end
         msg = {
             targets = 'msg',
             msg = {
+                height = 0.5,
                 timeout = 4000,
             },
         },
