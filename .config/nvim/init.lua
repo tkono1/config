@@ -203,8 +203,14 @@ if (not ok) then print("ui2 is not available") end
         enable = true,
         msg = {
             targets = 'msg',
+            cmd = {
+               height = 0.5,
+            },
+            dialog = {
+               height = 0.5,
+            },
             msg = {
-                height = 4,
+                height = 0.5,
                 timeout = 4000,
             },
             pager = {
