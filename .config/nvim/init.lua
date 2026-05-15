@@ -126,8 +126,8 @@ vim.opt.wrapscan = true
 --- Autocompletion {{
 vim.opt.wildmenu = true
 vim.opt.wildmode = { 'longest:full', 'full' }
-vim.opt.wildoptions = { 'pum', 'tagfile' }
-vim.opt.completeopt = { 'menu', 'menuone', 'fuzzy', 'popup' }
+vim.opt.wildoptions = { 'pum','tagfile' }
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'fuzzy', 'popup' }
 --- }}
 
 --- Tab settings {{
@@ -202,7 +202,7 @@ if (not ok) then print("ui2 is not available") end
     ui2.enable({
         enable = true,
         msg = {
-            targets = { 'msg', 'pager' },
+            targets = 'msg',
             msg = {
                 height = 4,
                 timeout = 4000,
