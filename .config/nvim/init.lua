@@ -243,9 +243,7 @@ vim.opt.showmode = false
 
 --- checkhealth settings {{
 -- checkhealth style.
-if vim.fn.has("nvim-0.11") then
-    vim.g.health = { style = 'float' }
-end
+vim.g.health = { style = 'float' }
 --- }}
 
 --- Terminal settings {{
