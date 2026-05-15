@@ -7,7 +7,7 @@ font-size = 12
 theme = nord
 
 background-opacity = 0.95
-background-blur-radius = 20
+background-blur = true
 
 cursor-style-blink = false
 
