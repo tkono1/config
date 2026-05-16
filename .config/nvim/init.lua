@@ -128,6 +128,7 @@ vim.opt.wildmenu = true
 vim.opt.wildmode = { 'longest:full', 'full' }
 vim.opt.wildoptions = { 'pum','tagfile' }
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect', 'fuzzy', 'popup' }
+vim.opt.autocomplete = true
 --- }}
 
 --- Tab settings {{
