@@ -57,7 +57,15 @@ lualine.setup({
         lualine_c = {
             { 'filename', path = 3, shorting_target = 40 },
         },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = {
+            {
+                function()
+                    local ok, status = pcall(vim.ui.progress_status)
+                    return (ok and status) or ""
+                end,
+            },
+            'encoding', 'fileformat', 'filetype'
+        },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
     },
