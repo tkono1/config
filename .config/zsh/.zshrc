@@ -68,7 +68,7 @@ bindkey -e
 ### Added by Zinit's installer
 if [[ ! -f "${HOME}/.local/share/zinit/zinit.git/zinit.zsh" ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "${HOME}/.local/share/zinit" && command chmod g-rwX "${HOME}/.local/share/zinit"
+    command mkdir -p "${HOME}/.local/share/zinit" && command chmod gr-wX "${HOME}/.local/share/zinit"
     command git clone https://github.com/zdharma-continuum/zinit "${HOME}/.local/share/zinit/zinit.git" && \
     print -P "%F{33} %F{34}Installation successful.%f%b" || \
     print -P "%F{160} The clone has failed.%f%b"
@@ -185,14 +185,14 @@ if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%B%F{yellow}⟳ %f%b"
     ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%F{red}(%f%F{yellow}"
     ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%F{red})%f"
-    ZSH_THEME_GIT_PROMPT_BEHIND="%F{yellow}↓%f"
-    ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
-    ZSH_THEME_GIT_PROMPT_UNMERGED="%F{red}✖%f"
-    ZSH_THEME_GIT_PROMPT_STAGED="%F{green}●%f"
-    ZSH_THEME_GIT_PROMPT_UNSTAGED="%F{red}✚%f"
-    ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
-    ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
-    ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
+    #ZSH_THEME_GIT_PROMPT_BEHIND="%F{yellow}↓%f"
+    #ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
+    #ZSH_THEME_GIT_PROMPT_UNMERGED="%F{red}✖%f"
+    #ZSH_THEME_GIT_PROMPT_STAGED="%F{green}●%f"
+    #ZSH_THEME_GIT_PROMPT_UNSTAGED="%F{red}✚%f"
+    #ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
+    #ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
+    #ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
     RPROMPT='$(gitprompt)'
 fi
 
