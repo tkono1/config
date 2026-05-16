@@ -185,14 +185,6 @@ if (( ${+commands[git]} )) && [ -e ${^fpath}/git-prompt.zsh(N) ]; then
     ZSH_THEME_GIT_PROMPT_UPSTREAM_SYMBOL="%B%F{yellow}⟳ %f%b"
     ZSH_THEME_GIT_PROMPT_UPSTREAM_PREFIX="%F{red}(%f%F{yellow}"
     ZSH_THEME_GIT_PROMPT_UPSTREAM_SUFFIX="%F{red})%f"
-    #ZSH_THEME_GIT_PROMPT_BEHIND="%F{yellow}↓%f"
-    #ZSH_THEME_GIT_PROMPT_AHEAD="%F{yellow}↑%f"
-    #ZSH_THEME_GIT_PROMPT_UNMERGED="%F{red}✖%f"
-    #ZSH_THEME_GIT_PROMPT_STAGED="%F{green}●%f"
-    #ZSH_THEME_GIT_PROMPT_UNSTAGED="%F{red}✚%f"
-    #ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
-    #ZSH_THEME_GIT_PROMPT_STASHED="%F{blue}⚑%f"
-    #ZSH_THEME_GIT_PROMPT_CLEAN="%B%F{green}✔%f"
     RPROMPT='$(gitprompt)'
 fi
 
